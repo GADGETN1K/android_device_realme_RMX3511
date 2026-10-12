@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TODO(dump): rounded corners, cutout path, brightness levels,
+         battery capacity etc. from stock framework-res overlay. -->
+
+    <!-- Doze / ambient display: LCD panel, no AOD -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+</resources>

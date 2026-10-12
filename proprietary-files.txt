@@ -1,0 +1,17 @@
+# Source: RMX3511 realme UI 4.0 (Android 13) — TODO(dump): put exact build here
+#
+# Filled in after the stock dump. Planned sections, Unisoc-specific:
+#
+# Audio (sprd audio HAL, aw/fs PA amp configs)
+# Bluetooth / Wi-Fi (sprd wcn: marlin3 firmware, wcnd, libbt-vendor)
+# Camera (provider + ISP tuning, sensor libs)
+# DRM (Widevine)
+# Display / Graphics (Mali-G57 libGLES_mali, gralloc/hwcomposer sprd)
+# Fingerprint (side-mounted, vendor HAL)
+# GNSS (sprd gnss + lte config)
+# Keymaster / Keymint / Gatekeeper (TEE: Trusty on Unisoc)
+# Media (OMX/Codec2 sprd)
+# Power / Thermal (sprd power HAL, thermal configs)
+# RIL / IMS (sprd ril: refnotify, modem_control, cp_diskserver, ims)
+# Sensors (sensorhub firmware + HAL)
+# Vibrator

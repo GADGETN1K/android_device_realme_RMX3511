@@ -1,0 +1,4 @@
+<!-- Device manifest additions for RMX3511. HALs that LineageOS builds
+     itself (instead of stock blobs) are declared here as they are added. -->
+<manifest version="1.0" type="device" target-level="5">
+</manifest>
