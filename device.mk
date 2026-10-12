@@ -7,13 +7,13 @@
 # Shipped with Android 11 (realme UI 2.0)
 PRODUCT_SHIPPING_API_LEVEL := 30
 
-# Virtual A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+# Virtual A/B — stock: ro.virtual_ab.enabled=true, ro.virtual_ab.compression.enabled=true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
@@ -24,9 +24,9 @@ PRODUCT_PACKAGES += \
     update_verifier
 
 # Boot control
-# TODO(dump): check which bootctrl HAL stock vendor ships
-# (android.hardware.boot@1.x-impl-sprd vs AIDL). Prefer the AOSP
-# AIDL default if stock uses misc-based slot metadata.
+# Stock recovery uses AOSP android.hardware.boot@1.0-impl-1.2 + libbootloader_message,
+# i.e. slot metadata in misc like AOSP, so the AOSP AIDL HAL replaces the stock
+# vendor.sprd.hardware.boot@1.2-service.
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.default \
     android.hardware.boot-service.default_recovery
@@ -54,10 +54,18 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     FrameworksResOverlayRMX3511
 
-# Rootdir — fstab is named after the board (stock ships fstab.ums9230_nico)
+# Rootdir — files are named after the board (ro.hardware / ro.product.board = ums9230_nico)
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init/hw/init.ums9230_nico.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ums9230_nico.rc \
+    $(LOCAL_PATH)/rootdir/etc/init/hw/init.ums9230_nico.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ums9230_nico.usb.rc \
+    $(LOCAL_PATH)/rootdir/etc/init/hw/init.ram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ram.rc \
+    $(LOCAL_PATH)/rootdir/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.storage.rc \
     $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
     $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico
+
+# Vendor is frozen at Android 12 (ro.vndk.version=31, VINTF target-level 6).
+# TODO(build): make sure the VNDK v31 APEX ends up on system if the
+# platform still needs it for S vendors.
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

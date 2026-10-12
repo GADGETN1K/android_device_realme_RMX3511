@@ -22,10 +22,9 @@ PRODUCT_MODEL := RMX3511
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
 
-# Stock RMX3511_13.F.54 (Global). Fingerprint from vbmeta_system.img;
-# description is derived from it — TODO(dump): verify against build.prop.
+# Stock RMX3511_13.F.54 (Global), from system/build.prop
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="RMX3511-user 13 TP1A.220624.014 R.202308310143 release-keys" \
+    BuildDesc="ums9230_nico_Natv_vf-user 13 TP1A.220624.014 395 release-keys" \
     BuildFingerprint=realme/RMX3511/RE87BAL1:13/TP1A.220624.014/R.202308310143:user/release-keys \
     DeviceName=RE87BAL1 \
     DeviceProduct=RMX3511

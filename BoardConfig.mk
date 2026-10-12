@@ -97,7 +97,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load.vendor_boot))
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
-# TODO(dump): vendor_dlkm/lib/modules/modules.load from super
+# vendor_dlkm list — copied from stock, loaded by init.ums9230_nico.rc
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load 2>/dev/null))
 
@@ -112,9 +112,8 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 # 8000M
 BOARD_SUPER_PARTITION_SIZE := 8388608000
 
-# Virtual A/B: one group, max = super - 4MiB metadata overhead.
-# TODO(dump): confirm with lpdump that _b partitions are 0-sized (VAB),
-# otherwise this must be (super / 2) - 4MiB.
+# Virtual A/B (stock ro.virtual_ab.enabled=true): one group,
+# max = super - 4MiB metadata overhead.
 BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
 BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 8384413696
 BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := \
@@ -150,7 +149,7 @@ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 TARGET_NO_RECOVERY := true
 
 # Screen
-TARGET_SCREEN_DENSITY := 400
+TARGET_SCREEN_DENSITY := 480
 
 # Verified Boot
 # Stock vbmeta chains boot, vendor_boot, dtbo, vbmeta_{system,vendor,system_ext,product}

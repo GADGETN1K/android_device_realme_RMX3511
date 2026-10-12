@@ -47,7 +47,9 @@ nico-конфига нет.
 - Out-of-tree: `kernel_modules/kernel5.4/{gpu,wcn,input,nfc,npu}` и
   `kernel_modules/common/camera`.
 - Списки загрузки взяты со стока: `modules.load.vendor_boot` (69),
-  `modules.load.recovery` (156). Для vendor_dlkm нужен дамп super.
+  `modules.load.recovery` (156), `modules.load` для vendor_dlkm (118).
+  Сток грузит vendor_dlkm скриптом `init.insmod.sh` по `init.insmod.cfg`;
+  у нас — `modprobe --all=modules.load` из `init.ums9230_nico.rc`.
 - Запасной путь для первого бута: стоковое GKI-ядро + стоковые `.ko`
   (vermagic совпадает) — если сборка из исходников затянется.
 

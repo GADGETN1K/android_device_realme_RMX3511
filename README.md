@@ -13,10 +13,13 @@
 
 ## Статус
 
-Разметка, заголовки boot/vendor_boot, AVB, fstab, списки модулей и
-прошивочные образы заполнены по стоковому PAC (`docs/partitions.md`).
-Осталось по дампу super: vendor/vendor_dlkm (блобы, второй fstab, vendor_dlkm
-modules.load), подтверждение Virtual A/B через lpdump. Строки — `TODO(dump)`.
+Заполнено по стоковому PAC и дампу (DumprX) 13.F.54: разметка, boot/vendor_boot,
+AVB, fstab, модули (vendor_boot + vendor_dlkm), init-скрипты платы,
+`proprietary-files.txt` (vendor, ~1500 файлов) и прошивочные образы.
+Что выкинуто из стокового списка и почему — `docs/blobs-dropped.txt`.
+
+Дальше: ядро (`docs/kernel.md`), sepolicy (первый бут — permissive),
+system_ext-блобы для IMS.
 
 Минимальная прошивка для установки: **realme UI 4.0, 13.F.54**.
 

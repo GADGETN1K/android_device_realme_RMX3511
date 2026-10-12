@@ -1,4 +1,4 @@
 # vendor properties for RMX3511
 
 # Display
-ro.sf.lcd_density=400
+ro.sf.lcd_density=480

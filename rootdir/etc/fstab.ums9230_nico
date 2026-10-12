@@ -29,7 +29,6 @@ vendor_dlkm                /vendor_dlkm      ext4   ro,barrier=1                
 /dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults                                                   slotselect
 /dev/block/by-name/misc    /misc             emmc   defaults                                                    defaults
 
-# External storage
-# TODO(dump): copy the voldmanaged sdcard line (sysfs path of mmc1) from the
-# second-stage vendor/etc/fstab.ums9230_nico — stock recovery.fstab only has
-# "/dev/block/mmcblk1p1 /storage/sdcard0 vfat", which vold can't use.
+# External storage (sysfs paths from stock vendor/etc/fstab.ums9230_nico)
+/devices/platform/soc/soc:ap-apb/201a0000.sdio/mmc_host/mmc1/mmc1:*/block/mmcblk1 auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/soc/soc:aon/64900000.usb/musb-hdrc.*.auto/usb* auto auto defaults voldmanaged=usbdisk:auto
