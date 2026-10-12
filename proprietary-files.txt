@@ -1,4 +1,4 @@
-# Source: RMX3511 realme UI 4.0 (Android 13) — TODO(dump): put exact build here
+# Source: RMX3511_13.F.54 (Global), realme/RMX3511/RE87BAL1:13/TP1A.220624.014/R.202308310143
 #
 # Filled in after the stock dump. Planned sections, Unisoc-specific:
 #

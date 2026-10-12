@@ -36,6 +36,9 @@ module = ExtractUtilsModule(
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
+    # proprietary-firmware.txt: radio/DSP/WCN/GNSS images from the stock PAC,
+    # staged by tools/pac-firmware.sh
+    add_firmware_proprietary_file=True,
 )
 
 if __name__ == '__main__':

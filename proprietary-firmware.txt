@@ -1,0 +1,28 @@
+# Firmware images shipped with the ROM and flashed to the inactive slot.
+# Source: RMX3511_13.F.54 (Global) PAC, renamed to <partition>.img by
+# tools/pac-firmware.sh (PAC file names differ from partition names).
+#
+# Only shared, non-per-device images. Do NOT add, ever:
+#   prodnv, miscdata, l_fixnv1/2 (nvitem.bin), l_runtimenv1/2  — IMEI/calibration
+#   persist, ocdt (oppo*.bin)                                  — per-device / per-project
+#   splloader (u-boot-spl-*), fdl1/fdl2                        — not A/B, brick risk
+# Not yet (needs a decision on how the CVE unlock survives a uboot reflash):
+#   uboot, sml, trustos, teecfg
+#
+# Note: stock vbmeta chains l_modem, l_ldsp, l_gdsp, pm_sys, l_agdsp with
+# rollback index locations 11..15 — do not ship images older than what
+# users already have on those partitions.
+
+# Modem (LTE)
+l_modem.img;AB
+l_deltanv.img;AB
+l_ldsp.img;AB
+l_gdsp.img;AB
+l_agdsp.img;AB
+
+# Power management co-processor (DFS)
+pm_sys.img;AB
+
+# Connectivity
+gnssmodem.img;AB
+wcnmodem.img;AB

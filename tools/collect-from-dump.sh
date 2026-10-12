@@ -31,9 +31,10 @@ for p in ro.product.vendor.device ro.product.board ro.board.platform ro.hardware
 done | tee "$OUT/props.txt"
 
 echo "== fstab"
-FSTAB="$(ls "$DUMP"/vendor/etc/fstab.* 2>/dev/null | head -n1 || true)"
+FSTAB="$(ls "$DUMP"/vendor/etc/fstab.ums9230_nico 2>/dev/null || ls "$DUMP"/vendor/etc/fstab.* 2>/dev/null | head -n1 || true)"
 if [[ -n "$FSTAB" ]]; then
-    cp -v "$FSTAB" "$TREE/rootdir/etc/fstab.ums9230"
+    cp -v "$FSTAB" "$OUT/$(basename "$FSTAB").stock"
+    echo "   compare with rootdir/etc/fstab.ums9230_nico (sdcard voldmanaged line!)"
 else
     echo "!! no vendor/etc/fstab.* in dump — check vendor_boot ramdisk"
 fi
@@ -51,12 +52,9 @@ for img in boot vendor_boot; do
 done
 
 echo "== kernel modules load lists"
-for src in "$DUMP"/vendor/lib/modules/modules.load "$DUMP"/vendor_dlkm/lib/modules/modules.load; do
-    [[ -f "$src" ]] && cp -v "$src" "$TREE/modules.load" && break
+for src in "$DUMP"/vendor_dlkm/lib/modules/modules.load "$DUMP"/vendor/lib/modules/modules.load; do
+    [[ -f "$src" ]] && cp -v "$src" "$TREE/modules.load" && break  # vendor_dlkm list
 done
-VB_LOAD="$(find "$OUT/vendor_boot" -name modules.load 2>/dev/null | head -n1 || true)"
-[[ -n "$VB_LOAD" ]] && cp -v "$VB_LOAD" "$TREE/modules.load.vendor_boot" \
-    || echo "!! modules.load from vendor_boot ramdisk not found (unpack the ramdisk first)"
 
 echo "== partitions"
 if [[ -f "$DUMP/super.img" ]] && command -v lpdump >/dev/null; then

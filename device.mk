@@ -54,10 +54,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     FrameworksResOverlayRMX3511
 
-# Rootdir — fstab taken from stock vendor (tools/collect-from-dump.sh)
+# Rootdir — fstab is named after the board (stock ships fstab.ums9230_nico)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ums9230:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230 \
-    $(LOCAL_PATH)/rootdir/etc/fstab.ums9230:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.ums9230_nico \
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
