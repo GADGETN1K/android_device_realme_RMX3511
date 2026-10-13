@@ -1,8 +1,8 @@
 # Based on stock RMX3511_13.F.54 vendor/etc/init/hw/init.ums9230_nico.rc.
 # Changes vs stock:
 #  - no init.cali.rc / init.factorytest.rc imports (factory modes)
-#  - vendor_dlkm modules are loaded with modprobe from modules.load instead of
-#    the stock init.insmod.sh + init.insmod.cfg
+#  - vendor_dlkm modules are loaded by our init.modules.sh, which does what
+#    stock init.insmod.sh does with its init.insmod.cfg
 #  - no ufs_ffu (UFS firmware updater)
 
 import /vendor/etc/init/hw/init.${ro.hardware}.usb.rc
@@ -44,10 +44,9 @@ on early-boot
     # Stock services wait for this before starting
     wait_for_prop vendor.all.modules.ready 1
 
-# vendor_dlkm modules (stock order kept in modules.load)
-# TODO(dump): compare with stock vendor_dlkm/lib/modules/init.insmod.cfg —
-# it may carry module parameters or per-bootmode lists.
-service vendor.modprobe /vendor/bin/modprobe --all=/vendor_dlkm/lib/modules/modules.load --dirname=/vendor_dlkm/lib/modules
+# vendor_dlkm modules: modules.load (stock order), or modules.load.charger
+# in off-mode charging
+service vendor.modprobe /vendor/bin/init.modules.sh ${ro.bootmode}
     user root
     group root system
     disabled

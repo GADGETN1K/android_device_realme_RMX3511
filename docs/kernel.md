@@ -50,10 +50,10 @@ nico-конфига нет.
 - Out-of-tree: собираются обёрткой `kernel_modules/rmx3511/Makefile`
   (`TARGET_KERNEL_EXT_MODULES := rmx3511`) из `kernel_modules/kernel5.4/*` и
   `kernel_modules/common/camera`.
-- Списки загрузки взяты со стока: `modules.load.vendor_boot` (69),
+- Списки загрузки взяты со стока: `modules.load.vendor_boot` (69), `modules.load.charger` (51),
   `modules.load.recovery` (156), `modules.load` для vendor_dlkm (118).
   Сток грузит vendor_dlkm скриптом `init.insmod.sh` по `init.insmod.cfg`;
-  у нас — `modprobe --all=modules.load` из `init.ums9230_nico.rc`.
+  у нас — `rootdir/bin/init.modules.sh` с тем же выбором по `ro.bootmode`.
 - Запасной путь для первого бута: стоковое GKI-ядро + стоковые `.ko`
   (vermagic совпадает) — если сборка из исходников затянется.
 

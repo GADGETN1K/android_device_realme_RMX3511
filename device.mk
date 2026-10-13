@@ -17,7 +17,9 @@ PRODUCT_ENABLE_UFFD_GC := true
 # Kernel modules: recovery load list next to the vendor ramdisk's
 # modules.load (see BOOT_KERNEL_MODULES in BoardConfig.mk)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/modules.load.recovery:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/modules.load.recovery
+    $(LOCAL_PATH)/modules.load.recovery:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/modules.load.recovery \
+    $(LOCAL_PATH)/modules.load.charger:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/modules.load.charger \
+    $(LOCAL_PATH)/rootdir/bin/init.modules.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.modules.sh
 
 # Shims for S blobs
 PRODUCT_PACKAGES += \
