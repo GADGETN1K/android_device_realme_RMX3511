@@ -611,7 +611,7 @@ vendor/lib64/android.hardware.usb@1.0.so
 vendor/lib64/android.hardware.usb@1.1.so
 vendor/lib64/android.hidl.allocator@1.0.so
 
-## built from source in lineage-23.2, NOT ABI-stable (43)
+## (restored in 0011 with MODULE_SUFFIX=_rmx3511) was: NOT ABI-stable (43)
 # The S (API 31) blobs linked against these; if a vendor service fails
 # with missing symbols, restore the blob with a renamed module/soname
 # or add a shim.
@@ -695,3 +695,13 @@ vendor/lib64/libhwbinder.so
 vendor/bin/tinycap
 vendor/bin/tinymix
 vendor/bin/tinyplay
+
+## removed: stock OTA flash-recovery
+vendor/bin/applypatch
+vendor/etc/init/vendor_flash_recovery.rc
+
+## Policy (0011): every remaining vendor blob whose name matches a source
+## module is kept from stock and renamed with MODULE_SUFFIX=_rmx3511; linked
+## libs are remapped for vendor dependents in extract-files.py. Only stable
+## HIDL/AIDL interface libs are taken from source. Re-check with
+## tools/find-clashes.sh (entries from other devices' vendor dirs are fine).
