@@ -1,8 +1,90 @@
-#!/bin/bash
+#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
 #
 # SPDX-FileCopyrightText: 2026 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
-# Regenerate the vendor makefiles from proprietary-*.txt without extracting
-# (no dump or adb needed).
-exec "$(dirname "$(readlink -f "$0")")/extract-files.py" --regenerate_makefiles "$@"
+
+from extract_utils.fixups_blob import (
+    blob_fixup,
+    blob_fixups_user_type,
+)
+from extract_utils.fixups_lib import (
+    lib_fixups,
+    lib_fixups_user_type,
+)
+from extract_utils.main import (
+    ExtractUtils,
+    ExtractUtilsModule,
+)
+
+namespace_imports = [
+]
+
+def lib_fixup_rmx3511_suffix(lib: str, partition: str, *args, **kwargs):
+    return f'{lib}_rmx3511' if partition == 'vendor' else None
+
+
+lib_fixups: lib_fixups_user_type = {
+    **lib_fixups,
+    # Linked (not dlopen'd) S blobs that share a name with AOSP modules;
+    # see MODULE_SUFFIX=_rmx3511 in proprietary-files.txt
+    (
+        'libbt-vendor',
+        'libdav1d',
+        'libstagefrighthw',
+        'libvibrator',
+    ): lib_fixup_rmx3511_suffix,
+}
+
+# Stock KeyMint stack (built against KeyMint V1 on S) is shipped renamed as
+# <lib>_rmx3511.so; point the service and the stack itself at the copies.
+KEYMINT_STACK = (
+    'lib_android_keymaster_keymint_utils',
+    'libcppbor_external',
+    'libcppcose_rkp',
+    'libkeymaster_messages',
+    'libkeymaster_portable',
+    'libkeymint',
+    'libpuresoftkeymasterdevice',
+    'libsoft_attestation_cert',
+)
+
+
+def keymint_stack_fixup():
+    fixup = blob_fixup()
+    for lib in KEYMINT_STACK:
+        fixup = fixup.replace_needed(f'{lib}.so', f'{lib}_rmx3511.so')
+    return fixup
+
+
+blob_fixups: blob_fixups_user_type = {
+    # Unisoc HALs come as prebuilts, so host_init_verifier doesn't know their
+    # HIDL interfaces. The services are started by class/property, not on
+    # demand, so the 'interface' lines are not needed.
+    (
+        'vendor/etc/init/vendor.sprd.hardware.ai_engine@1.0-service.rc',
+        'vendor/etc/init/vendor.sprd.hardware.aprd@1.0-service.rc',
+        'vendor/etc/init/vendor.sprd.hardware.commondcs@1.0-service.rc',
+        'vendor/etc/init/vendor.sprd.hardware.cplog_svc@1.0-service.rc',
+        'vendor/etc/init/vendor.sprd.hardware.fingerprintmmi@1.0-service.rc',
+    ): blob_fixup().regex_replace(r'(?m)^[ \t]*interface vendor\.sprd\..*\n', ''),
+    (
+        'vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service',
+        *(f'vendor/lib64/{lib}_rmx3511.so' for lib in KEYMINT_STACK),
+    ): keymint_stack_fixup(),
+}  # fmt: skip
+
+module = ExtractUtilsModule(
+    'RMX3511',
+    'realme',
+    blob_fixups=blob_fixups,
+    lib_fixups=lib_fixups,
+    namespace_imports=namespace_imports,
+    # proprietary-firmware.txt: radio/DSP/WCN/GNSS images from the stock PAC,
+    # staged by tools/pac-firmware.sh
+    add_firmware_proprietary_file=True,
+)
+
+if __name__ == '__main__':
+    utils = ExtractUtils.device(module)
+    utils.run()
