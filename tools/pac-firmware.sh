@@ -25,13 +25,21 @@ declare -A MAP=(
     [wcnmodem]=EXEC_KERNEL_IMAGE.bin                 # Modem_WCN
 )
 
+missing=0
 for part in "${!MAP[@]}"; do
-    src="$PAC/${MAP[$part]}"
-    if [[ ! -f "$src" ]]; then
-        echo "!! missing ${MAP[$part]} (for $part)" >&2
-        exit 1
+    if [[ ! -f "$PAC/${MAP[$part]}" ]]; then
+        echo "!! missing $PAC/${MAP[$part]} (for $part)" >&2
+        missing=1
     fi
-    cp -v "$src" "$OUT/$part.img"
+done
+if (( missing )); then
+    echo "!! nothing copied; files present in $PAC:" >&2
+    ls -l "$PAC" >&2
+    exit 1
+fi
+
+for part in "${!MAP[@]}"; do
+    cp -v "$PAC/${MAP[$part]}" "$OUT/$part.img"
 done
 
 if [[ -f "$PAC/FileList.ini" ]]; then
