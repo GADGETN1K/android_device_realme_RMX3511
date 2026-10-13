@@ -101,11 +101,16 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
 TARGET_KERNEL_EXT_MODULE_ROOT := $(TARGET_KERNEL_SOURCE)/kernel_modules
 TARGET_KERNEL_EXT_MODULES := rmx3511
 
-# Kernel modules load lists — copied from stock vendor_boot
+# vendor_boot modules — same layout as stock: one vendor ramdisk holding the
+# union of both lists, lib/modules/modules.load for normal boot (69) and
+# lib/modules/modules.load.recovery for recovery (156, copied in device.mk).
+# LineageOS kernel.mk installs BOOT_KERNEL_MODULES into the vendor ramdisk
+# and writes modules.load from BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD.
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load.vendor_boot))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := \
-    $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
+BOOT_KERNEL_MODULES := $(sort \
+    $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD) \
+    $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery)))
 # vendor_dlkm list — copied from stock, loaded by init.ums9230_nico.rc
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load 2>/dev/null))

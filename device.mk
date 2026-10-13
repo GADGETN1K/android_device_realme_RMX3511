@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+LOCAL_PATH := device/realme/RMX3511
+
 # Shipped with Android 11 (realme UI 2.0)
 PRODUCT_SHIPPING_API_LEVEL := 30
 
@@ -11,6 +13,11 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # string (no -android12- suffix), but android12-5.4 has MREMAP_DONTUNMAP and
 # userfaultfd minor faults backported, and ART falls back at runtime anyway.
 PRODUCT_ENABLE_UFFD_GC := true
+
+# Kernel modules: recovery load list next to the vendor ramdisk's
+# modules.load (see BOOT_KERNEL_MODULES in BoardConfig.mk)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/modules.load.recovery:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/modules.load.recovery
 
 # Virtual A/B — stock: ro.virtual_ab.enabled=true, ro.virtual_ab.compression.enabled=true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
