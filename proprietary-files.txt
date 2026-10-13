@@ -721,7 +721,7 @@ vendor/lib/arm.graphics-V1-ndk_platform.so
 vendor/lib/arm.graphics-V2-ndk.so
 vendor/lib/arm.graphics-V2-ndk_platform.so
 vendor/lib/audio_common-aidl-cpp.so
-vendor/lib/hw/awinic.audio.effect.so
+vendor/lib/hw/awinic.audio.effect.so;FIX_SONAME
 vendor/lib/hw/dpu.ums9230.so
 vendor/lib/hw/enhance.ums9230.so
 vendor/lib/hw/face.default.so
