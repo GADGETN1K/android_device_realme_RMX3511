@@ -1411,3 +1411,14 @@ vendor/usr/idc/synaptics_dsx_i2c.idc
 vendor/usr/keylayout/adaptive_ts.kl
 vendor/usr/keylayout/gpio-keys.kl
 vendor/usr/keylayout/madev.kl
+
+# KeyMint stack from stock (S). Renamed (file + soname) so it can live next to
+# the lineage-23.2 vendor variants; dependents are patched in extract-files.py
+vendor/lib64/lib_android_keymaster_keymint_utils.so:vendor/lib64/lib_android_keymaster_keymint_utils_rmx3511.so;FIX_SONAME
+vendor/lib64/libcppbor_external.so:vendor/lib64/libcppbor_external_rmx3511.so;FIX_SONAME
+vendor/lib64/libcppcose_rkp.so:vendor/lib64/libcppcose_rkp_rmx3511.so;FIX_SONAME
+vendor/lib64/libkeymaster_messages.so:vendor/lib64/libkeymaster_messages_rmx3511.so;FIX_SONAME
+vendor/lib64/libkeymaster_portable.so:vendor/lib64/libkeymaster_portable_rmx3511.so;FIX_SONAME
+vendor/lib64/libkeymint.so:vendor/lib64/libkeymint_rmx3511.so;FIX_SONAME
+vendor/lib64/libpuresoftkeymasterdevice.so:vendor/lib64/libpuresoftkeymasterdevice_rmx3511.so;FIX_SONAME
+vendor/lib64/libsoft_attestation_cert.so:vendor/lib64/libsoft_attestation_cert_rmx3511.so;FIX_SONAME

@@ -37,3 +37,10 @@ Stock ships Wi-Fi RROs as prebuilt APKs in vendor/overlay/*/
 APKs in vendor/overlay and APKs can't go into PRODUCT_COPY_FILES, so they
 are not shipped. Decompile them (apktool d) from the dump and recreate as
 source overlays (runtime_resource_overlay targeting com.android.wifi.resources).
+
+## KeyMint
+Стоковый `android.hardware.security.keymint@1.0-unisoc.service` (Trusty) собран
+против KeyMint V1 из S, а `libkeymint` и компания в 23.2 — уже V4. Поэтому весь
+стек (8 библиотек) ставится из стока под именами `<lib>_rmx3511.so` (файл и
+soname), а сервис, `keymaster_ready` и сами библиотеки перепатчиваются на них
+(`blob_fixups` в extract-files.py).

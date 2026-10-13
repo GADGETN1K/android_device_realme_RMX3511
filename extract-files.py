@@ -36,9 +36,33 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_rmx3511_suffix,
 }
 
-# Unisoc blobs will need fixups (libutils/libhidlbase shims, removed
-# symbols on Android 16); add them here as they surface in logcat.
+# Stock KeyMint stack (built against KeyMint V1 on S) is shipped renamed as
+# <lib>_rmx3511.so; point the service and the stack itself at the copies.
+KEYMINT_STACK = (
+    'lib_android_keymaster_keymint_utils',
+    'libcppbor_external',
+    'libcppcose_rkp',
+    'libkeymaster_messages',
+    'libkeymaster_portable',
+    'libkeymint',
+    'libpuresoftkeymasterdevice',
+    'libsoft_attestation_cert',
+)
+
+
+def keymint_stack_fixup():
+    fixup = blob_fixup()
+    for lib in KEYMINT_STACK:
+        fixup = fixup.replace_needed(f'{lib}.so', f'{lib}_rmx3511.so')
+    return fixup
+
+
 blob_fixups: blob_fixups_user_type = {
+    (
+        'vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service',
+        'vendor/bin/keymaster_ready',
+        *(f'vendor/lib64/{lib}_rmx3511.so' for lib in KEYMINT_STACK),
+    ): keymint_stack_fixup(),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
