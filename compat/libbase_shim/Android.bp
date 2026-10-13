@@ -1,0 +1,14 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+// S blobs (Mali gralloc allocator/mapper and others) import explicit
+// libbase template instantiations that newer libbase no longer exports.
+
+cc_library_shared {
+    name: "libbase_shim",
+    vendor: true,
+    srcs: ["libbase_shim.cpp"],
+    shared_libs: ["libbase"],
+    compile_multilib: "both",
+}
