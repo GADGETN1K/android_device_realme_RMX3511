@@ -855,14 +855,12 @@ vendor/etc/permissions/android.hardware.hardware_keystore.xml
 # (getParamReflector), which the S prebuilt lacks.
 vendor/lib/libcodec2_hidl_plugin.so
 
-## AOSP vendor-only modules that source-built vendor code links (6)
+## AOSP vendor-only modules that source-built vendor code links (4)
 # A prebuilt replacing them exports no headers / has the S ABI, which breaks
 # lineage-23.2 vendor modules built from source (libeffectproxy needs
 # media/EffectsFactoryApi.h from libeffects; wpa_supplicant links the
 # keystore-wifi libs). All are generic AOSP code with a stable interface.
 vendor/lib/libeffects.so
-vendor/lib/libtinycompress.so
 vendor/lib64/libeffects.so
 vendor/lib64/libkeystore-engine-wifi-hidl.so
 vendor/lib64/libkeystore-wifi-hidl.so
-vendor/lib64/libtinycompress.so

@@ -1313,6 +1313,8 @@ vendor/etc/audio_route.xml
 vendor/etc/default_volume_tables.xml
 vendor/etc/r_submix_audio_policy_configuration.xml
 vendor/etc/usb_audio_policy_configuration.xml
+vendor/lib/libtinycompress.so
+vendor/lib64/libtinycompress.so
 
 # Camera (missing from DumprX list)
 vendor/lib/camera.device@1.0-impl.so
