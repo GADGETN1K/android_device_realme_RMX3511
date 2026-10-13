@@ -7,6 +7,11 @@
 # Shipped with Android 11 (realme UI 2.0)
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+# ART userfaultfd GC. The build cannot infer it from our kernel version
+# string (no -android12- suffix), but android12-5.4 has MREMAP_DONTUNMAP and
+# userfaultfd minor faults backported, and ART falls back at runtime anyway.
+PRODUCT_ENABLE_UFFD_GC := true
+
 # Virtual A/B — stock: ro.virtual_ab.enabled=true, ro.virtual_ab.compression.enabled=true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
