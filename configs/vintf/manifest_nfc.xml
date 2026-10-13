@@ -1,6 +1,6 @@
-<!-- Stock declares NFC in vendor/odm/etc/vintf/manifest_nfc.xml, which the
-     13.F.54 dump doesn't contain; service is
-     vendor/bin/hw/android.hardware.nfc@1.2-service (NXP PN8x). -->
+<!-- NFC HAL: android.hardware.nfc@1.2-service built from
+     hardware/nxp/nfc/pn8x (PN557, /dev/nq-nci). The OSS service has no
+     vintf_fragments, so it is declared here. -->
 <manifest version="1.0" type="device">
     <hal format="hidl">
         <name>android.hardware.nfc</name>

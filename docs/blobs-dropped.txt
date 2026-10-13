@@ -705,3 +705,37 @@ vendor/etc/init/vendor_flash_recovery.rc
 ## libs are remapped for vendor dependents in extract-files.py. Only stable
 ## HIDL/AIDL interface libs are taken from source. Re-check with
 ## tools/find-clashes.sh (entries from other devices' vendor dirs are fine).
+
+## replaced by OSS / unused (0012)
+vendor/lib/hw/audio.primary.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/audio.r_submix.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/audio.usb.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/audio.primary.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/audio.r_submix.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/audio.usb.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/gralloc.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/gralloc.default.so;MODULE_SUFFIX=_rmx3511
+vendor/bin/hw/android.hardware.nfc@1.2-service;MODULE_SUFFIX=_rmx3511
+vendor/etc/init/android.hardware.nfc@1.2-service.rc
+vendor/etc/nfc/nicky/libnfc-nxp.conf
+vendor/etc/nfc/nicky/libnfc-nxp_RF.conf
+vendor/lib/hw/android.hardware.nfc@1.0-impl.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/ese_spi_nxp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hal_libnfc.so
+vendor/lib64/hw/android.hardware.nfc@1.0-impl.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/nfc_nci_nxp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/vendor.nxp.eventprocessor@1.0.so
+vendor/lib64/vendor.nxp.nxpese@1.0.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/vendor.nxp.nxpnfc@2.0.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so
+vendor/bin/hw/android.hardware.power.stats-service.example;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/power.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/power.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/thermal.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/thermal.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/vibrator.default.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/vibrator.default.so;MODULE_SUFFIX=_rmx3511
+vendor/bin/hw/android.hardware.rebootescrow-service.default;MODULE_SUFFIX=_rmx3511
+vendor/etc/init/power.stats-default.rc
+vendor/etc/init/rebootescrow-default.rc
+vendor/lib64/ese_client.so

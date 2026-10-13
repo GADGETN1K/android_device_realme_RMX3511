@@ -34,7 +34,6 @@ lib_fixups: lib_fixups_user_type = {
         'android.hardware.graphics.composer@2.1-resources',
         'audioclient-types-aidl-cpp',
         'av-types-aidl-cpp',
-        'ese_spi_nxp',
         'framework-permission-aidl-cpp',
         'lib_android_keymaster_keymint_utils',
         'libaudioclient_aidl_conversion',
@@ -81,10 +80,7 @@ lib_fixups: lib_fixups_user_type = {
         'libvpx',
         'libwifi-hal',
         'libz_stable',
-        'nfc_nci_nxp',
         'shared-file-region-aidl-cpp',
-        'vendor.nxp.nxpese@1.0',
-        'vendor.nxp.nxpnfc@2.0',
     ): lib_fixup_rmx3511_suffix,
 }
 

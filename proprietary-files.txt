@@ -27,15 +27,9 @@ vendor/bin/hw/android.hardware.audio.service;MODULE_SUFFIX=_rmx3511
 vendor/etc/init/android.hardware.audio.service.rc
 vendor/lib/hw/android.hardware.audio.effect@7.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/android.hardware.audio@7.0-impl.so;MODULE_SUFFIX=_rmx3511
-vendor/lib/hw/audio.primary.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/audio.primary.ums9230.so
-vendor/lib/hw/audio.r_submix.default.so;MODULE_SUFFIX=_rmx3511
-vendor/lib/hw/audio.usb.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/android.hardware.audio.effect@7.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/android.hardware.audio@7.0-impl.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hw/audio.primary.default.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hw/audio.r_submix.default.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hw/audio.usb.default.so;MODULE_SUFFIX=_rmx3511
 
 # Audio-configs
 vendor/etc/audio_params/sprd/audio_pga.xml
@@ -159,13 +153,11 @@ vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc
 vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
 vendor/lib/hw/android.hardware.graphics.allocator@4.0-impl-arm.so
 vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-arm.so
-vendor/lib/hw/gralloc.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/hwcomposer.ums9230.so
 vendor/lib/hw/memtrack.ums9230.so
 vendor/lib/libdrm.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/android.hardware.graphics.allocator@4.0-impl-arm.so
 vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-arm.so
-vendor/lib64/hw/gralloc.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/hwcomposer.ums9230.so
 vendor/lib64/hw/memtrack.ums9230.so
 vendor/lib64/libdrm.so;MODULE_SUFFIX=_rmx3511
@@ -282,23 +274,10 @@ vendor/lib/libstagefrighthw.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/libstagefrighthw.so;MODULE_SUFFIX=_rmx3511
 
 # NFC
-vendor/bin/hw/android.hardware.nfc@1.2-service;MODULE_SUFFIX=_rmx3511
-vendor/etc/init/android.hardware.nfc@1.2-service.rc
 vendor/etc/init/init.ums9230_nico_Natv.nfc.rc
 vendor/etc/libnfc-nci.conf
-vendor/etc/nfc/nicky/libnfc-nxp.conf
-vendor/etc/nfc/nicky/libnfc-nxp_RF.conf
-vendor/etc/nfc/nico/libnfc-nxp.conf
-vendor/etc/nfc/nico/libnfc-nxp_RF.conf
-vendor/lib/hw/android.hardware.nfc@1.0-impl.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/ese_spi_nxp.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hal_libnfc.so
-vendor/lib64/hw/android.hardware.nfc@1.0-impl.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/nfc_nci_nxp.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/vendor.nxp.eventprocessor@1.0.so
-vendor/lib64/vendor.nxp.nxpese@1.0.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/vendor.nxp.nxpnfc@2.0.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so
+vendor/etc/nfc/nico/libnfc-nxp.conf:vendor/etc/libnfc-nxp.conf
+vendor/etc/nfc/nico/libnfc-nxp_RF.conf:vendor/etc/libnfc-nxp_RF.conf
 
 # Oplus
 vendor/etc/vintf/manifest/manifest_oplus_performance.xml
@@ -309,13 +288,10 @@ vendor/etc/init/vendor.sprd.hardware.performance@1.0-service.rc
 vendor/lib64/vendor.sprd.hardware.performance@1.0.so
 
 # Power-Hardware
-vendor/bin/hw/android.hardware.power.stats-service.example;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/vendor.unisoc.hardware.power-service
 vendor/etc/init/vendor-power-default.rc
 vendor/etc/vintf/manifest/vendor-power-default.xml
-vendor/lib/hw/power.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/vendor.unisoc.hardware.power-V1-ndk_platform.so
-vendor/lib64/hw/power.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/vendor.unisoc.hardware.power-V1-ndk_platform.so
 
 # Radio
@@ -383,17 +359,13 @@ vendor/lib64/vendor.sprd.hardware.thermal@1.0.so
 vendor/lib64/vendor.sprd.hardware.thermal@2.0.so
 
 # Thermal-Hardware
-vendor/lib/hw/thermal.default.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hw/thermal.default.so;MODULE_SUFFIX=_rmx3511
 
 # Vibrator
 vendor/bin/hw/vendor.sprd.hardware.vibrator-service
 vendor/etc/init/vibrator.rc
 vendor/etc/vintf/manifest/vibrator.xml
-vendor/lib/hw/vibrator.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/vibrator.ums9230.so
 vendor/lib/libvibrator.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hw/vibrator.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/vibrator.ums9230.so
 vendor/lib64/libvibrator.so;MODULE_SUFFIX=_rmx3511
 
@@ -426,7 +398,6 @@ vendor/bin/enhance_test
 vendor/bin/fm_tools
 vendor/bin/gpsd
 vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service
-vendor/bin/hw/android.hardware.rebootescrow-service.default;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service
 vendor/bin/hw/urild
 vendor/bin/hw/vendor.sprd.hardware.ai_engine@1.0-service
@@ -577,8 +548,6 @@ vendor/etc/init/lights.rc
 vendor/etc/init/memtrack.rc
 vendor/etc/init/modem_control.rc
 vendor/etc/init/phasecheckserver.rc
-vendor/etc/init/power.stats-default.rc
-vendor/etc/init/rebootescrow-default.rc
 vendor/etc/init/refnotify.rc
 vendor/etc/init/rpmbserver_androidr.rc
 vendor/etc/init/slogmodem_vendor.rc
@@ -1042,7 +1011,6 @@ vendor/lib64/arm.graphics-V1-ndk_platform.so
 vendor/lib64/arm.graphics-V2-ndk.so
 vendor/lib64/arm.graphics-V2-ndk_platform.so
 vendor/lib64/audio_common-aidl-cpp.so
-vendor/lib64/ese_client.so
 vendor/lib64/hw/dpu.ums9230.so
 vendor/lib64/hw/enhance.ums9230.so
 vendor/lib64/hw/face.default.so
