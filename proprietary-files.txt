@@ -380,7 +380,6 @@ vendor/lib64/vendor.nxp.eventprocessor@1.0.so
 vendor/lib64/vendor.nxp.nxpese@1.0.so
 vendor/lib64/vendor.nxp.nxpnfc@2.0.so
 vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so
-vendor/odm/etc/vintf/manifest_nfc.xml
 
 # Oplus
 vendor/etc/vintf/manifest/manifest_oplus_performance.xml
@@ -762,12 +761,9 @@ vendor/etc/init/vendor_flash_recovery.rc
 vendor/etc/init/wcn.rc
 vendor/etc/lmkd_param.conf
 vendor/etc/log_settings.xml
-vendor/etc/log_settings_cali.xml
-vendor/etc/log_settings_factory.xml
 vendor/etc/models/mnasnet
 vendor/etc/models/mnasnet_1.3_224.tflite
 vendor/etc/models/mnasnet_1.3_224.txt
-vendor/etc/models/noahark/gesture/tsn_gesture
 vendor/etc/modem_cp_info.xml
 vendor/etc/modem_sp_info.xml
 vendor/etc/numeric_operator.xml
@@ -1578,6 +1574,4 @@ vendor/logo/time_vert_74x44x13_pic_size_8064x6144_74x572.yuv
 vendor/logo/time_vert_74x44x13_pic_size_8160x6144_74x572.yuv
 vendor/logo/time_vert_76x42x13_pic_size_4000x3000_76x546.yuv
 vendor/logo/time_vert_76x42x13_pic_size_4096x3072_76x546.yuv
-vendor/odm_dlkm/etc/NOTICE.xml.gz
-vendor/odm_dlkm/etc/build.prop
 vendor/resources.arsc

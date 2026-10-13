@@ -476,3 +476,12 @@ vendor/etc/yloglite.conf
 vendor/etc/yloglitesource.conf
 vendor/etc/ylogsource.conf
 
+## listed by DumprX but absent from the extracted dump (4)
+vendor/odm/etc/vintf/manifest_nfc.xml  (replaced by configs/vintf/manifest_nfc.xml)
+vendor/etc/models/noahark/gesture/tsn_gesture
+vendor/odm_dlkm/etc/NOTICE.xml.gz
+vendor/odm_dlkm/etc/build.prop
+
+## factory log configs (2)
+vendor/etc/log_settings_cali.xml
+vendor/etc/log_settings_factory.xml

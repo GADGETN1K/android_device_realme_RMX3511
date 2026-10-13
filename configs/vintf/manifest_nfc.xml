@@ -1,0 +1,10 @@
+<!-- Stock declares NFC in vendor/odm/etc/vintf/manifest_nfc.xml, which the
+     13.F.54 dump doesn't contain; service is
+     vendor/bin/hw/android.hardware.nfc@1.2-service (NXP PN8x). -->
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>android.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.2::INfc/default</fqname>
+    </hal>
+</manifest>
