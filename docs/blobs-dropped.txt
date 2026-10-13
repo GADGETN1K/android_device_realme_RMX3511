@@ -688,3 +688,10 @@ vendor/lib64/android.frameworks.sensorservice@1.0.so
 # other variants ("partition is different"), so they get their own module
 # name; installed file names stay the same. Linked ones are remapped for
 # vendor dependents in extract-files.py (lib_fixup_rmx3511_suffix).
+
+## built from source (2nd pass)
+vendor/lib/libhwbinder.so
+vendor/lib64/libhwbinder.so
+vendor/bin/tinycap
+vendor/bin/tinymix
+vendor/bin/tinyplay
