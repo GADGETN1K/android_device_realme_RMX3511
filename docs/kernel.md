@@ -25,11 +25,14 @@ Device-специфичное: `sprd-diffconfig/androids/qogirl6/arm64/ums9230_n
 (Wi-Fi/BT UMW2652 по SDIO, `CONFIG_OPLUS_DEVICE_IFNO`). Для androidt отдельного
 nico-конфига нет.
 
-Для Lineage:
+Для Lineage: `TARGET_KERNEL_CONFIG := sprd_qogirl6_defconfig vendor/RMX3511.config`.
 
-1. Прогнать стоковый скрипт, сохранить `sprd_gki_defconfig`.
-2. `scripts/diffconfig gki_defconfig sprd_gki_defconfig` → `arch/arm64/configs/vendor/ums9230.config`.
-3. `ums9230_nico_diff_config` → `arch/arm64/configs/vendor/RMX3511.config`.
+- `sprd_qogirl6_defconfig` — готовый `.config` realme для C31/C33/C35
+  (в нём уже есть SGM4154X/SGM41512, LCM bias, аудио sc2730, trusty, тачи).
+- `vendor/RMX3511.config` — `ums9230_nico_diff_config` + user-diff, без MODULE_SIG.
+- `sprd-gki-diff-config` как база не годится: это объединение всех платформ
+  Unisoc (sharkl3/l5, ums512, ums9620…), с мёртвыми драйверами и без
+  realme-специфичных символов.
 
 ## DTB / DTBO — пока prebuilt
 

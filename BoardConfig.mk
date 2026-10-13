@@ -81,9 +81,10 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 # Kernel — built from source. Stock runs the Google GKI android12-5.4 kernel
 # (5.4.210-android12-9); realme's source is the same KMI branch at 5.4.254.
 TARGET_KERNEL_SOURCE := kernel/realme/RMX3511
+# sprd_qogirl6_defconfig is realme's config for C31/C33/C35;
+# vendor/RMX3511.config is the ums9230_nico + user build delta on top.
 TARGET_KERNEL_CONFIG := \
-    gki_defconfig \
-    vendor/ums9230.config \
+    sprd_qogirl6_defconfig \
     vendor/RMX3511.config
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_NO_GCC := true
