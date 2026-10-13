@@ -43,7 +43,13 @@ cc_library_shared {
 cc_library_shared {
     name: "android.hardware.security.keymint-V1-ndk_platform",
     vendor: true,
-    whole_static_libs: ["android.hardware.security.keymint-V1-ndk"],
+    // IRemotelyProvisionedComponent (and its parcelables) were part of
+    // keymint V1 on S; they now live in android.hardware.security.rkp, same
+    // package, whose V1 is that same interface.
+    whole_static_libs: [
+        "android.hardware.security.keymint-V1-ndk",
+        "android.hardware.security.rkp-V1-ndk",
+    ],
     // keymint V1 imports secureclock V1; on S its types came from this lib
     shared_libs: [
         "android.hardware.security.secureclock-V1-ndk_platform",
