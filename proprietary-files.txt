@@ -13,11 +13,9 @@ vendor/lib/libDiracAPI_SHARED.so
 vendor/lib/libaudiodump.so
 vendor/lib/libaudiomiscctl.so
 vendor/lib/libaudionpi.so
-vendor/lib/libtinycompress.so
 vendor/lib/soundfx/libaudiopreprocessing.so
 vendor/lib/soundfx/libdirac.so
 vendor/lib64/libaudionpi.so
-vendor/lib64/libtinycompress.so
 vendor/lib64/soundfx/libaudiopreprocessing.so
 
 # Audio-Hardware
@@ -246,8 +244,6 @@ vendor/lib64/egl/libGLES_mali.so;MODULE_SUFFIX=_egl
 # Keymaster
 vendor/bin/keymaster_ready
 vendor/etc/permissions/android.hardware.keystore.app_attest_key.xml
-vendor/lib64/libkeystore-engine-wifi-hidl.so
-vendor/lib64/libkeystore-wifi-hidl.so
 
 # Lights
 vendor/bin/hw/vendor.sprd.hardware.lights-service
@@ -1317,8 +1313,6 @@ vendor/etc/audio_route.xml
 vendor/etc/default_volume_tables.xml
 vendor/etc/r_submix_audio_policy_configuration.xml
 vendor/etc/usb_audio_policy_configuration.xml
-vendor/lib/libeffects.so
-vendor/lib64/libeffects.so
 
 # Camera (missing from DumprX list)
 vendor/lib/camera.device@1.0-impl.so
