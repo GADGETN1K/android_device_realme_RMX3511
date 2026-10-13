@@ -26,3 +26,7 @@
 - Wi-Fi: AOSP AIDL Wi-Fi HAL + `libwifi-hal-unisoc`
 - сенсоры через multihal
 - BT audio на AIDL вместе с BT HAL
+
+## Совместимость с vendor от S
+- `compat/ndk_platform`: `<aidl>-V<n>-ndk_platform` (имена из VNDK S), собранные
+  из `<aidl>-V<n>-ndk` — блобы линкуются к ним без патчинга

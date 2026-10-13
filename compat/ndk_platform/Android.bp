@@ -1,0 +1,76 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// The stock vendor (Android 12) links AIDL NDK libraries by their S-era
+// names, "<interface>-V<n>-ndk_platform.so", which came from the VNDK on
+// system. Android 16 only has "<interface>-V<n>-ndk". The backend and ABI
+// are the same, so rebuild each frozen version under the old name.
+//
+// List generated from DT_NEEDED of the extracted blobs:
+//   readelf -d ... | grep -o '[^ ]*-ndk_platform.so'
+
+cc_library_shared {
+    name: "android.hardware.gnss-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.gnss-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.light-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.light-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.memtrack-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.memtrack-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.power-V2-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.power-V2-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.security.keymint-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.security.keymint-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.security.secureclock-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.security.secureclock-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.security.sharedsecret-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.security.sharedsecret-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.hardware.vibrator-V2-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.hardware.vibrator-V2-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
+
+cc_library_shared {
+    name: "android.system.keystore2-V1-ndk_platform",
+    vendor: true,
+    whole_static_libs: ["android.system.keystore2-V1-ndk"],
+    shared_libs: ["libbinder_ndk"],
+}
