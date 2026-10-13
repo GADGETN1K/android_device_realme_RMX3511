@@ -59,13 +59,13 @@ def keymint_stack_fixup():
 
 blob_fixups: blob_fixups_user_type = {
     # libbase dropped the explicit Join<vector<string>, char> instantiation
-    # these S blobs import; compat/libbase_shim provides it.
+    # these S blobs import; compat/libbase_shim_rmx3511 provides it.
     (
         'vendor/lib/hw/android.hardware.graphics.allocator@4.0-impl-arm.so',
         'vendor/lib64/hw/android.hardware.graphics.allocator@4.0-impl-arm.so',
         'vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-arm.so',
         'vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-arm.so',
-    ): blob_fixup().add_needed('libbase_shim.so'),
+    ): blob_fixup().add_needed('libbase_shim_rmx3511.so'),
     # Unisoc HALs come as prebuilts, so host_init_verifier doesn't know their
     # HIDL interfaces. The services are started by class/property, not on
     # demand, so the 'interface' lines are not needed.
