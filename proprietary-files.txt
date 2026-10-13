@@ -1465,11 +1465,6 @@ vendor/etc/vintf/manifest/vendor.sprd.hardware.oemlock@1.0-service.xml
 vendor/etc/wifi/vendor_hals/unisoc_wifi_hal_arm64.xml
 vendor/etc/wifi/wpa_supplicant.conf
 vendor/lib64/libwifi-hal.so;MODULE_SUFFIX=_rmx3511
-vendor/overlay/AndroidMarlin3WifiOverlayResources/AndroidMarlin3WifiOverlayResources.apk;PRESIGNED
-vendor/overlay/AndroidNickyWifiOverlayResources/AndroidNickyWifiOverlayResources.apk;PRESIGNED
-vendor/overlay/AndroidWifiOverlayResources/AndroidWifiOverlayResources.apk;PRESIGNED
-vendor/overlay/UnisocMarlin3WifiOverlayResources/UnisocMarlin3WifiOverlayResources.apk;PRESIGNED
-vendor/overlay/UnisocMarlin3WifiVendorFreezeOverlayResources/UnisocMarlin3WifiVendorFreezeOverlayResources.apk;PRESIGNED
 
 # Misc (missing from DumprX list)
 vendor/etc/public.libraries.txt

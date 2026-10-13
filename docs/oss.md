@@ -30,3 +30,10 @@
 ## Совместимость с vendor от S
 - `compat/ndk_platform`: `<aidl>-V<n>-ndk_platform` (имена из VNDK S), собранные
   из `<aidl>-V<n>-ndk` — блобы линкуются к ним без патчинга
+
+## TODO: Wi-Fi overlays
+Stock ships Wi-Fi RROs as prebuilt APKs in vendor/overlay/*/
+(UnisocMarlin3WifiOverlayResources и др.). extract-utils doesn't handle
+APKs in vendor/overlay and APKs can't go into PRODUCT_COPY_FILES, so they
+are not shipped. Decompile them (apktool d) from the dump and recreate as
+source overlays (runtime_resource_overlay targeting com.android.wifi.resources).
