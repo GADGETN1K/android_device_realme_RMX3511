@@ -1,12 +1,14 @@
 [
   {
-    "repository": "android_kernel_realme_RMX3511",
+    "repository": "GADGETN1K/android_kernel_realme_RMX3511",
     "target_path": "kernel/realme/RMX3511",
-    "remote": "github"
+    "remote": "github",
+    "branch": "16.0"
   },
   {
-    "repository": "proprietary_vendor_realme_RMX3511",
+    "repository": "GADGETN1K/proprietary_vendor_realme_RMX3511",
     "target_path": "vendor/realme/RMX3511",
-    "remote": "github"
+    "remote": "github",
+    "branch": "16.0"
   }
 ]
