@@ -848,3 +848,9 @@ vendor/etc/parameter-framework/Structure/Policy/PolicyClass.xml
 vendor/etc/parameter-framework/Structure/Policy/PolicySubsystem-CommonTypes.xml
 vendor/etc/parameter-framework/Structure/Policy/PolicySubsystem.xml
 vendor/etc/permissions/android.hardware.hardware_keystore.xml
+
+## codec2 filter plugin: AOSP lineage-23.2 module (1)
+# libcodec2_hidl_plugin is vendor-only in AOSP, but the vendor
+# libcodec2_hidl@1.x built from source calls the newer FilterWrapper API
+# (getParamReflector), which the S prebuilt lacks.
+vendor/lib/libcodec2_hidl_plugin.so

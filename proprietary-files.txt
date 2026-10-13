@@ -1286,7 +1286,6 @@ vendor/resources.arsc
 # Stock S libs that clash with lineage-23.2 source modules (kept, renamed)
 vendor/lib/libbluetooth_audio_session.so
 vendor/lib/libcamera2ndk_vendor.so
-vendor/lib/libcodec2_hidl_plugin.so
 vendor/lib64/libbluetooth_audio_session.so
 vendor/lib64/libcamera2ndk_vendor.so
 
