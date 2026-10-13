@@ -44,7 +44,11 @@ cc_library_shared {
     name: "android.hardware.security.keymint-V1-ndk_platform",
     vendor: true,
     whole_static_libs: ["android.hardware.security.keymint-V1-ndk"],
-    shared_libs: ["libbinder_ndk"],
+    // keymint V1 imports secureclock V1; on S its types came from this lib
+    shared_libs: [
+        "android.hardware.security.secureclock-V1-ndk_platform",
+        "libbinder_ndk",
+    ],
 }
 
 cc_library_shared {
@@ -72,5 +76,10 @@ cc_library_shared {
     name: "android.system.keystore2-V1-ndk_platform",
     vendor: true,
     whole_static_libs: ["android.system.keystore2-V1-ndk"],
-    shared_libs: ["libbinder_ndk"],
+    // keystore2 V1 imports keymint V1 (which imports secureclock V1)
+    shared_libs: [
+        "android.hardware.security.keymint-V1-ndk_platform",
+        "android.hardware.security.secureclock-V1-ndk_platform",
+        "libbinder_ndk",
+    ],
 }
