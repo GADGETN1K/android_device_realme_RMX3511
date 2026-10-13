@@ -747,3 +747,81 @@ libcheckkeybox (keymaster_ready), libengbt, libfaceid_ca, libsprdfaceid
 ## device impls, OMX/CAS/USB services, VINTF fragments, Wi-Fi configs and
 ## overlays, ueventd.rc, input configs). They were added back; the stock
 ## vendor/etc/vintf/manifest.xml now lives in configs/vintf/manifest.xml.
+
+## 0018: install-path collisions (out/soong/installs-*.mk duplicates)
+# MODULE_SUFFIX only renames the module; the file still lands on the same
+# path, so it collides whenever the AOSP vendor variant is installed too.
+# - vendor-only AOSP modules: stock blob kept WITHOUT suffix (prebuilt with
+#   prefer:true replaces the source module, as usual)
+# - dual (vendor_available) AOSP libs: stock blob dropped, AOSP vendor
+#   variant used. If an S blob then misses symbols (keymint/codec2/audio
+#   stacks are the likely ones), add a shim or a renamed copy.
+vendor/lib/libaudioclient_aidl_conversion.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libaudioclient_aidl_conversion.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libdrm.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libdrm.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/lib_android_keymaster_keymint_utils.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libkeymaster_messages.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libkeymaster_portable.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libpuresoftkeymasterdevice.so;MODULE_SUFFIX=_rmx3511
+vendor/bin/boringssl_self_test64
+vendor/bin/uclampset
+vendor/lib/libopus.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libprotobuf-cpp-full-3.9.1.so
+vendor/lib/libprotobuf-cpp-lite-3.9.1.so
+vendor/lib/libtensorflowlite_c.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libvorbisidec.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libvpx.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libchrome.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libcppbor_external.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libcppcose_rkp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libkeymint.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libprotobuf-cpp-full-3.9.1.so
+vendor/lib64/libprotobuf-cpp-lite-3.9.1.so
+vendor/lib64/libsoft_attestation_cert.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libtensorflowlite_c.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libz_stable.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/android.hardware.audio.common-util.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/android.hardware.audio.common@7.0-enums.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/audioclient-types-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/av-types-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/framework-permission-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libaudiofoundation.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libavservices_minijail.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libcodec2_hidl@1.0.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libcodec2_hidl@1.1.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libcodec2_vndk.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libhidltransport.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libsfplugin_ccodec_utils.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libshmemcompat.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libshmemutil.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libstagefright_amrnb_common.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libstagefright_bufferpool@2.0.1.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libstagefright_enc_common.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libstagefright_flacdec.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libstagefright_softomx.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libstagefright_softomx_plugin.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libtrusty.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/shared-file-region-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/android.hardware.audio.common-util.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/android.hardware.audio.common@7.0-enums.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/android.hardware.graphics.composer@2.1-resources.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/audioclient-types-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/av-types-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/framework-permission-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libaudiofoundation.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libbinderdebug.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libcodec2_vndk.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libhidltransport.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libsfplugin_ccodec_utils.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libshmemcompat.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libshmemutil.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libstagefright_bufferpool@2.0.1.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libtrusty.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/shared-file-region-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libalsautils.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/libtinyxml.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libalsautils.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/libtinyxml.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/librilutils.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/librilutils.so;MODULE_SUFFIX=_rmx3511
