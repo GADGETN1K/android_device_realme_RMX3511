@@ -742,3 +742,8 @@ vendor/lib64/ese_client.so
 
 ## restored in 0014 (needed by kept blobs, see DT_NEEDED scan)
 libcheckkeybox (keymaster_ready), libengbt, libfaceid_ca, libsprdfaceid
+
+## 0015: DumprX's list was missing whole groups (audio/media configs, camera
+## device impls, OMX/CAS/USB services, VINTF fragments, Wi-Fi configs and
+## overlays, ueventd.rc, input configs). They were added back; the stock
+## vendor/etc/vintf/manifest.xml now lives in configs/vintf/manifest.xml.
