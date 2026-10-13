@@ -96,9 +96,10 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     CROSS_COMPILE=aarch64-linux-gnu- \
     CROSS_COMPILE_COMPAT=arm-linux-gnueabi-
 
-# Out-of-tree modules in kernel_modules/kernel5.4 (gpu, wcn, input, nfc, npu)
-# and kernel_modules/common/camera.
-# TODO(kernel): wire them up via TARGET_KERNEL_EXT_MODULES.
+# Out-of-tree modules (camera, Mali, BT/FM, fingerprint, touch) — built by
+# kernel_modules/rmx3511/Makefile, which sets Unisoc's BSP_* variables.
+TARGET_KERNEL_EXT_MODULE_ROOT := $(TARGET_KERNEL_SOURCE)/kernel_modules
+TARGET_KERNEL_EXT_MODULES := rmx3511
 
 # Kernel modules load lists — copied from stock vendor_boot
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := \

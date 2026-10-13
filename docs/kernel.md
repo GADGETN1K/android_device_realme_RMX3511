@@ -47,7 +47,8 @@ nico-конфига нет.
 
 ## Модули
 
-- Out-of-tree: `kernel_modules/kernel5.4/{gpu,wcn,input,nfc,npu}` и
+- Out-of-tree: собираются обёрткой `kernel_modules/rmx3511/Makefile`
+  (`TARGET_KERNEL_EXT_MODULES := rmx3511`) из `kernel_modules/kernel5.4/*` и
   `kernel_modules/common/camera`.
 - Списки загрузки взяты со стока: `modules.load.vendor_boot` (69),
   `modules.load.recovery` (156), `modules.load` для vendor_dlkm (118).
