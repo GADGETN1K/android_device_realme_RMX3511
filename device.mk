@@ -21,7 +21,8 @@ PRODUCT_COPY_FILES += \
 
 # Shims for S blobs
 PRODUCT_PACKAGES += \
-    libbase_shim_rmx3511
+    libbase_shim_rmx3511 \
+    libui_shim
 
 # Virtual A/B — stock: ro.virtual_ab.enabled=true, ro.virtual_ab.compression.enabled=true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
