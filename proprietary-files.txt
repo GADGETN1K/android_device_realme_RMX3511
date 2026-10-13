@@ -331,8 +331,8 @@ vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml
 vendor/lib64/android.hardware.gatekeeper@1.0.so
 
 # Graphics
-vendor/lib/egl/libGLES_mali.so
-vendor/lib64/egl/libGLES_mali.so
+vendor/lib/egl/libGLES_mali.so;MODULE_SUFFIX=_egl
+vendor/lib64/egl/libGLES_mali.so;MODULE_SUFFIX=_egl
 
 # Keymaster
 vendor/bin/keymaster_ready
@@ -566,40 +566,6 @@ vendor/bin/modem_control
 vendor/bin/modem_ctrl_dbg
 vendor/bin/nvmerge
 vendor/bin/phasecheckserver
-vendor/bin/power/backlight/readme
-vendor/bin/power/cpu/dvfs/readme
-vendor/bin/power/cpu/fix_freq/fix_cpu_freq
-vendor/bin/power/cpu/fix_freq/readme
-vendor/bin/power/cpu/hotplug/readme
-vendor/bin/power/cpu/lit_freq/lit_cpu_freq
-vendor/bin/power/cpu/lit_freq/readme
-vendor/bin/power/cpu/loading/cpu_loading
-vendor/bin/power/cpu/loading/readme
-vendor/bin/power/cpu/trans_table/cpu_trans_table
-vendor/bin/power/cpu/trans_table/readme
-vendor/bin/power/ddr/bm/readme
-vendor/bin/power/ddr/bm/tool/ddr_bm
-vendor/bin/power/ddr/fix_freq/fix_ddr_freq
-vendor/bin/power/ddr/fix_freq/readme
-vendor/bin/power/ddr/loading/ddr_loading
-vendor/bin/power/ddr/loading/readme
-vendor/bin/power/ddr/trans_table/ddr_trans_table
-vendor/bin/power/ddr/trans_table/readme
-vendor/bin/power/frame/readme
-vendor/bin/power/gpu/fix_freq/fix_gpu_freq
-vendor/bin/power/gpu/fix_freq/readme
-vendor/bin/power/gpu/loading/gpu_loading
-vendor/bin/power/gpu/loading/readme
-vendor/bin/power/gpu/trans_table/gpu_trans_table
-vendor/bin/power/gpu/trans_table/readme
-vendor/bin/power/interrupt/interrupt
-vendor/bin/power/interrupt/readme
-vendor/bin/power/loadings/readme
-vendor/bin/power/paras/readme
-vendor/bin/power/paras/tool/paras
-vendor/bin/power/tops/readme
-vendor/bin/power/tops/tops
-vendor/bin/power/total/readme
 vendor/bin/refnotify
 vendor/bin/rpmbserver
 vendor/bin/slogmodem_vendor

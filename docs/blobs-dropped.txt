@@ -485,3 +485,7 @@ vendor/odm_dlkm/etc/build.prop
 ## factory log configs (2)
 vendor/etc/log_settings_cali.xml
 vendor/etc/log_settings_factory.xml
+
+## Unisoc power debug tools, vendor/bin/power/* (24)
+Not referenced by any init script; their "readme" files also produced
+duplicate soong modules.
