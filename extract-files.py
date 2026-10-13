@@ -60,7 +60,6 @@ def keymint_stack_fixup():
 blob_fixups: blob_fixups_user_type = {
     (
         'vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service',
-        'vendor/bin/keymaster_ready',
         *(f'vendor/lib64/{lib}_rmx3511.so' for lib in KEYMINT_STACK),
     ): keymint_stack_fixup(),
 }  # fmt: skip

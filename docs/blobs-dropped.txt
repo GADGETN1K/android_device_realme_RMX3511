@@ -825,3 +825,11 @@ vendor/lib64/libalsautils.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/libtinyxml.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/librilutils.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/librilutils.so;MODULE_SUFFIX=_rmx3511
+
+## 0020: provided by AOSP modules at the same path
+# (vintf_fragments / init_rc of source modules are installed even when a
+# stock prebuilt replaces the binary)
+vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
+vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml
+vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.xml
+vendor/etc/init/boringssl_self_test.rc

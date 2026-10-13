@@ -163,7 +163,6 @@ vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/bin/hw/vendor.sprd.hardware.fingerprintmmi@1.0-service
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/etc/init/vendor.sprd.hardware.fingerprintmmi@1.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
 vendor/etc/vintf/manifest/vendor.sprd.hardware.fingerprintmmi@1.0-service.xml
 vendor/firmware/silead.elf
 vendor/lib/hw/fingerprint.silead.default.so
@@ -341,7 +340,6 @@ vendor/bin/thermald
 vendor/etc/init/thermald.rc
 vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc
 vendor/etc/thermal.conf
-vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.xml
 vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml
 vendor/lib/hw/vendor.sprd.hardware.thermal@2.0-impl.so
 vendor/lib/vendor.sprd.hardware.thermal@1.0.so
@@ -524,7 +522,6 @@ vendor/etc/fm.conf
 vendor/etc/imsUserAgent.xml
 vendor/etc/init/android.hardware.media.c2@1.1-unisoc-service.rc
 vendor/etc/init/android.hardware.security.keymint@1.0-unisoc.service.rc
-vendor/etc/init/boringssl_self_test.rc
 vendor/etc/init/charge.rc
 vendor/etc/init/charged.rc
 vendor/etc/init/connmgr.rc
@@ -1381,7 +1378,6 @@ vendor/bin/hw/android.hardware.usb@1.1-service;MODULE_SUFFIX=_rmx3511
 vendor/etc/init/android.hardware.usb@1.1-service.rc
 
 # VINTF fragments (missing from DumprX list)
-vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml
 vendor/etc/vintf/manifest/android.hardware.security.keymint@1.0-unisoc.service.xml
 vendor/etc/vintf/manifest/lights.xml
 vendor/etc/vintf/manifest/manifest_dualsim.xml
