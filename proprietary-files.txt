@@ -22,7 +22,6 @@ vendor/lib64/soundfx/libaudiopreprocessing.so
 
 # Audio-Hardware
 vendor/bin/hw/android.hardware.audio.service
-vendor/etc/init/android.hardware.audio.service.rc
 vendor/lib/hw/android.hardware.audio.effect@7.0-impl.so
 vendor/lib/hw/android.hardware.audio@7.0-impl.so
 vendor/lib/hw/audio.primary.ums9230.so
@@ -66,7 +65,6 @@ vendor/lib64/libcdsprpc.so
 # Camera
 vendor/bin/hw/android.hardware.camera.provider@2.4-service
 vendor/bin/remosaic_daemon
-vendor/etc/init/android.hardware.camera.provider@2.4-service.rc
 vendor/lib/android.hardware.camera.provider@2.4-external-sprd.so
 vendor/lib/android.hardware.camera.provider@2.4-legacy-sprd.so
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl-sprd.so
@@ -148,7 +146,6 @@ vendor/bin/hw/android.hardware.graphics.allocator@4.0-service
 vendor/bin/hw/android.hardware.graphics.composer@2.1-service
 vendor/bin/hw/vendor.sprd.hardware.memtrack-service
 vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc
-vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
 vendor/lib/hw/android.hardware.graphics.allocator@4.0-impl-arm.so
 vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-arm.so
 vendor/lib/hw/hwcomposer.ums9230.so
@@ -161,7 +158,6 @@ vendor/lib64/hw/memtrack.ums9230.so
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/bin/hw/vendor.sprd.hardware.fingerprintmmi@1.0-service
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/etc/init/vendor.sprd.hardware.fingerprintmmi@1.0-service.rc
 vendor/etc/vintf/manifest/vendor.sprd.hardware.fingerprintmmi@1.0-service.xml
 vendor/firmware/silead.elf
@@ -249,7 +245,6 @@ vendor/lib64/egl/libGLES_mali.so;MODULE_SUFFIX=_egl
 
 # Keymaster
 vendor/bin/keymaster_ready
-vendor/etc/permissions/android.hardware.hardware_keystore.xml
 vendor/etc/permissions/android.hardware.keystore.app_attest_key.xml
 vendor/lib64/libkeystore-engine-wifi-hidl.so
 vendor/lib64/libkeystore-wifi-hidl.so
@@ -300,12 +295,9 @@ vendor/lib64/vendor.sprd.hardware.radio.ims@1.0.so
 vendor/lib64/vendor.sprd.hardware.radio.ims@1.1.so
 
 # SSR
-vendor/etc/parameter-framework/Structure/Policy/PolicySubsystem-CommonTypes.xml
-vendor/etc/parameter-framework/Structure/Policy/PolicySubsystem.xml
 
 # Sensors
 vendor/bin/hw/android.hardware.sensors@1.0-service
-vendor/etc/init/android.hardware.sensors@1.0-service.rc
 vendor/etc/vintf/manifest/android.hardware.sensors@1.0.xml
 vendor/lib/hw/android.hardware.sensors@1.0-impl.so
 vendor/lib/hw/sensors.ums9230.so
@@ -578,7 +570,6 @@ vendor/etc/otpdata/spw_input_parameters_values.txt
 vendor/etc/otpdata/spw_input_parameters_values_planar.txt
 vendor/etc/parameter-framework/ParameterFrameworkConfigurationPolicy.xml
 vendor/etc/parameter-framework/Settings/Policy/PolicyConfigurableDomains.xml
-vendor/etc/parameter-framework/Structure/Policy/PolicyClass.xml
 vendor/etc/parameter-framework/Structure/Policy/ProductStrategies.xml
 vendor/etc/power_info.db
 vendor/etc/power_resource_file_info.xml
@@ -1318,7 +1309,6 @@ vendor/etc/audio_policy_apm_configuration_configurable.xml
 vendor/etc/audio_policy_configuration.xml
 vendor/etc/audio_policy_configuration_a2dp_offload_disabled.xml
 vendor/etc/audio_policy_engine_configuration.xml
-vendor/etc/audio_policy_engine_criteria.xml
 vendor/etc/audio_policy_engine_criterion_types.xml
 vendor/etc/audio_policy_engine_default_stream_volumes.xml
 vendor/etc/audio_policy_engine_product_strategies.xml
@@ -1357,8 +1347,6 @@ vendor/lib64/libhwc2onfbadapter.so
 # Media (missing from DumprX list)
 vendor/bin/hw/android.hardware.cas@1.2-service
 vendor/bin/hw/android.hardware.media.omx@1.0-service
-vendor/etc/init/android.hardware.cas@1.2-service.rc
-vendor/etc/init/android.hardware.media.omx@1.0-service.rc
 vendor/etc/media_codecs.xml
 vendor/etc/media_codecs_c2.xml
 vendor/etc/media_codecs_google_audio.xml
