@@ -20,8 +20,18 @@ from extract_utils.main import (
 namespace_imports = [
 ]
 
+def lib_fixup_rmx3511_suffix(lib: str, partition: str, *args, **kwargs):
+    return f'{lib}_rmx3511' if partition == 'vendor' else None
+
+
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
+    # Linked (not dlopen'd) S blobs that share a name with AOSP modules;
+    # see MODULE_SUFFIX=_rmx3511 in proprietary-files.txt
+    (
+        'libaudioclient_aidl_conversion',
+        'libvibrator',
+    ): lib_fixup_rmx3511_suffix,
 }
 
 # Unisoc blobs will need fixups (libutils/libhidlbase shims, removed

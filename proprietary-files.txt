@@ -10,49 +10,29 @@
 vendor/etc/dirac/diracmobile.config
 vendor/etc/dirac/diracvdd.bin
 vendor/lib/libDiracAPI_SHARED.so
-vendor/lib/libaudioclient_aidl_conversion.so
+vendor/lib/libaudioclient_aidl_conversion.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/libaudiodump.so
-vendor/lib/libaudiofoundation.so
 vendor/lib/libaudiomiscctl.so
 vendor/lib/libaudionpi.so
 vendor/lib/libtinycompress.so
-vendor/lib/soundfx/libaudiopreprocessing.so
+vendor/lib/soundfx/libaudiopreprocessing.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/soundfx/libdirac.so
-vendor/lib64/libaudioclient_aidl_conversion.so
-vendor/lib64/libaudiofoundation.so
+vendor/lib64/libaudioclient_aidl_conversion.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/libaudionpi.so
 vendor/lib64/libtinycompress.so
-vendor/lib64/soundfx/libaudiopreprocessing.so
+vendor/lib64/soundfx/libaudiopreprocessing.so;MODULE_SUFFIX=_rmx3511
 
 # Audio-Hardware
-vendor/bin/hw/android.hardware.audio.service
+vendor/bin/hw/android.hardware.audio.service;MODULE_SUFFIX=_rmx3511
 vendor/etc/init/android.hardware.audio.service.rc
-vendor/lib/android.hardware.audio.common-util.so
-vendor/lib/android.hardware.audio.common@5.0.so
-vendor/lib/android.hardware.audio.common@7.0-enums.so
-vendor/lib/android.hardware.audio.common@7.0-util.so
-vendor/lib/android.hardware.audio.common@7.0.so
-vendor/lib/android.hardware.audio.effect@7.0-util.so
-vendor/lib/android.hardware.audio.effect@7.0.so
-vendor/lib/android.hardware.audio@7.0-util.so
-vendor/lib/android.hardware.audio@7.0.so
-vendor/lib/hw/android.hardware.audio.effect@7.0-impl.so
-vendor/lib/hw/android.hardware.audio@7.0-impl.so
+vendor/lib/hw/android.hardware.audio.effect@7.0-impl.so;MODULE_SUFFIX=_rmx3511
+vendor/lib/hw/android.hardware.audio@7.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/audio.primary.default.so
 vendor/lib/hw/audio.primary.ums9230.so
 vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.usb.default.so
-vendor/lib64/android.hardware.audio.common-util.so
-vendor/lib64/android.hardware.audio.common@5.0.so
-vendor/lib64/android.hardware.audio.common@7.0-enums.so
-vendor/lib64/android.hardware.audio.common@7.0-util.so
-vendor/lib64/android.hardware.audio.common@7.0.so
-vendor/lib64/android.hardware.audio.effect@7.0-util.so
-vendor/lib64/android.hardware.audio.effect@7.0.so
-vendor/lib64/android.hardware.audio@7.0-util.so
-vendor/lib64/android.hardware.audio@7.0.so
-vendor/lib64/hw/android.hardware.audio.effect@7.0-impl.so
-vendor/lib64/hw/android.hardware.audio@7.0-impl.so
+vendor/lib64/hw/android.hardware.audio.effect@7.0-impl.so;MODULE_SUFFIX=_rmx3511
+vendor/lib64/hw/android.hardware.audio@7.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/audio.primary.default.so
 vendor/lib64/hw/audio.r_submix.default.so
 vendor/lib64/hw/audio.usb.default.so
@@ -74,23 +54,15 @@ vendor/etc/audio_policy_configuration_bluetooth_legacy_hal.xml
 vendor/etc/bluetooth_audio_policy_configuration.xml
 vendor/etc/bluetooth_audio_policy_configuration_disable_offload.xml
 vendor/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc
-vendor/lib/android.hardware.bluetooth.audio@2.0.so
-vendor/lib/android.hardware.bluetooth.audio@2.1.so
-vendor/lib/hw/android.hardware.bluetooth.audio@2.1-impl.so
+vendor/lib/hw/android.hardware.bluetooth.audio@2.1-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/audio.bluetooth.default.so
 vendor/lib/hw/audio.bluetooth.ums9230.so
-vendor/lib/libbluetooth_audio_session.so
 vendor/lib/libbt-sprd_suite.so
 vendor/lib/libbt-ssp_bt.so
 vendor/lib/libbt-vendor.so
-vendor/lib64/android.hardware.bluetooth.audio@2.0.so
-vendor/lib64/android.hardware.bluetooth.audio@2.1.so
-vendor/lib64/android.hardware.bluetooth@1.0.so
-vendor/lib64/android.hardware.bluetooth@1.1.so
-vendor/lib64/hw/android.hardware.bluetooth.audio@2.1-impl.so
+vendor/lib64/hw/android.hardware.bluetooth.audio@2.1-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/audio.bluetooth.default.so
 vendor/lib64/hw/audio.bluetooth.ums9230.so
-vendor/lib64/libbluetooth_audio_session.so
 vendor/lib64/libbt-sprd_suite.so
 vendor/lib64/libbt-ssp_bt.so
 vendor/lib64/libbt-vendor.so
@@ -100,19 +72,11 @@ vendor/lib/libcdsprpc.so
 vendor/lib64/libcdsprpc.so
 
 # Camera
-vendor/bin/hw/android.hardware.camera.provider@2.4-service
+vendor/bin/hw/android.hardware.camera.provider@2.4-service;MODULE_SUFFIX=_rmx3511
 vendor/bin/remosaic_daemon
 vendor/etc/init/android.hardware.camera.provider@2.4-service.rc
-vendor/lib/android.hardware.camera.common@1.0.so
-vendor/lib/android.hardware.camera.device@1.0.so
-vendor/lib/android.hardware.camera.device@3.2.so
-vendor/lib/android.hardware.camera.device@3.3.so
-vendor/lib/android.hardware.camera.device@3.4.so
-vendor/lib/android.hardware.camera.device@3.5.so
-vendor/lib/android.hardware.camera.device@3.6.so
 vendor/lib/android.hardware.camera.provider@2.4-external-sprd.so
 vendor/lib/android.hardware.camera.provider@2.4-legacy-sprd.so
-vendor/lib/android.hardware.camera.provider@2.4.so
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl-sprd.so
 vendor/lib/hw/camera.ums9230.so
 vendor/lib/libDualCam_OnliCalib.so
@@ -125,7 +89,6 @@ vendor/lib/libcamcalitest.so
 vendor/lib/libcamcommon.so
 vendor/lib/libcamdfa.so
 vendor/lib/libcamdrv.so
-vendor/lib/libcamera2ndk_vendor.so
 vendor/lib/libcamfacebeauty.so
 vendor/lib/libcamfaceskinseg.so
 vendor/lib/libcamfb.so
@@ -136,16 +99,8 @@ vendor/lib/libcampm.so
 vendor/lib/libcamsensor.so
 vendor/lib/libmpbase.so
 vendor/lib/libremosaic_daemon.so
-vendor/lib64/android.hardware.camera.common@1.0.so
-vendor/lib64/android.hardware.camera.device@1.0.so
-vendor/lib64/android.hardware.camera.device@3.2.so
-vendor/lib64/android.hardware.camera.device@3.3.so
-vendor/lib64/android.hardware.camera.device@3.4.so
-vendor/lib64/android.hardware.camera.device@3.5.so
-vendor/lib64/android.hardware.camera.device@3.6.so
 vendor/lib64/android.hardware.camera.provider@2.4-external-sprd.so
 vendor/lib64/android.hardware.camera.provider@2.4-legacy-sprd.so
-vendor/lib64/android.hardware.camera.provider@2.4.so
 vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-sprd.so
 vendor/lib64/hw/camera.ums9230.so
 vendor/lib64/libDualCam_OnliCalib.so
@@ -159,7 +114,6 @@ vendor/lib64/libcamcalitest.so
 vendor/lib64/libcamcommon.so
 vendor/lib64/libcamdfa.so
 vendor/lib64/libcamdrv.so
-vendor/lib64/libcamera2ndk_vendor.so
 vendor/lib64/libcamfacebeauty.so
 vendor/lib64/libcamfaceskinseg.so
 vendor/lib64/libcamfb.so
@@ -193,23 +147,13 @@ vendor/bin/hw/android.hardware.drm@1.4-service.widevine
 vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.clearkey.xml
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml
-vendor/lib/android.hardware.drm@1.0.so
-vendor/lib/android.hardware.drm@1.1.so
-vendor/lib/android.hardware.drm@1.2.so
-vendor/lib/android.hardware.drm@1.3.so
-vendor/lib/android.hardware.drm@1.4.so
-vendor/lib64/android.hardware.drm@1.0.so
-vendor/lib64/android.hardware.drm@1.1.so
-vendor/lib64/android.hardware.drm@1.2.so
-vendor/lib64/android.hardware.drm@1.3.so
-vendor/lib64/android.hardware.drm@1.4.so
 
 # DRM-Widevine
 vendor/lib/libwvhidl.so
 
 # Display-Hardware
 vendor/bin/hw/android.hardware.graphics.allocator@4.0-service
-vendor/bin/hw/android.hardware.graphics.composer@2.1-service
+vendor/bin/hw/android.hardware.graphics.composer@2.1-service;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/vendor.sprd.hardware.memtrack-service
 vendor/etc/init/android.hardware.graphics.allocator@4.0-service.rc
 vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
@@ -219,8 +163,6 @@ vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/hwcomposer.ums9230.so
 vendor/lib/hw/memtrack.ums9230.so
 vendor/lib/libdrm.so
-vendor/lib64/android.hardware.graphics.composer@2.1-resources.so
-vendor/lib64/android.hardware.graphics.composer@2.1.so
 vendor/lib64/hw/android.hardware.graphics.allocator@4.0-impl-arm.so
 vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-arm.so
 vendor/lib64/hw/gralloc.default.so
@@ -229,7 +171,7 @@ vendor/lib64/hw/memtrack.ums9230.so
 vendor/lib64/libdrm.so
 
 # Fingerprint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/vendor.sprd.hardware.fingerprintmmi@1.0-service
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/etc/init/vendor.sprd.hardware.fingerprintmmi@1.0-service.rc
@@ -242,7 +184,6 @@ vendor/lib/hw/microarray.fingerprint.default.so
 vendor/lib/hw/vendor.sprd.hardware.fingerprintmmi@1.0-impl.so
 vendor/lib/libsl_fp_impl.so
 vendor/lib/vendor.sprd.hardware.fingerprintmmi@1.0.so
-vendor/lib64/android.hardware.biometrics.fingerprint@2.1.so
 vendor/lib64/hw/fingerprint.silead.default.so
 vendor/lib64/hw/jiiov.fingerprint.default.so
 vendor/lib64/hw/microarray.fingerprint.default.so
@@ -299,25 +240,11 @@ vendor/firmware/wifi_board_config_nicky.ini
 vendor/bin/hw/vendor.sprd.hardware.gnss@2.2-service
 vendor/etc/init/vendor.sprd.hardware.gnss@2.2-service.rc
 vendor/etc/vintf/manifest/vendor.sprd.hardware.gnss@2.2-service.xml
-vendor/lib/android.hardware.gnss.measurement_corrections@1.0.so
-vendor/lib/android.hardware.gnss.measurement_corrections@1.1.so
-vendor/lib/android.hardware.gnss.visibility_control@1.0.so
-vendor/lib/android.hardware.gnss@1.0.so
-vendor/lib/android.hardware.gnss@1.1.so
-vendor/lib/android.hardware.gnss@2.0.so
-vendor/lib/android.hardware.gnss@2.1.so
 vendor/lib/hw/gps.default.so
 vendor/lib/hw/vendor.sprd.hardware.gnss@2.2-impl.so
 vendor/lib/liblowi_wifihal.so
 vendor/lib/vendor.sprd.hardware.gnss@2.1.so
 vendor/lib/vendor.sprd.hardware.gnss@2.2.so
-vendor/lib64/android.hardware.gnss.measurement_corrections@1.0.so
-vendor/lib64/android.hardware.gnss.measurement_corrections@1.1.so
-vendor/lib64/android.hardware.gnss.visibility_control@1.0.so
-vendor/lib64/android.hardware.gnss@1.0.so
-vendor/lib64/android.hardware.gnss@1.1.so
-vendor/lib64/android.hardware.gnss@2.0.so
-vendor/lib64/android.hardware.gnss@2.1.so
 vendor/lib64/hw/gps.default.so
 vendor/lib64/hw/vendor.sprd.hardware.gnss@2.2-impl.so
 vendor/lib64/liblowi_wifihal.so
@@ -328,7 +255,6 @@ vendor/lib64/vendor.sprd.hardware.gnss@2.2.so
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service.trusty
 vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc
 vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml
-vendor/lib64/android.hardware.gatekeeper@1.0.so
 
 # Graphics
 vendor/lib/egl/libGLES_mali.so;MODULE_SUFFIX=_egl
@@ -338,7 +264,6 @@ vendor/lib64/egl/libGLES_mali.so;MODULE_SUFFIX=_egl
 vendor/bin/keymaster_ready
 vendor/etc/permissions/android.hardware.hardware_keystore.xml
 vendor/etc/permissions/android.hardware.keystore.app_attest_key.xml
-vendor/lib64/android.system.wifi.keystore@1.0.so
 vendor/lib64/lib_android_keymaster_keymint_utils.so
 vendor/lib64/libkeymaster_messages.so
 vendor/lib64/libkeymaster_portable.so
@@ -365,16 +290,10 @@ vendor/etc/nfc/nicky/libnfc-nxp.conf
 vendor/etc/nfc/nicky/libnfc-nxp_RF.conf
 vendor/etc/nfc/nico/libnfc-nxp.conf
 vendor/etc/nfc/nico/libnfc-nxp_RF.conf
-vendor/lib/android.hardware.nfc@1.0.so
-vendor/lib/android.hardware.secure_element@1.0.so
-vendor/lib/hw/android.hardware.nfc@1.0-impl.so
-vendor/lib64/android.hardware.nfc@1.0.so
-vendor/lib64/android.hardware.nfc@1.1.so
-vendor/lib64/android.hardware.nfc@1.2.so
-vendor/lib64/android.hardware.secure_element@1.0.so
+vendor/lib/hw/android.hardware.nfc@1.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/ese_spi_nxp.so
 vendor/lib64/hal_libnfc.so
-vendor/lib64/hw/android.hardware.nfc@1.0-impl.so
+vendor/lib64/hw/android.hardware.nfc@1.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/nfc_nci_nxp.so
 vendor/lib64/vendor.nxp.eventprocessor@1.0.so
 vendor/lib64/vendor.nxp.nxpese@1.0.so
@@ -390,7 +309,7 @@ vendor/etc/init/vendor.sprd.hardware.performance@1.0-service.rc
 vendor/lib64/vendor.sprd.hardware.performance@1.0.so
 
 # Power-Hardware
-vendor/bin/hw/android.hardware.power.stats-service.example
+vendor/bin/hw/android.hardware.power.stats-service.example;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/vendor.unisoc.hardware.power-service
 vendor/etc/init/vendor-power-default.rc
 vendor/etc/vintf/manifest/vendor-power-default.xml
@@ -400,33 +319,9 @@ vendor/lib64/hw/power.default.so
 vendor/lib64/vendor.unisoc.hardware.power-V1-ndk_platform.so
 
 # Radio
-vendor/lib/android.hardware.radio.config@1.0.so
-vendor/lib/android.hardware.radio.config@1.1.so
-vendor/lib/android.hardware.radio.config@1.2.so
-vendor/lib/android.hardware.radio.config@1.3.so
-vendor/lib/android.hardware.radio.deprecated@1.0.so
-vendor/lib/android.hardware.radio@1.0.so
-vendor/lib/android.hardware.radio@1.1.so
-vendor/lib/android.hardware.radio@1.2.so
-vendor/lib/android.hardware.radio@1.3.so
-vendor/lib/android.hardware.radio@1.4.so
-vendor/lib/android.hardware.radio@1.5.so
-vendor/lib/android.hardware.radio@1.6.so
 vendor/lib/vendor.sprd.hardware.radio.lite@1.0.so
 vendor/lib/vendor.sprd.hardware.radio@1.0.so
 vendor/lib/vendor.sprd.hardware.radio@1.1.so
-vendor/lib64/android.hardware.radio.config@1.0.so
-vendor/lib64/android.hardware.radio.config@1.1.so
-vendor/lib64/android.hardware.radio.config@1.2.so
-vendor/lib64/android.hardware.radio.config@1.3.so
-vendor/lib64/android.hardware.radio.deprecated@1.0.so
-vendor/lib64/android.hardware.radio@1.0.so
-vendor/lib64/android.hardware.radio@1.1.so
-vendor/lib64/android.hardware.radio@1.2.so
-vendor/lib64/android.hardware.radio@1.3.so
-vendor/lib64/android.hardware.radio@1.4.so
-vendor/lib64/android.hardware.radio@1.5.so
-vendor/lib64/android.hardware.radio@1.6.so
 vendor/lib64/vendor.sprd.hardware.radio.lite@1.0.so
 vendor/lib64/vendor.sprd.hardware.radio@1.0.so
 vendor/lib64/vendor.sprd.hardware.radio@1.1.so
@@ -442,11 +337,10 @@ vendor/etc/parameter-framework/Structure/Policy/PolicySubsystem-CommonTypes.xml
 vendor/etc/parameter-framework/Structure/Policy/PolicySubsystem.xml
 
 # Sensors
-vendor/bin/hw/android.hardware.sensors@1.0-service
+vendor/bin/hw/android.hardware.sensors@1.0-service;MODULE_SUFFIX=_rmx3511
 vendor/etc/init/android.hardware.sensors@1.0-service.rc
 vendor/etc/vintf/manifest/android.hardware.sensors@1.0.xml
-vendor/lib/android.hardware.sensors@1.0.so
-vendor/lib/hw/android.hardware.sensors@1.0-impl.so
+vendor/lib/hw/android.hardware.sensors@1.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/sensors.ums9230.so
 vendor/lib/libsensor_bf20a1_vga_holitech.so
 vendor/lib/libsensor_gc02m1_macro_sunny.so
@@ -459,8 +353,7 @@ vendor/lib/libsensorlistcfg.so
 vendor/lib/libsensorndkbridge.so
 vendor/lib/libsensornpi.so
 vendor/lib/libsensorsdrvcfg.so
-vendor/lib64/android.hardware.sensors@1.0.so
-vendor/lib64/hw/android.hardware.sensors@1.0-impl.so
+vendor/lib64/hw/android.hardware.sensors@1.0-impl.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/sensors.ums9230.so
 vendor/lib64/libsensor_bf20a1_vga_holitech.so
 vendor/lib64/libsensor_gc02m1_macro_sunny.so
@@ -482,13 +375,9 @@ vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc
 vendor/etc/thermal.conf
 vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.xml
 vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml
-vendor/lib/android.hardware.thermal@1.0.so
-vendor/lib/android.hardware.thermal@2.0.so
 vendor/lib/hw/vendor.sprd.hardware.thermal@2.0-impl.so
 vendor/lib/vendor.sprd.hardware.thermal@1.0.so
 vendor/lib/vendor.sprd.hardware.thermal@2.0.so
-vendor/lib64/android.hardware.thermal@1.0.so
-vendor/lib64/android.hardware.thermal@2.0.so
 vendor/lib64/hw/vendor.sprd.hardware.thermal@2.0-impl.so
 vendor/lib64/vendor.sprd.hardware.thermal@1.0.so
 vendor/lib64/vendor.sprd.hardware.thermal@2.0.so
@@ -503,22 +392,15 @@ vendor/etc/init/vibrator.rc
 vendor/etc/vintf/manifest/vibrator.xml
 vendor/lib/hw/vibrator.default.so
 vendor/lib/hw/vibrator.ums9230.so
-vendor/lib/libvibrator.so
+vendor/lib/libvibrator.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/vibrator.default.so
 vendor/lib64/hw/vibrator.ums9230.so
-vendor/lib64/libvibrator.so
+vendor/lib64/libvibrator.so;MODULE_SUFFIX=_rmx3511
 
 # WiFi
 vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/etc/init/android.hardware.wifi@1.0-service.rc
 vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml
-vendor/lib/android.hardware.wifi@1.0.so
-vendor/lib64/android.hardware.wifi@1.0.so
-vendor/lib64/android.hardware.wifi@1.1.so
-vendor/lib64/android.hardware.wifi@1.2.so
-vendor/lib64/android.hardware.wifi@1.3.so
-vendor/lib64/android.hardware.wifi@1.4.so
-vendor/lib64/android.hardware.wifi@1.5.so
 
 # Misc
 vendor/app/MultiuserOverlays/MultiuserOverlays.apk
@@ -545,7 +427,7 @@ vendor/bin/enhance_test
 vendor/bin/fm_tools
 vendor/bin/gpsd
 vendor/bin/hw/android.hardware.media.c2@1.1-unisoc-service
-vendor/bin/hw/android.hardware.rebootescrow-service.default
+vendor/bin/hw/android.hardware.rebootescrow-service.default;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service
 vendor/bin/hw/urild
 vendor/bin/hw/vendor.sprd.hardware.ai_engine@1.0-service
@@ -896,32 +778,11 @@ vendor/etc/wifisar.xml
 vendor/etc/zoom_config.json
 vendor/lib/MemsicAlgo.so
 vendor/lib/anc.hal.so
-vendor/lib/android.frameworks.cameraservice.common@2.0.so
-vendor/lib/android.frameworks.cameraservice.device@2.0.so
-vendor/lib/android.frameworks.cameraservice.device@2.1.so
-vendor/lib/android.frameworks.cameraservice.service@2.0.so
-vendor/lib/android.frameworks.cameraservice.service@2.1.so
-vendor/lib/android.frameworks.cameraservice.service@2.2.so
-vendor/lib/android.frameworks.sensorservice@1.0.so
-vendor/lib/android.hardware.boot@1.0.so
-vendor/lib/android.hardware.boot@1.1.so
-vendor/lib/android.hardware.boot@1.2.so
-vendor/lib/android.hardware.broadcastradio@1.0.so
-vendor/lib/android.hardware.cas.native@1.0.so
-vendor/lib/android.hardware.cas@1.0.so
-vendor/lib/android.hardware.cas@1.1.so
-vendor/lib/android.hardware.cas@1.2.so
-vendor/lib/android.hardware.media.c2@1.0.so
-vendor/lib/android.hardware.media.c2@1.1.so
-vendor/lib/android.hidl.allocator@1.0.so
 vendor/lib/arm.graphics-V1-ndk.so
 vendor/lib/arm.graphics-V1-ndk_platform.so
 vendor/lib/arm.graphics-V2-ndk.so
 vendor/lib/arm.graphics-V2-ndk_platform.so
 vendor/lib/audio_common-aidl-cpp.so
-vendor/lib/audioclient-types-aidl-cpp.so
-vendor/lib/av-types-aidl-cpp.so
-vendor/lib/framework-permission-aidl-cpp.so
 vendor/lib/hw/awinic.audio.effect.so
 vendor/lib/hw/dpu.ums9230.so
 vendor/lib/hw/enhance.ums9230.so
@@ -963,7 +824,6 @@ vendor/lib/libalsc3.2.so
 vendor/lib/libatci.so
 vendor/lib/libatm.so
 vendor/lib/libavcodec-58.so
-vendor/lib/libavservices_minijail.so
 vendor/lib/libavutil-56.so
 vendor/lib/libawb.so
 vendor/lib/libawb1.so
@@ -975,9 +835,6 @@ vendor/lib/libbokeh_gaussian_adapter.so
 vendor/lib/libbokeh_gaussian_cap.so
 vendor/lib/libbqbbt.so
 vendor/lib/libceres_online.so
-vendor/lib/libcodec2_hidl@1.0.so
-vendor/lib/libcodec2_hidl@1.1.so
-vendor/lib/libcodec2_hidl_plugin.so
 vendor/lib/libcodec2_unisoc_av1dec.so
 vendor/lib/libcodec2_unisoc_avcdec.so
 vendor/lib/libcodec2_unisoc_avcdec_secure.so
@@ -995,7 +852,6 @@ vendor/lib/libcodec2_unisoc_store.so
 vendor/lib/libcodec2_unisoc_vp8dec.so
 vendor/lib/libcodec2_unisoc_vp9dec.so
 vendor/lib/libcodec2_unisoc_vp9dec_secure.so
-vendor/lib/libcodec2_vndk.so
 vendor/lib/libcompasshub.so
 vendor/lib/libcppdrv.so
 vendor/lib/libdav1d.so
@@ -1012,7 +868,6 @@ vendor/lib/libgpudataproducer.so
 vendor/lib/libgtm.so
 vendor/lib/libgyrostab.so
 vendor/lib/libhdr.so
-vendor/lib/libhidltransport.so
 vendor/lib/libhwbinder.so
 vendor/lib/libimpl-ril.so
 vendor/lib/libinfo.so
@@ -1081,9 +936,6 @@ vendor/lib/librilcore.so
 vendor/lib/librpmbclient.so
 vendor/lib/libsecrpmbdata.so
 vendor/lib/libsecrpmbdata_platform.so
-vendor/lib/libsfplugin_ccodec_utils.so
-vendor/lib/libshmemcompat.so
-vendor/lib/libshmemutil.so
 vendor/lib/libsprd_faceanalyze_adapter.so
 vendor/lib/libsprd_mfsr.so
 vendor/lib/libsprd_omx_core.so
@@ -1129,10 +981,6 @@ vendor/lib/libsprdwarp.so
 vendor/lib/libsprdwarpadapter.so
 vendor/lib/libsprdwarppro.so
 vendor/lib/libsprdwtadapter.so
-vendor/lib/libstagefright_amrnb_common.so
-vendor/lib/libstagefright_bufferpool@2.0.1.so
-vendor/lib/libstagefright_enc_common.so
-vendor/lib/libstagefright_flacdec.so
 vendor/lib/libstagefright_soft_aacdec.so
 vendor/lib/libstagefright_soft_aacenc.so
 vendor/lib/libstagefright_soft_amrdec.so
@@ -1154,8 +1002,6 @@ vendor/lib/libstagefright_soft_rawdec.so
 vendor/lib/libstagefright_soft_vorbisdec.so
 vendor/lib/libstagefright_soft_vpxdec.so
 vendor/lib/libstagefright_soft_vpxenc.so
-vendor/lib/libstagefright_softomx.so
-vendor/lib/libstagefright_softomx_plugin.so
 vendor/lib/libstagefright_sprd_mp3dec.so
 vendor/lib/libstagefright_sprd_mp3enc.so
 vendor/lib/libsupl.so
@@ -1166,7 +1012,6 @@ vendor/lib/libteec.so
 vendor/lib/libteecPlatform.so
 vendor/lib/libteeproduction.so
 vendor/lib/libtensorflowlite_c.so
-vendor/lib/libtrusty.so
 vendor/lib/libtrustyHalHelper.so
 vendor/lib/libumnn.so
 vendor/lib/libunisocpreprocessing.so
@@ -1184,9 +1029,8 @@ vendor/lib/libwifi-hal-unisoc.so
 vendor/lib/libwifi-hal.so
 vendor/lib/libyuv420_scaler.so
 vendor/lib/oemlock_ca.so
-vendor/lib/shared-file-region-aidl-cpp.so
 vendor/lib/soundfx/libbundlewrapper2.so
-vendor/lib/soundfx/libhapticgenerator.so
+vendor/lib/soundfx/libhapticgenerator.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/soundfx/libsprdvoiceprocessing.so
 vendor/lib/vendor.sprd.hardware.aprd@1.0.so
 vendor/lib/vendor.sprd.hardware.boot@1.2.so
@@ -1199,30 +1043,12 @@ vendor/lib/vendor.sprd.hardware.trusty@1.0.so
 vendor/lib/vendor.sprd.hardware.wcn@1.0.so
 vendor/lib64/MemsicAlgo.so
 vendor/lib64/anc.hal.so
-vendor/lib64/android.frameworks.cameraservice.common@2.0.so
-vendor/lib64/android.frameworks.cameraservice.device@2.0.so
-vendor/lib64/android.frameworks.cameraservice.device@2.1.so
-vendor/lib64/android.frameworks.cameraservice.service@2.0.so
-vendor/lib64/android.frameworks.cameraservice.service@2.1.so
-vendor/lib64/android.frameworks.cameraservice.service@2.2.so
-vendor/lib64/android.frameworks.sensorservice@1.0.so
-vendor/lib64/android.hardware.boot@1.0.so
-vendor/lib64/android.hardware.boot@1.1.so
-vendor/lib64/android.hardware.boot@1.2.so
-vendor/lib64/android.hardware.broadcastradio@1.0.so
-vendor/lib64/android.hardware.broadcastradio@2.0.so
-vendor/lib64/android.hardware.usb@1.0.so
-vendor/lib64/android.hardware.usb@1.1.so
-vendor/lib64/android.hidl.allocator@1.0.so
 vendor/lib64/arm.graphics-V1-ndk.so
 vendor/lib64/arm.graphics-V1-ndk_platform.so
 vendor/lib64/arm.graphics-V2-ndk.so
 vendor/lib64/arm.graphics-V2-ndk_platform.so
 vendor/lib64/audio_common-aidl-cpp.so
-vendor/lib64/audioclient-types-aidl-cpp.so
-vendor/lib64/av-types-aidl-cpp.so
 vendor/lib64/ese_client.so
-vendor/lib64/framework-permission-aidl-cpp.so
 vendor/lib64/hw/dpu.ums9230.so
 vendor/lib64/hw/enhance.ums9230.so
 vendor/lib64/hw/face.default.so
@@ -1267,7 +1093,6 @@ vendor/lib64/libavutil-56.so
 vendor/lib64/libawb.so
 vendor/lib64/libawb1.so
 vendor/lib64/libawb3.2.so
-vendor/lib64/libbinderdebug.so
 vendor/lib64/libbokeh_depth.so
 vendor/lib64/libbokeh_depth_adapter.so
 vendor/lib64/libbokeh_gaussian.so
@@ -1278,7 +1103,6 @@ vendor/lib64/libchrome.so
 vendor/lib64/libcodec2_unisoc_common.so
 vendor/lib64/libcodec2_unisoc_deintl.so
 vendor/lib64/libcodec2_unisoc_store.so
-vendor/lib64/libcodec2_vndk.so
 vendor/lib64/libcompasshub.so
 vendor/lib64/libcppbor_external.so
 vendor/lib64/libcppcose_rkp.so
@@ -1297,7 +1121,6 @@ vendor/lib64/libgpudataproducer.so
 vendor/lib64/libgtm.so
 vendor/lib64/libgyrostab.so
 vendor/lib64/libhdr.so
-vendor/lib64/libhidltransport.so
 vendor/lib64/libhwbinder.so
 vendor/lib64/libimpl-ril.so
 vendor/lib64/libinfo.so
@@ -1367,9 +1190,6 @@ vendor/lib64/librmsclib1.so
 vendor/lib64/librpmbclient.so
 vendor/lib64/libsecrpmbdata.so
 vendor/lib64/libsecrpmbdata_platform.so
-vendor/lib64/libsfplugin_ccodec_utils.so
-vendor/lib64/libshmemcompat.so
-vendor/lib64/libshmemutil.so
 vendor/lib64/libsoft_attestation_cert.so
 vendor/lib64/libsprd_faceanalyze_adapter.so
 vendor/lib64/libsprd_mfsr.so
@@ -1416,7 +1236,6 @@ vendor/lib64/libsprdwarp.so
 vendor/lib64/libsprdwarpadapter.so
 vendor/lib64/libsprdwarppro.so
 vendor/lib64/libsprdwtadapter.so
-vendor/lib64/libstagefright_bufferpool@2.0.1.so
 vendor/lib64/libsupl.so
 vendor/lib64/libswresample-3.so
 vendor/lib64/libswscale-5.so
@@ -1425,7 +1244,6 @@ vendor/lib64/libteec.so
 vendor/lib64/libteecPlatform.so
 vendor/lib64/libteeproduction.so
 vendor/lib64/libtensorflowlite_c.so
-vendor/lib64/libtrusty.so
 vendor/lib64/libtrustyHalHelper.so
 vendor/lib64/libumnn.so
 vendor/lib64/libunnengine.so
@@ -1441,9 +1259,8 @@ vendor/lib64/libyuv420_scaler.so
 vendor/lib64/libz_stable.so
 vendor/lib64/oemlock_ca.so
 vendor/lib64/power.sprd.so
-vendor/lib64/shared-file-region-aidl-cpp.so
 vendor/lib64/soundfx/libbundlewrapper2.so
-vendor/lib64/soundfx/libhapticgenerator.so
+vendor/lib64/soundfx/libhapticgenerator.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/vendor.sprd.hardware.ai_engine@1.0.so
 vendor/lib64/vendor.sprd.hardware.aprd@1.0.so
 vendor/lib64/vendor.sprd.hardware.boot@1.2.so
