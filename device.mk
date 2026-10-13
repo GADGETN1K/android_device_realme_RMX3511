@@ -67,9 +67,5 @@ PRODUCT_COPY_FILES += \
 # TODO(build): make sure the VNDK v31 APEX ends up on system if the
 # platform still needs it for S vendors.
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-
 # Inherit the proprietary files
 $(call inherit-product, vendor/realme/RMX3511/RMX3511-vendor.mk)

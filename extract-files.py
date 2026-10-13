@@ -18,7 +18,6 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/realme/RMX3511',
 ]
 
 lib_fixups: lib_fixups_user_type = {
