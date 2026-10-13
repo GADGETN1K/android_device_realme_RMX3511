@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += \
 # i.e. slot metadata in misc like AOSP, so the AOSP AIDL HAL replaces the stock
 # vendor.sprd.hardware.boot@1.2-service.
 PRODUCT_PACKAGES += \
-    android.hardware.boot-service.default \
+    com.android.hardware.boot \
     android.hardware.boot-service.default_recovery
 
 # Dynamic partitions
