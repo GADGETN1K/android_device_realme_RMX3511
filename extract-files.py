@@ -66,11 +66,13 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-arm.so',
         'vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-arm.so',
     ): blob_fixup().add_needed('libbase_shim_rmx3511.so'),
-    # S camera HAL uses the old GraphicBufferMapper lock/unlock signatures;
-    # hardware/lineage/compat libui_shim provides them.
+    # S camera and HWC HALs use the old GraphicBufferMapper lock/unlock
+    # signatures; hardware/lineage/compat libui_shim provides them.
     (
         'vendor/lib/hw/camera.ums9230.so',
         'vendor/lib64/hw/camera.ums9230.so',
+        'vendor/lib/hw/hwcomposer.ums9230.so',
+        'vendor/lib64/hw/hwcomposer.ums9230.so',
     ): blob_fixup().add_needed('libui_shim.so'),
     # Unisoc HALs come as prebuilts, so host_init_verifier doesn't know their
     # HIDL interfaces. The services are started by class/property, not on
