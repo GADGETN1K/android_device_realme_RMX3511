@@ -87,6 +87,13 @@ TARGET_KERNEL_CONFIG := \
     vendor/RMX3511.config
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_NO_GCC := true
+# 5.4 only derives clang's --target from CROSS_COMPILE (inferring it from
+# ARCH came in 5.12), and Lineage passes no CROSS_COMPILE with NO_GCC, so
+# clang would compile for the host. Same values as build.config.aarch64;
+# LLVM_IAS=1 (set by Lineage) means no GNU binutils are needed.
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    CROSS_COMPILE=aarch64-linux-gnu- \
+    CROSS_COMPILE_COMPAT=arm-linux-gnueabi-
 
 # Out-of-tree modules in kernel_modules/kernel5.4 (gpu, wcn, input, nfc, npu)
 # and kernel_modules/common/camera.
