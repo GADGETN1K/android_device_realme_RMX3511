@@ -739,3 +739,6 @@ vendor/bin/hw/android.hardware.rebootescrow-service.default;MODULE_SUFFIX=_rmx35
 vendor/etc/init/power.stats-default.rc
 vendor/etc/init/rebootescrow-default.rc
 vendor/lib64/ese_client.so
+
+## restored in 0014 (needed by kept blobs, see DT_NEEDED scan)
+libcheckkeybox (keymaster_ready), libengbt, libfaceid_ca, libsprdfaceid

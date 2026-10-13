@@ -1364,3 +1364,12 @@ vendor/lib64/libshmemutil.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/libstagefright_bufferpool@2.0.1.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/libtrusty.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/shared-file-region-aidl-cpp.so;MODULE_SUFFIX=_rmx3511
+
+# Linked by kept blobs (DT_NEEDED), restored from the NPI/face drop lists
+vendor/lib/libfaceid_ca.so
+vendor/lib/libsprdfaceid.so
+vendor/lib/npidevice/libcheckkeybox.so
+vendor/lib64/libengbt.so
+vendor/lib64/libfaceid_ca.so
+vendor/lib64/libsprdfaceid.so
+vendor/lib64/npidevice/libcheckkeybox.so
