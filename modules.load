@@ -32,7 +32,6 @@ vsp.ko
 jpg.ko
 leds-sc27xx-bltc.ko
 ledtrig-pattern.ko
-hyb.ko
 zram.ko
 zsmalloc.ko
 pinctrl-sprd.ko

@@ -54,8 +54,11 @@ derives clang's `--target` from them.
   builds it via `TARGET_KERNEL_EXT_MODULES := rmx3511`. Warnings are not errors
   for these modules only (realme's Makefile has a global `-Werror`).
 - Load lists are stock: `modules.load.vendor_boot` (69),
-  `modules.load.recovery` (156), `modules.load` for vendor_dlkm (118) and
+  `modules.load.recovery` (156), `modules.load` for vendor_dlkm (117: stock minus `hyb.ko`, see below) and
   `modules.load.charger` (51).
+- `hyb.ko` (OPLUS hybridswap) is not loaded: its memcg vendor hook trips
+  CFI (`mem_cgroup_alloc_hook [hyb]`) and panics the kernel as soon as init
+  creates a memory cgroup. zram works without it.
 - vendor_boot holds the union of the first two lists, with `modules.load`
   and `modules.load.recovery`, like stock (`BOOT_KERNEL_MODULES`).
 - Stock loads vendor_dlkm with `init.insmod.sh` + `init.insmod.cfg`
