@@ -1,0 +1,65 @@
+# Stock HAL services whose init scripts were dropped from the blob list
+# (they collided with AOSP modules of the same name at one point). We ship
+# the stock binaries, but no module installs an init script for them, so
+# none of these services started: no composer, so SurfaceFlinger never
+# registered and system_server waited forever. Copied from stock
+# vendor/etc/init (13.F.54) under one file name of our own.
+
+# android.hardware.graphics.composer@2.1-service.rc
+service vendor.hwcomposer-2-1 /vendor/bin/hw/android.hardware.graphics.composer@2.1-service
+    interface android.hardware.graphics.composer@2.1::IComposer default
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    writepid /dev/cpuset/top-app/tasks
+
+# android.hardware.audio.service.rc
+service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
+    class hal
+    user audioserver
+    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
+    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct wakelock context_hub
+    capabilities BLOCK_SUSPEND
+    ioprio rt 4
+    task_profiles ProcessCapacityHigh HighPerformance
+    onrestart restart audioserver
+
+# android.hardware.camera.provider@2.4-service.rc
+service vendor.camera-provider-2-4 /vendor/bin/hw/android.hardware.camera.provider@2.4-service
+    interface android.hardware.camera.provider@2.4::ICameraProvider legacy/0
+    class hal
+    user cameraserver
+    group audio camera input drmrpc inet system
+    ioprio rt 4
+    capabilities SYS_NICE
+    task_profiles CameraServiceCapacity MaxPerformance
+
+# android.hardware.sensors@1.0-service.rc
+service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service
+    interface android.hardware.sensors@1.0::ISensors default
+    class hal
+    user system
+    group system wakelock uhid context_hub
+    capabilities BLOCK_SUSPEND
+    rlimit rtprio 10 10
+
+# android.hardware.biometrics.fingerprint@2.1-service.rc
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system input uhid
+    writepid /dev/cpuset/system-background/tasks
+
+# android.hardware.media.omx@1.0-service.rc
+service vendor.media.omx /vendor/bin/hw/android.hardware.media.omx@1.0-service
+    class main
+    user mediacodec
+    group system camera drmrpc mediadrm
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks
+

@@ -835,7 +835,8 @@ vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.xml
 vendor/etc/init/boringssl_self_test.rc
 
 ## 0021: installed by AOSP modules at the same path (soong vs PRODUCT_COPY_FILES)
-# HAL rc files: the AOSP init_rc of the replaced module is used for the stock binary
+# HAL rc files: no module installs them for the stock binaries, so their
+# services are defined in rootdir/etc/init/init.rmx3511.hals.rc instead
 vendor/etc/audio_policy_engine_criteria.xml
 vendor/etc/init/android.hardware.audio.service.rc
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc

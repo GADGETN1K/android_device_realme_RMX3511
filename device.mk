@@ -159,6 +159,7 @@ PRODUCT_PACKAGES += \
 # Rootdir — files are named after the board (ro.hardware / ro.product.board = ums9230_nico)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init/hw/init.ums9230_nico.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ums9230_nico.rc \
+    $(LOCAL_PATH)/rootdir/etc/init/init.rmx3511.hals.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.rmx3511.hals.rc \
     $(LOCAL_PATH)/rootdir/etc/init/hw/init.ums9230_nico.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ums9230_nico.usb.rc \
     $(LOCAL_PATH)/rootdir/etc/init/hw/init.ram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ram.rc \
     $(LOCAL_PATH)/rootdir/etc/init/hw/init.storage.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.storage.rc \
