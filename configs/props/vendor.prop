@@ -5,8 +5,9 @@ ro.sf.lcd_density=480
 
 # USB: device-mode controller (MUSB). init.ums9230_nico.usb.rc and the
 # recovery USB setup write it to the gadget's UDC; without it neither adb
-# nor sideload come up.
-sys.usb.controller=musb-hdrc.0.auto
+# nor sideload come up. Our kernel registers the MUSB device as
+# musb-hdrc.1.auto (stock's says .0), see /sys/class/udc.
+sys.usb.controller=musb-hdrc.1.auto
 # configfs gadget. Also read by recovery (prop.default), whose init.rc only
 # sets up the configfs gadget when this is 1.
 sys.usb.configfs=1

@@ -3,4 +3,4 @@
 # sys.usb.configfs is 1, and binds it to ${sys.usb.controller}.
 on init
     setprop sys.usb.configfs 1
-    setprop sys.usb.controller musb-hdrc.0.auto
+    setprop sys.usb.controller musb-hdrc.1.auto
