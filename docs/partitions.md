@@ -36,10 +36,11 @@ The vendor_boot DTB is a DT table (mkdtimg) with one entry, `sprd,ums9230`
 |---|---|---|---|---|
 | boot | 64 | yes | GKI kernel + generic ramdisk | built |
 | vendor_boot | 100 | yes | vendor ramdisk, modules, DTB, recovery | built |
-| dtbo | 8 | yes | overlays | stock prebuilt |
-| vbmeta | 1 | yes | | built |
+| dtbo | 8 | yes | overlays | stock, not in the OTA |
+| vbmeta | 1 | yes | needs Unisoc's secure-boot header | stock `vbmeta-sign.img`, not in the OTA |
 | vbmeta_system | 1 | yes | | built |
-| vbmeta_vendor / _system_ext / _product / _odm | 1 | yes | stock chains | untouched |
+| vbmeta_vendor / _system_ext / _product | 1 | yes | chained from the stock vbmeta | built (test key) |
+| vbmeta_odm | 1 | yes | | untouched |
 | super | 8000 | — | system, system_ext, product, vendor, vendor_dlkm (erofs on stock; the ROM uses ext4 with headroom for system, system_ext, product) | built |
 | l_modem | 25 | yes | LTE modem | firmware |
 | l_deltanv | 1 | yes | modem NV delta | firmware |

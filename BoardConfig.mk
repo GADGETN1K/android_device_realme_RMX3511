@@ -41,7 +41,10 @@ AB_OTA_PARTITIONS += \
     product \
     system \
     system_ext \
+    vbmeta_product \
     vbmeta_system \
+    vbmeta_system_ext \
+    vbmeta_vendor \
     vendor \
     vendor_boot \
     vendor_dlkm
@@ -186,11 +189,33 @@ TARGET_SCREEN_DENSITY := 480
 # accepts our boot images, and fs_mgr tolerates our test-key vbmeta_system.
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-BOARD_AVB_VBMETA_SYSTEM := product system system_ext
+# Same vbmeta layout as stock: the stock vbmeta chains vbmeta_system,
+# vbmeta_system_ext, vbmeta_vendor and vbmeta_product, and first-stage init
+# walks all of those chains, so every one must be in fstab (that's what makes
+# init create its device node) and must describe our images.
+BOARD_AVB_VBMETA_SYSTEM := system
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
+
+BOARD_AVB_VBMETA_VENDOR := vendor vendor_dlkm
+BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 4
+
+BOARD_AVB_VBMETA_CUSTOM_PARTITIONS := system_ext product
+BOARD_AVB_VBMETA_SYSTEM_EXT := system_ext
+BOARD_AVB_VBMETA_SYSTEM_EXT_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_SYSTEM_EXT_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_VBMETA_SYSTEM_EXT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_EXT_ROLLBACK_INDEX_LOCATION := 3
+BOARD_AVB_VBMETA_PRODUCT := product
+BOARD_AVB_VBMETA_PRODUCT_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_PRODUCT_ALGORITHM := SHA256_RSA2048
+BOARD_AVB_VBMETA_PRODUCT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_PRODUCT_ROLLBACK_INDEX_LOCATION := 5
 
 # VINTF
 DEVICE_MANIFEST_FILE += \
