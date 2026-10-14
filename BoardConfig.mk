@@ -159,6 +159,11 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 BOARD_USES_VENDOR_DLKMIMAGE := true
 
+# /metadata (FBE metadata encryption keys, OTA snapshots). Creates the
+# mount point in the system root; without it init can't move the
+# first-stage /metadata mount and aborts.
+BOARD_USES_METADATA_PARTITION := true
+
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
