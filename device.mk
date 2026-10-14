@@ -19,7 +19,8 @@ PRODUCT_ENABLE_UFFD_GC := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/modules.load.recovery:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/modules.load.recovery \
     $(LOCAL_PATH)/modules.load.charger:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/modules.load.charger \
-    $(LOCAL_PATH)/rootdir/bin/init.modules.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.modules.sh
+    $(LOCAL_PATH)/rootdir/bin/init.modules.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.modules.sh \
+    $(LOCAL_PATH)/recovery/root/init.recovery.ums9230_nico.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.ums9230_nico.rc
 
 # Shims for S blobs
 PRODUCT_PACKAGES += \

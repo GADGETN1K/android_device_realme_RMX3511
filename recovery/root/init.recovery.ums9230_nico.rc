@@ -1,0 +1,4 @@
+# Recovery: the vendor build.prop may not reach recovery's prop.default, so
+# set the USB device controller here too (stock vendor/build.prop value).
+on init
+    setprop sys.usb.controller musb-hdrc.0.auto
