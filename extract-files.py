@@ -77,6 +77,12 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup().add_needed('libbase_shim.so'),
     # libdirac imports __aeabi_uidiv/__aeabi_uidivmod, no longer in libc.
     'vendor/lib/soundfx/libdirac.so': blob_fixup().add_needed('libaeabi_shim_rmx3511.so'),
+    # libdirac aborts in its constructor, taking the audio HAL
+    # down with it when the effects factory loads it. Leave it out of the
+    # effects config.
+    'vendor/etc/audio_effects.xml': blob_fixup().regex_replace(
+        r'(?m)^[ \t]*<(library|effect) name="dirac[^"]*"[^\n]*\n', ''
+    ),
     # The Unisoc NN engine needs the GPU delegate from the stock TFLite C
     # library, which AOSP's libtensorflowlite_c doesn't export; ship the stock
     # one renamed.
