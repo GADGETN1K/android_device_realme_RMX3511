@@ -38,11 +38,9 @@ TARGET_OTA_ASSERT_DEVICE := RMX3511,RE87BAL1
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
-    dtbo \
     product \
     system \
     system_ext \
-    vbmeta \
     vbmeta_system \
     vendor \
     vendor_boot \
@@ -179,9 +177,13 @@ TARGET_SCREEN_DENSITY := 480
 # Verified Boot
 # Stock vbmeta chains boot, vendor_boot, dtbo, vbmeta_{system,vendor,system_ext,product}
 # and the modem images (l_modem, l_ldsp, l_gdsp, pm_sys, l_agdsp — rollback
-# locations 11..15). We ship vbmeta with verification disabled (flags 3).
-# TODO(firmware): if the bootloader insists on chain descriptors for the
-# modem partitions, add --chain_partition for them with the stock pubkeys.
+# locations 11..15).
+# u-boot only loads a vbmeta wrapped in Unisoc's secure-boot header
+# (vbmeta-sign.img; "check vbmeta sprd sign image header magic number error"
+# otherwise) and we can't produce one, so the OTA leaves vbmeta alone: the
+# stock vbmeta-sign.img stays on both slots. Same for dtbo: u-boot verifies
+# it through the stock vbmeta, so the stock signed dtbo.img stays too. With the bootloader unlocked it
+# accepts our boot images, and fs_mgr tolerates our test-key vbmeta_system.
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_VBMETA_SYSTEM := product system system_ext
