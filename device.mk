@@ -22,6 +22,23 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.modules.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.modules.sh \
     $(LOCAL_PATH)/recovery/root/init.recovery.ums9230_nico.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.ums9230_nico.rc
 
+# Touch firmware for recovery. The TDDI touch ICs keep their firmware in RAM
+# and the driver loads it with request_firmware(); recovery has no /vendor,
+# so ship the panel firmwares where the kernel looks directly (/lib/firmware).
+RMX3511_TOUCH_FW := \
+    Himax_firmware.bin \
+    Himax_firmware_five.bin \
+    Himax_firmware_signed.bin \
+    ICNL9911C.bin \
+    Nico_Huaqin_CID3501_D00_C81_20220429.bin \
+    Nico_Huaqin_CID3502_D00_C01_20220429.bin \
+    Normal_fts8006saa_Truly_BOE.bin \
+    novatek_cs_fw.bin \
+    novatek_tm_fw.bin \
+    novatek_ts_fw.bin
+PRODUCT_COPY_FILES += \
+    $(foreach f,$(RMX3511_TOUCH_FW),vendor/realme/RMX3511/proprietary/vendor/firmware/$(f):$(TARGET_COPY_OUT_RECOVERY)/root/lib/firmware/$(f))
+
 # Shims for S blobs
 PRODUCT_PACKAGES += \
     libaeabi_shim_rmx3511 \
