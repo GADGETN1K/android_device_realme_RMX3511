@@ -1,4 +1,6 @@
-# Recovery: the vendor build.prop may not reach recovery's prop.default, so
-# set the USB device controller here too (stock vendor/build.prop value).
+# Recovery doesn't mount vendor, so init.ums9230_nico.usb.rc never runs here.
+# AOSP recovery's own init.rc sets up the configfs gadget only when
+# sys.usb.configfs is 1, and binds it to ${sys.usb.controller}.
 on init
+    setprop sys.usb.configfs 1
     setprop sys.usb.controller musb-hdrc.0.auto
