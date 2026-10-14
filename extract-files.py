@@ -83,8 +83,6 @@ blob_fixups: blob_fixups_user_type = {
     (
         'vendor/lib/libunnengine.so',
         'vendor/lib64/libunnengine.so',
-        'vendor/lib/libTfliteWrapper.so',
-        'vendor/lib64/libTfliteWrapper.so',
     ): blob_fixup().replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_rmx3511.so'),
     # S camera and HWC HALs use the old GraphicBufferMapper lock/unlock
     # signatures; hardware/lineage/compat libui_shim provides them.
