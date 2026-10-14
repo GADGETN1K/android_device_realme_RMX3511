@@ -65,8 +65,9 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
-# Stock vendor_boot cmdline
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
+# Stock vendor_boot cmdline, minus buildvariant=user (stock build scripts'
+# leftover, nothing reads it)
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
 # TODO(sepolicy): drop once the device sepolicy covers the stock Unisoc HALs.
 # Only honoured on userdebug/eng builds.
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -140,10 +141,17 @@ BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     vendor \
     vendor_dlkm
 
-# Stock dynamic partitions are erofs
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
-BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
+# Stock dynamic partitions are erofs. system, system_ext and product are ext4
+# with headroom instead, so GApps and other add-ons can be flashed on top.
+# fstab carries both erofs and ext4 lines.
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+# 1 GiB / 256 MiB / 128 MiB free
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 268435456
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 134217728
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs

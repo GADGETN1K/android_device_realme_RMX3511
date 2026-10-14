@@ -40,7 +40,7 @@ The vendor_boot DTB is a DT table (mkdtimg) with one entry, `sprd,ums9230`
 | vbmeta | 1 | yes | | built |
 | vbmeta_system | 1 | yes | | built |
 | vbmeta_vendor / _system_ext / _product / _odm | 1 | yes | stock chains | untouched |
-| super | 8000 | — | system, system_ext, product, vendor, vendor_dlkm (erofs) | built |
+| super | 8000 | — | system, system_ext, product, vendor, vendor_dlkm (erofs on stock; the ROM uses ext4 with headroom for system, system_ext, product) | built |
 | l_modem | 25 | yes | LTE modem | firmware |
 | l_deltanv | 1 | yes | modem NV delta | firmware |
 | l_ldsp / l_gdsp / l_agdsp | 20 / 10 / 6 | yes | DSPs | firmware |
