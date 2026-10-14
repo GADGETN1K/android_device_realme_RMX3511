@@ -3,6 +3,17 @@
 # Display
 ro.sf.lcd_density=480
 
+# Display enhancement (PQ). hwcomposer blocks every present on
+# IEnhance::getService(), so the enhance HAL must come up or nothing ever
+# reaches the screen (bootanimation freezes on its first frame and the
+# watchdog kills system_server in DisplayManagerService). The stock
+# enhance.ums9230.so segfaults in VersionXmlParser::enhanceFileCheck when
+# the panel has no lcd_<panel>_<module>.xml and it falls back to the
+# default <module>.xml (it then parses a NULL path). This is a bitmask of
+# disabled modules (0x1 ColorManager, next Sunlight, ...); disable them
+# all so the HAL registers without touching the XMLs.
+persist.vendor.pq.disable=0xff
+
 # USB: device-mode controller (MUSB). init.ums9230_nico.usb.rc and the
 # recovery USB setup write it to the gadget's UDC; without it neither adb
 # nor sideload come up. Our kernel registers the MUSB device as
