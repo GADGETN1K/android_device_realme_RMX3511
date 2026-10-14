@@ -161,13 +161,13 @@ vendor/etc/vintf/manifest/vendor.sprd.hardware.fingerprintmmi@1.0-service.xml
 vendor/firmware/silead.elf
 vendor/lib/hw/fingerprint.silead.default.so
 vendor/lib/hw/jiiov.fingerprint.default.so
-vendor/lib/hw/microarray.fingerprint.default.so
+vendor/lib/hw/microarray.fingerprint.default.so;FIX_SONAME
 vendor/lib/hw/vendor.sprd.hardware.fingerprintmmi@1.0-impl.so
 vendor/lib/libsl_fp_impl.so
 vendor/lib/vendor.sprd.hardware.fingerprintmmi@1.0.so
 vendor/lib64/hw/fingerprint.silead.default.so
 vendor/lib64/hw/jiiov.fingerprint.default.so
-vendor/lib64/hw/microarray.fingerprint.default.so
+vendor/lib64/hw/microarray.fingerprint.default.so;FIX_SONAME
 vendor/lib64/hw/vendor.sprd.hardware.fingerprintmmi@1.0-impl.so
 vendor/lib64/libsl_fp_impl.so
 vendor/lib64/vendor.sprd.hardware.fingerprintmmi@1.0.so
@@ -748,6 +748,7 @@ vendor/lib/libSprdImageFilterAdapter.so
 vendor/lib/libSprdMfnrAdapter.so
 vendor/lib/libSprdOTAlgo.so
 vendor/lib/libTfliteWrapper.so
+vendor/lib/libtensorflowlite_c.so:vendor/lib/libtensorflowlite_c_rmx3511.so;FIX_SONAME
 vendor/lib/libWT.so
 vendor/lib/libWhite_point_shift.so
 vendor/lib/libXMPCore.so
@@ -1004,6 +1005,7 @@ vendor/lib64/libSprdImageFilterAdapter.so
 vendor/lib64/libSprdMfnrAdapter.so
 vendor/lib64/libSprdOTAlgo.so
 vendor/lib64/libTfliteWrapper.so
+vendor/lib64/libtensorflowlite_c.so:vendor/lib64/libtensorflowlite_c_rmx3511.so;FIX_SONAME
 vendor/lib64/libWT.so
 vendor/lib64/libWhite_point_shift.so
 vendor/lib64/libXMPCore.so

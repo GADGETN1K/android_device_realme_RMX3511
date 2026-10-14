@@ -66,6 +66,26 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-arm.so',
         'vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-arm.so',
     ): blob_fixup().add_needed('libbase_shim_rmx3511.so'),
+    # Old libbase overloads (Trim/Basename/WriteStringToFd taking
+    # const std::string&); hardware/lineage/compat libbase_shim has them.
+    (
+        'vendor/bin/hw/vendor.sprd.hardware.broadcastradio@2.0-service',
+        'vendor/bin/systemDebuggerd',
+        'vendor/lib/hw/unisoc.bootctrl.so',
+        'vendor/lib64/hw/unisoc.bootctrl.so',
+        'vendor/lib/libavservices_minijail_vendor.so',
+    ): blob_fixup().add_needed('libbase_shim.so'),
+    # libdirac imports __aeabi_uidiv/__aeabi_uidivmod, no longer in libc.
+    'vendor/lib/soundfx/libdirac.so': blob_fixup().add_needed('libaeabi_shim_rmx3511.so'),
+    # The Unisoc NN engine needs the GPU delegate from the stock TFLite C
+    # library, which AOSP's libtensorflowlite_c doesn't export; ship the stock
+    # one renamed.
+    (
+        'vendor/lib/libunnengine.so',
+        'vendor/lib64/libunnengine.so',
+        'vendor/lib/libTfliteWrapper.so',
+        'vendor/lib64/libTfliteWrapper.so',
+    ): blob_fixup().replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_rmx3511.so'),
     # S camera and HWC HALs use the old GraphicBufferMapper lock/unlock
     # signatures; hardware/lineage/compat libui_shim provides them.
     (

@@ -23,6 +23,8 @@ PRODUCT_COPY_FILES += \
 
 # Shims for S blobs
 PRODUCT_PACKAGES += \
+    libaeabi_shim_rmx3511 \
+    libbase_shim \
     libbase_shim_rmx3511 \
     libui_shim
 

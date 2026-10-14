@@ -1,0 +1,14 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+// S-era 32-bit blobs (libdirac) import the ARM EABI integer division
+// helpers, which libc used to export and no longer does.
+
+cc_library_shared {
+    name: "libaeabi_shim_rmx3511",
+    vendor: true,
+    srcs: ["aeabi.c"],
+    compile_multilib: "32",
+    cflags: ["-fno-builtin"],
+}
