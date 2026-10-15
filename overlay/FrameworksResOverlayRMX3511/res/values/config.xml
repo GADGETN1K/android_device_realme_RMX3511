@@ -282,7 +282,10 @@
         <item>30</item>
     </integer-array>
 
-    <!-- Biometrics: one strong fingerprint sensor (stock also lists face) -->
+    <!-- Biometrics: one strong fingerprint sensor (stock also lists face).
+         It sits in the power button on the right side; without this the
+         HIDL sensor is reported as a rear one. -->
+    <bool name="config_is_powerbutton_fps">true</bool>
     <string-array name="config_biometric_sensors" translatable="false">
         <item>0:2:15</item>
     </string-array>
