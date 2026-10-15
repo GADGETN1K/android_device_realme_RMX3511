@@ -203,8 +203,8 @@ ro.vendor.media.wfd.resolution=2
 media.stagefright.thumbnail.prefer_hw_codecs=true
 drm.service.enabled=true
 
-# Backlight: the lights HAL scales brightness to this (stock). Without it
-# it writes 0-255 into the 0-4095 sysfs range and the screen stays dim.
+# Backlight (stock). The lights HAL reads it, but still writes the
+# framework's 0-255 as is; the kernel's sprd_bl takes 0-255 for that.
 persist.vendor.bl.max=4095
 
 # NFC, zram (stock). ro.frp.pst left out on purpose: it points FRP at the
