@@ -9,8 +9,11 @@
      to 0..3768 (the normal, non-HBM range), so they are rescaled here.
 -->
 <resources>
-    <!-- Doze / ambient display: LCD panel, no AOD -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+    <!-- Doze / ambient display. Stock offers AOD on this LCD too (the
+         backlight stays on at doze brightness). Stock doze level is 2030 on
+         the 0-4095 scale, i.e. 137 of our 0-255. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+    <integer name="config_screenBrightnessDoze">137</integer>
     <bool name="config_dozePulsePickup">true</bool>
 
     <!-- Brightness -->
