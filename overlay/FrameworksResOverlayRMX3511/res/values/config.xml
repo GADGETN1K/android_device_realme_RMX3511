@@ -253,6 +253,11 @@
     <string name="config_mainBuiltInDisplayCutoutRectApproximation" translatable="false">@string/config_mainBuiltInDisplayCutout</string>
     <bool name="config_fillMainBuiltInDisplayCutout">false</bool>
 
+    <!-- Status bar height, from stock framework-res -->
+    <dimen name="status_bar_height_default">48dp</dimen>
+    <dimen name="status_bar_height_portrait">48dp</dimen>
+    <dimen name="quick_qs_offset_height">48dp</dimen>
+
     <!-- Display: 60 Hz panel -->
     <integer name="config_defaultPeakRefreshRate">60</integer>
     <integer name="config_defaultRefreshRateInZone">60</integer>

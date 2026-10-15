@@ -163,6 +163,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     FrameworksResOverlayRMX3511 \
+    SystemUIResOverlayRMX3511 \
     TelephonyResOverlayRMX3511 \
     TetheringResOverlayRMX3511 \
     WifiResOverlayRMX3511
