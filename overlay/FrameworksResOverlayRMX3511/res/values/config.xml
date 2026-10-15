@@ -292,7 +292,8 @@
          sensor indicator and the unlock animation. Each entry points to an
          array of display unique id (empty = default display), x, y, radius.
          Measured with pointer location: the button spans y 955-1126 at the
-         right edge. -->
+         right edge. SystemUI puts the top of its 240 px tall indicator at y,
+         so y is the button centre (1040) minus half of that. -->
     <array name="config_sfps_sensor_props" translatable="false">
         <item>@array/config_sfps_sensor_location_default</item>
         <item>@array/config_sfps_sensor_location_local0</item>
@@ -302,13 +303,13 @@
     <array name="config_sfps_sensor_location_local0" translatable="false">
         <item>local:0</item>
         <item>1080</item>
-        <item>1040</item>
+        <item>920</item>
         <item>86</item>
     </array>
     <array name="config_sfps_sensor_location_default" translatable="false">
         <item></item>
         <item>1080</item>
-        <item>1040</item>
+        <item>920</item>
         <item>86</item>
     </array>
     <string-array name="config_biometric_sensors" translatable="false">
