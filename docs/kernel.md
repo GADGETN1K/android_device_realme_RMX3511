@@ -11,8 +11,21 @@ vendor_boot, the rest in `vendor_dlkm`.
 [GADGETN1K/android_kernel_realme_RMX3511](https://github.com/GADGETN1K/android_kernel_realme_RMX3511),
 branch `16.0`: a fork of
 `realme-kernel-opensource/realme_C31_C33_C35_narzo50A-Prime-AndroidT-NEW-kernel-source`
-(same KMI branch, android12-5.4, at 5.4.254) with build fixes for current
-clang on top.
+(android12-5.4 KMI branch at 5.4.254) with, on top:
+
+- build fixes for current clang and device fixes (backlight, epoll_pwait2, ...)
+- a merge of Linux **5.4.302**, the last 5.4 stable release. realme's import
+  is a single commit, so it is a three-way merge (base v5.4.254, theirs
+  v5.4.302). Where Android/Unisoc replaced an upstream change for KABI or
+  carry a newer backport, their version is kept; KABI padding is preserved.
+  The merge commit lists every conflict and how it was resolved.
+- **KernelSU-Next** (branch `legacy`, for non-GKI kernels) vendored in
+  `drivers/kernelsu`, with kprobes hooks; `path_umount()` is backported so its
+  Kbuild doesn't patch `fs/` at build time. See `drivers/kernelsu/README.md`.
+- the kernel name: `CONFIG_LOCALVERSION="-CyberDrakons-Kernel"`, with
+  `LOCALVERSION_AUTO` off (`uname -r`: `5.4.302-CyberDrakons-Kernel`).
+  `BoardConfig.mk` passes an empty `LOCALVERSION=` so setlocalversion doesn't
+  append "+".
 
 ## Config
 
@@ -32,6 +45,9 @@ clang on top.
 
 `BoardConfig.mk` passes `CROSS_COMPILE`/`CROSS_COMPILE_COMPAT`: 5.4 only
 derives clang's `--target` from them.
+
+`vendor/RMX3511.config` also enables KernelSU-Next (`CONFIG_KSU=y`,
+`CONFIG_KSU_KPROBES_HOOK=y`) and sets the kernel name.
 
 ## DTB / DTBO: prebuilt for now
 
