@@ -93,6 +93,14 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default
 
+# Wi-Fi — stock legacy HAL (android.hardware.wifi@1.0-service), supplicant
+# and hostapd from source (they bring their own init scripts and VINTF
+# fragments). The stock wpa_supplicant.conf template stays in the blobs.
+PRODUCT_PACKAGES += \
+    hostapd \
+    libwpa_client \
+    wpa_supplicant
+
 # NFC — NXP PN557 on /dev/nq-nci, OSS HAL from hardware/nxp/nfc/pn8x
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service \

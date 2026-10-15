@@ -63,3 +63,9 @@ service vendor.media.omx /vendor/bin/hw/android.hardware.media.omx@1.0-service
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks
 
+# wpa_supplicant from source expects its socket directory to exist.
+on post-fs-data
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth

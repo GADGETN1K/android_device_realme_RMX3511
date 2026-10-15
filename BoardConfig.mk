@@ -120,6 +120,12 @@ BOOT_KERNEL_MODULES := $(sort \
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load 2>/dev/null))
 
+# Wi-Fi — Marlin3 (sc2355) cfg80211 driver, plain nl80211
+BOARD_WLAN_DEVICE := sprdwl
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
 # Partitions (sizes from ums9230_nico.xml, units MiB there)
 BOARD_FLASH_BLOCK_SIZE := 262144
 # 64M
