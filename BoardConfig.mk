@@ -94,9 +94,13 @@ TARGET_KERNEL_NO_GCC := true
 # ARCH came in 5.12), and Lineage passes no CROSS_COMPILE with NO_GCC, so
 # clang would compile for the host. Same values as build.config.aarch64;
 # LLVM_IAS=1 (set by Lineage) means no GNU binutils are needed.
+# LOCALVERSION= (set, but empty): the name comes from CONFIG_LOCALVERSION
+# alone; with LOCALVERSION unset, setlocalversion appends a "+" for a tree
+# that isn't exactly at a release tag.
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     CROSS_COMPILE=aarch64-linux-gnu- \
-    CROSS_COMPILE_COMPAT=arm-linux-gnueabi-
+    CROSS_COMPILE_COMPAT=arm-linux-gnueabi- \
+    LOCALVERSION=
 
 # Out-of-tree modules (camera, Mali, BT/FM, fingerprint, touch) — built by
 # kernel_modules/rmx3511/Makefile, which sets Unisoc's BSP_* variables.
