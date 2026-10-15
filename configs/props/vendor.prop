@@ -26,6 +26,10 @@ sys.usb.configfs=1
 # Bluetooth: the Unisoc HCI HAL aborts ("No Bluetooth Address!") unless it
 # can read the address from here (stock vendor/build.prop).
 ro.bt.bdaddr_path=/data/vendor/bluetooth/btmac.txt
+# libbt-vendor loads bt_configure_{pskey,rf}*.ini from here (default
+# /system/etc). Without them the controller comes up unconfigured, reports
+# no SSP and the stack aborts in btm_sec_dev_reset.
+ro.vendor.wcn.hardware.etcpath=/vendor/firmware
 
 # Radio / modem (from stock vendor/build.prop). Dual SIM, LTE modem "l".
 persist.radio.multisim.config=dsds
