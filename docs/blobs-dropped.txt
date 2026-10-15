@@ -725,8 +725,6 @@ vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so
 vendor/bin/hw/android.hardware.power.stats-service.example;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/power.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/power.default.so;MODULE_SUFFIX=_rmx3511
-vendor/lib/hw/thermal.default.so;MODULE_SUFFIX=_rmx3511
-vendor/lib64/hw/thermal.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib/hw/vibrator.default.so;MODULE_SUFFIX=_rmx3511
 vendor/lib64/hw/vibrator.default.so;MODULE_SUFFIX=_rmx3511
 vendor/bin/hw/android.hardware.rebootescrow-service.default;MODULE_SUFFIX=_rmx3511

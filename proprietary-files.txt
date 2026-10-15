@@ -323,15 +323,20 @@ vendor/lib64/libsensornpi.so
 vendor/lib64/libsensorsdrvcfg.so
 
 # Thermal
+# The impl loads the "thermal" hw module. Installed as thermal.<ro.hardware>.so,
+# which hw_get_module() tries before thermal.default.so (that path belongs to
+# the AOSP module).
 vendor/bin/hw/vendor.sprd.hardware.thermal@2.0-service
 vendor/bin/thermald
 vendor/etc/init/thermald.rc
 vendor/etc/init/vendor.sprd.hardware.thermal@2.0-service.rc
 vendor/etc/thermal.conf
 vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml
+vendor/lib/hw/thermal.default.so:vendor/lib/hw/thermal.ums9230_nico.so;FIX_SONAME
 vendor/lib/hw/vendor.sprd.hardware.thermal@2.0-impl.so
 vendor/lib/vendor.sprd.hardware.thermal@1.0.so
 vendor/lib/vendor.sprd.hardware.thermal@2.0.so
+vendor/lib64/hw/thermal.default.so:vendor/lib64/hw/thermal.ums9230_nico.so;FIX_SONAME
 vendor/lib64/hw/vendor.sprd.hardware.thermal@2.0-impl.so
 vendor/lib64/vendor.sprd.hardware.thermal@1.0.so
 vendor/lib64/vendor.sprd.hardware.thermal@2.0.so

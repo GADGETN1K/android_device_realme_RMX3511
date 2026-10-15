@@ -37,6 +37,19 @@
         </interface>
         <fqname>@2.1::IBiometricsFingerprint/default</fqname>
     </hal>
+    <!-- vendor.sprd.hardware.thermal@2.0::IExtThermal extends this;
+         hwservicemanager refuses to register it unless the base interface
+         is declared too. -->
+    <hal format="hidl">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IThermal/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
         <transport>hwbinder</transport>
