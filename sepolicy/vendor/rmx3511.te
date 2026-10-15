@@ -100,6 +100,8 @@ allow hal_camera_default sysfs_sensor:dir search;
 # init.modules.sh (vendor_modprobe service) loads the vendor_dlkm modules
 type rmx3511_modules_sh_exec, exec_type, vendor_file_type, file_type;
 allow vendor_modprobe rmx3511_modules_sh_exec:file { entrypoint r_file_perms execute };
+# init execs it itself (seclabel service), before the switch to vendor_modprobe
+allow init rmx3511_modules_sh_exec:file { r_file_perms execute };
 allow vendor_modprobe vendor_toolbox_exec:file execute_no_trans;
 allow vendor_modprobe self:capability sys_nice;
 allow vendor_modprobe kernel:process setsched;
