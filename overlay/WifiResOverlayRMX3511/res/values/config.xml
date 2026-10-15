@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Marlin3-lite (sc2355): stock AndroidWifiOverlayResources plus the Nicky board overlay (5 GHz on) -->
+    <bool name="config_wifi5ghzSupport">true</bool>
+    <bool name="config_wifi_background_scan_support">true</bool>
+    <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
+    <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
+    <bool name="config_wifi_fast_bss_transition_enabled">true</bool>
+    <bool name="config_wifi_framework_enable_associated_network_selection">false</bool>
+    <bool name="config_wifiSaveFactoryMacToWifiConfigStore">false</bool>
+    <bool name="config_wifiSoftapPassphraseAsciiEncodableCheck">false</bool>
+    <bool name="config_wifi_softap_acs_supported">true</bool>
+    <bool name="config_wifi_softap_ieee80211ac_supported">true</bool>
+    <bool name="config_wifi_softap_sae_supported">true</bool>
+    <integer name="config_wifiHardwareSoftapMaxClientCount">10</integer>
+    <integer name="config_wifi_framework_wifi_score_entry_rssi_threshold_24GHz">-70</integer>
+    <integer name="config_wifi_framework_wifi_score_entry_rssi_threshold_5GHz">-66</integer>
+    <integer name="config_wifi_logger_ring_buffer_verbose_size_limit_kb">64</integer>
+    <integer-array name="config_wifiRssiLevelThresholds">
+        <item>-88</item>
+        <item>-82</item>
+        <item>-76</item>
+        <item>-67</item>
+    </integer-array>
+</resources>

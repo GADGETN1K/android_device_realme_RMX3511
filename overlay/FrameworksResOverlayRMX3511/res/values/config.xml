@@ -1,8 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- TODO(dump): rounded corners, cutout path, brightness levels,
-         battery capacity etc. from stock framework-res overlay. -->
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
 
+     Hardware-specific values from the stock vendor and product
+     framework-res overlays (RMX3511_13.F.54). realme UI's brightness
+     arrays are on the panel's 0-4095 scale; our kernel maps sysfs 0-255
+     to 0..3768 (the normal, non-HBM range), so they are rescaled here.
+-->
+<resources>
     <!-- Doze / ambient display: LCD panel, no AOD -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+    <bool name="config_dozePulsePickup">true</bool>
+
+    <!-- Brightness -->
+    <bool name="config_automatic_brightness_available">true</bool>
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0122081</item>
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.3465727</item>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+    <integer name="config_brightness_ramp_rate_fast">9600</integer>
+    <integer name="config_brightness_ramp_rate_slow">960</integer>
+
+    <!-- Backlight (0-255) to nits -->
+    <integer-array name="config_screenBrightnessBacklight">
+        <item>1</item>
+        <item>3</item>
+        <item>27</item>
+        <item>36</item>
+        <item>54</item>
+        <item>63</item>
+        <item>70</item>
+        <item>80</item>
+        <item>95</item>
+        <item>109</item>
+        <item>120</item>
+        <item>126</item>
+        <item>127</item>
+        <item>128</item>
+        <item>129</item>
+        <item>130</item>
+        <item>131</item>
+        <item>132</item>
+        <item>133</item>
+        <item>134</item>
+        <item>135</item>
+        <item>136</item>
+        <item>137</item>
+        <item>138</item>
+        <item>140</item>
+        <item>142</item>
+        <item>144</item>
+        <item>146</item>
+        <item>148</item>
+        <item>149</item>
+        <item>150</item>
+        <item>151</item>
+        <item>152</item>
+        <item>153</item>
+        <item>162</item>
+        <item>174</item>
+        <item>184</item>
+        <item>194</item>
+        <item>202</item>
+        <item>212</item>
+        <item>219</item>
+        <item>224</item>
+        <item>232</item>
+        <item>241</item>
+        <item>247</item>
+        <item>253</item>
+        <item>255</item>
+    </integer-array>
+    <integer-array name="config_screenBrightnessNits">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>15</item>
+        <item>21</item>
+        <item>27</item>
+        <item>36</item>
+        <item>52</item>
+        <item>71</item>
+        <item>87</item>
+        <item>97</item>
+        <item>98</item>
+        <item>99</item>
+        <item>100</item>
+        <item>101</item>
+        <item>103</item>
+        <item>105</item>
+        <item>107</item>
+        <item>110</item>
+        <item>113</item>
+        <item>115</item>
+        <item>117</item>
+        <item>119</item>
+        <item>123</item>
+        <item>126</item>
+        <item>130</item>
+        <item>134</item>
+        <item>139</item>
+        <item>140</item>
+        <item>141</item>
+        <item>142</item>
+        <item>143</item>
+        <item>144</item>
+        <item>169</item>
+        <item>196</item>
+        <item>222</item>
+        <item>248</item>
+        <item>270</item>
+        <item>300</item>
+        <item>320</item>
+        <item>335</item>
+        <item>360</item>
+        <item>390</item>
+        <item>410</item>
+        <item>430</item>
+        <item>440</item>
+    </integer-array>
+
+    <!-- Auto brightness: lux thresholds and the nits for each zone -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+        <item>90</item>
+        <item>95</item>
+        <item>100</item>
+        <item>120</item>
+        <item>140</item>
+        <item>160</item>
+        <item>180</item>
+        <item>200</item>
+        <item>220</item>
+        <item>240</item>
+        <item>260</item>
+        <item>280</item>
+        <item>300</item>
+        <item>320</item>
+        <item>340</item>
+        <item>360</item>
+        <item>380</item>
+        <item>400</item>
+        <item>420</item>
+        <item>440</item>
+        <item>460</item>
+        <item>480</item>
+        <item>500</item>
+        <item>700</item>
+        <item>900</item>
+        <item>1100</item>
+        <item>1300</item>
+        <item>1500</item>
+        <item>1700</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+        <item>4500</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessDisplayValuesNits">
+        <item>1</item>
+        <item>2</item>
+        <item>6</item>
+        <item>15</item>
+        <item>21</item>
+        <item>27</item>
+        <item>36</item>
+        <item>52</item>
+        <item>71</item>
+        <item>87</item>
+        <item>91</item>
+        <item>92</item>
+        <item>94</item>
+        <item>95</item>
+        <item>96</item>
+        <item>97</item>
+        <item>98</item>
+        <item>99</item>
+        <item>100</item>
+        <item>101</item>
+        <item>103</item>
+        <item>105</item>
+        <item>107</item>
+        <item>110</item>
+        <item>113</item>
+        <item>115</item>
+        <item>117</item>
+        <item>119</item>
+        <item>123</item>
+        <item>126</item>
+        <item>130</item>
+        <item>131</item>
+        <item>132</item>
+        <item>133</item>
+        <item>134</item>
+        <item>135</item>
+        <item>136</item>
+        <item>137</item>
+        <item>138</item>
+        <item>139</item>
+        <item>140</item>
+        <item>141</item>
+        <item>142</item>
+        <item>143</item>
+        <item>144</item>
+        <item>169</item>
+        <item>196</item>
+        <item>222</item>
+        <item>248</item>
+        <item>270</item>
+        <item>300</item>
+        <item>320</item>
+        <item>335</item>
+        <item>360</item>
+        <item>390</item>
+        <item>410</item>
+        <item>430</item>
+        <item>440</item>
+    </integer-array>
+
+    <!-- Display: 60 Hz panel -->
+    <integer name="config_defaultPeakRefreshRate">60</integer>
+    <integer name="config_defaultRefreshRateInZone">60</integer>
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
+    <!-- Power -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+    <bool name="config_zramWriteback">true</bool>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- Input / navigation -->
+    <bool name="config_showNavigationBar">true</bool>
+    <bool name="config_swipe_up_gesture_setting_available">true</bool>
+    <integer name="config_overrideHasPermanentMenuKey">2</integer>
+    <bool name="config_cameraDoubleTapPowerGestureEnabled">true</bool>
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+    <bool name="config_intrusiveNotificationLed">true</bool>
+    <integer name="config_notificationsBatteryMediumARGB">0xFFFF0000</integer>
+    <integer-array name="config_longPressVibePattern">
+        <item>0</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Biometrics: one strong fingerprint sensor (stock also lists face) -->
+    <string-array name="config_biometric_sensors" translatable="false">
+        <item>0:2:15</item>
+    </string-array>
+
+    <!-- Connectivity -->
+    <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
+    <integer name="config_bluetooth_max_connected_audio_devices">3</integer>
+    <bool name="config_enableWifiDisplay">true</bool>
+    <bool name="config_hotswapCapable">true</bool>
 </resources>

@@ -162,7 +162,10 @@ PRODUCT_COPY_FILES += \
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
-    FrameworksResOverlayRMX3511
+    FrameworksResOverlayRMX3511 \
+    TelephonyResOverlayRMX3511 \
+    TetheringResOverlayRMX3511 \
+    WifiResOverlayRMX3511
 
 # Rootdir — files are named after the board (ro.hardware / ro.product.board = ums9230_nico)
 PRODUCT_COPY_FILES += \

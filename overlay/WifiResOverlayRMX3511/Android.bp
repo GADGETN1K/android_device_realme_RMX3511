@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "WifiResOverlayRMX3511",
+    vendor: true,
+}
