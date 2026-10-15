@@ -53,6 +53,17 @@ new_types -= excluded
 known = known_ours | new_types | new_attrs
 
 dropped = collections.Counter()
+# attribute memberships our own vendor policy already has
+ours_attrs=set()
+for s_ in V:
+    if s_ and s_[0]=='typeattributeset' and isinstance(s_[2],list):
+        for x in s_[2]:
+            if isinstance(x,str): ours_attrs.add((strip(x,'202504'),s_[1]))
+# (src, tgt, class) triples our own vendor policy already allows
+ours_rules=set()
+for s_ in V:
+    if s_ and s_[0]=='allow' and isinstance(s_[3],list):
+        ours_rules.add((strip(s_[1],'202504'),strip(s_[2],'202504'),s_[3][0]))
 def m(n):
     """map a stock name to an A16 name, or None"""
     if not isinstance(n,str): return None
@@ -83,7 +94,7 @@ for s in S:
         src,tgt,(cls,pm)=m(s[1]),m(s[2]),s[3]
         if not src or not tgt: dropped[k]+=1; continue
         if k=='dontaudit': continue
-        if src not in new_types|new_attrs and tgt not in new_types|new_attrs: dropped['allow_platform_only']+=1; continue
+        if src not in new_types|new_attrs and tgt not in new_types|new_attrs and (src,tgt,cls) in ours_rules: dropped['allow_platform_only_dup']+=1; continue
         te[key(src)].append('allow %s %s:%s { %s };'%(src,tgt,cls,perms(pm)))
     elif k=='allowx':
         src,tgt=m(s[1]),m(s[2]); op,cls,xp=s[3][0],s[3][1],s[3][2]
@@ -105,6 +116,11 @@ for s in S:
         for mem in s[2]:
             mm=m(mem) if isinstance(mem,str) else None
             if mm and mm in new_types: te[mm].append('typeattribute %s %s;'%(mm,a))
+            # hal_client_domain() done by the stock policy for AOSP domains
+            elif mm and mm.startswith('hal_') and re.match(r'^hal_[a-z0-9_]+_client$', a) and (mm,a) not in ours_attrs:
+                te['_platform_subjects'].append('typeattribute %s %s;'%(mm,a))
+                if (mm,'halclientdomain') not in ours_attrs:   # rest of hal_client_domain()
+                    te['_platform_subjects'].append('typeattribute %s halclientdomain;'%mm)
             elif mm and mm in new_attrs and a not in new_attrs: te[mm].append('# attribute %s is in %s'%(mm,a))
     elif k=='genfscon':
         pass
@@ -113,6 +129,11 @@ for s in S:
 DROP = [
     r'^allow hal_face ',                                  # props set by every face HAL
     r'^allow hal_gnss_ext_default kernel:(dir|file) ',    # writes to kernel-labelled files
+    r'^allow hal_gnss_default kernel:(dir|file) ',
+    r'^allow hal_gnss_default (self|hal_gnss_default):tcp_socket ',  # HALs may not open sockets
+    r'^allow nfc ',                                       # coredomain, platform-owned
+    r'^allow system_server binderfs_logs:',
+    r'^allow lmkd (self|lmkd):capability ',               # lmkd is a bpfdomain now
 ]
 for k in list(te):
     te[k]=[l for l in te[k] if not any(re.search(d,l) for d in DROP)]
