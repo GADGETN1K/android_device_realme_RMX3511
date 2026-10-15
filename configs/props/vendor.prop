@@ -3,16 +3,10 @@
 # Display
 ro.sf.lcd_density=480
 
-# Display enhancement (PQ). hwcomposer blocks every present on
-# IEnhance::getService(), so the enhance HAL must come up or nothing ever
-# reaches the screen (bootanimation freezes on its first frame and the
-# watchdog kills system_server in DisplayManagerService). The stock
-# enhance.ums9230.so segfaults in VersionXmlParser::enhanceFileCheck when
-# the panel has no lcd_<panel>_<module>.xml and it falls back to the
-# default <module>.xml (it then parses a NULL path). This is a bitmask of
-# disabled modules (0x1 ColorManager, next Sunlight, ...); disable them
-# all so the HAL registers without touching the XMLs.
-persist.vendor.pq.disable=0xff
+# Display enhancement (PQ). hwcomposer waits for the enhance HAL on every
+# present, so it must come up. It used to crash parsing its XML configs
+# with Android 16's tinyxml2 (see compat/libtxml2v31); with the VNDK v31
+# one it runs with all modules enabled, like stock.
 
 # USB: device-mode controller (MUSB). init.ums9230_nico.usb.rc and the
 # recovery USB setup write it to the gadget's UDC; without it neither adb
