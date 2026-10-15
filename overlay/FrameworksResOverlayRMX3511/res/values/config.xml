@@ -244,6 +244,12 @@
         <item>440</item>
     </integer-array>
 
+    <!-- Display cutout: the waterdrop notch, from stock framework-res
+         (pixels, top centre). Stock has no rounded corner radius. -->
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">M -38,0 L -38,64 L 38,64 L 38,0 Z</string>
+    <string name="config_mainBuiltInDisplayCutoutRectApproximation" translatable="false">@string/config_mainBuiltInDisplayCutout</string>
+    <bool name="config_fillMainBuiltInDisplayCutout">false</bool>
+
     <!-- Display: 60 Hz panel -->
     <integer name="config_defaultPeakRefreshRate">60</integer>
     <integer name="config_defaultRefreshRateInZone">60</integer>
