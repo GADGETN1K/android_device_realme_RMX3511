@@ -287,12 +287,19 @@
          HIDL sensor is reported as a rear one. -->
     <bool name="config_is_powerbutton_fps">true</bool>
     <!-- Where the side sensor is, in pixels in natural orientation, for the
-         sensor indicator and the unlock animation: "displayId,x,y,radius"
-         (empty displayId = default display). Measured with pointer location:
-         the button spans y 955-1126 at the right edge. -->
-    <string-array name="config_sfps_sensor_props" translatable="false">
-        <item>,1080,1040,86</item>
-    </string-array>
+         sensor indicator and the unlock animation. Each entry points to an
+         array of display unique id (empty = default display), x, y, radius.
+         Measured with pointer location: the button spans y 955-1126 at the
+         right edge. -->
+    <array name="config_sfps_sensor_props" translatable="false">
+        <item>@array/config_sfps_sensor_location_default</item>
+    </array>
+    <array name="config_sfps_sensor_location_default" translatable="false">
+        <item></item>
+        <item>1080</item>
+        <item>1040</item>
+        <item>86</item>
+    </array>
     <string-array name="config_biometric_sensors" translatable="false">
         <item>0:2:15</item>
     </string-array>
