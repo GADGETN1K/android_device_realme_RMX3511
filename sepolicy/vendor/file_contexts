@@ -156,7 +156,6 @@
 /data/userinfo(/.*)? u:object_r:userinfo_file:s0
 /file_contexts.bin      u:object_r:rootfs:s0
 /data/oppo/log(/.*)? u:object_r:log_reboot_file:s0
-/data/nandswap(/.*)?  u:object_r:nandswap_file:s0
 /mnt/vendor/wcn(/.*)?    u:object_r:cali_save_file:s0
 /dev/block/loop[0-28]*   u:object_r:loop_device:s0
 /persist/silead(/.*)? u:object_r:silead_fpd_data_file:s0
@@ -167,10 +166,8 @@
 /mnt/vendor/odmko(/.*)?      u:object_r:vendor_file:s0
 /data/vendor/mcue(/.*)?       u:object_r:vce_data_file:s0
 /data/vendor/gnss(/.*)? u:object_r:gnss_file:s0
-/data/misc/dhcp6c(/.*)? u:object_r:dhcp6c_data_file:s0
 /data/vendor/mlog(/.*)? u:object_r:mlog_file:s0
 /dev/block/mmcblk[0-3]     u:object_r:sdcard_device:s0
-/product/bin/init.oplus.nandswap.sh  u:object_r:nandswap_exec:s0
 /data/vendor/ylog(/.*)?   u:object_r:slogmodem_vendor_data:s0
 /vendor/preloadapp(/.*)?   u:object_r:vendor_app_file:s0
 /dev/block/mmcblk0p[0-9]* u:object_r:mmcblk_device:s0
@@ -325,7 +322,6 @@
 /vendor/bin/execns           u:object_r:execns_exec:s0
 /vendor/bin/netmgr           u:object_r:netmgr_exec:s0
 /dev/socket/embmsd       u:object_r:embmsd_socket:s0
-/system/bin/dhcp6c      u:object_r:dhcp6c_exec:s0
 /dev/wcn_gnss_dump       u:object_r:slog_device:s0
 /dev/sprd_rotation            u:object_r:camera_device:s0
 /dev/audio_dsp_log u:object_r:audio_device:s0
