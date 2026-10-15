@@ -8,7 +8,7 @@ Regenerate:
 
     D=<stock dump>/vendor/etc/selinux
     O=out/target/product/RMX3511/vendor/etc/selinux   # our last build
-    python3 tools/selinux/cil2te.py $D/vendor_sepolicy.cil $O/plat_pub_versioned.cil $O/vendor_sepolicy.cil /tmp/gen
+    python3 tools/selinux/cil2te.py $D/vendor_sepolicy.cil $O/plat_pub_versioned.cil $O/vendor_sepolicy.cil /tmp/gen system/sepolicy/private/genfs_contexts device/lineage/sepolicy/common/private/genfs_contexts
     for f in file property hwservice; do
         python3 tools/selinux/ctx.py $D/vendor_${f}_contexts $O/vendor_${f}_contexts /tmp/gen/stock_vendor.te /tmp/gen/${f}_contexts
     done

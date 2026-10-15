@@ -1,8 +1,10 @@
 """Turn the stock (platform 31.0) vendor_sepolicy.cil into .te statements for
 the types the stock vendor adds on top of AOSP. Usage:
-  cil2te.py stock_vendor.cil our_plat_pub_versioned.cil our_vendor.cil outdir"""
+  cil2te.py stock_vendor.cil our_plat_pub_versioned.cil our_vendor.cil outdir [plat genfs_contexts...]"""
 import re, sys, os, collections
 stock, ourpub, ourven, out = sys.argv[1:5]
+# Optional: platform genfs_contexts files whose paths must not be relabelled
+plat_genfs = sys.argv[5:]
 
 def sexps(text):
     # top-level S-expressions -> nested lists of str
@@ -123,11 +125,18 @@ for k in sorted(te):
     body.append('\n'.join(seen))
 with open(os.path.join(out,'stock_vendor.te'),'w') as f: f.write(hdr+'\n\n'.join(body)+'\n')
 # genfs
+taken=set()
+for s in V:
+    if s and s[0]=='genfscon': taken.add((s[1],s[2].strip('"')))
+for f in plat_genfs:
+    for l in open(f):
+        w=l.split()
+        if len(w)>=4 and w[0]=='genfscon': taken.add((w[1],w[2]))
 g=[]
 for s in S:
     if s and s[0]=='genfscon':
         fs,path,ctx=s[1],s[2],s[3]; t=m(ctx[2])
-        if t and t in new_types: g.append('genfscon %s %s u:object_r:%s:s0'%(fs,path.strip('"'),t))
+        if t and t in known and t not in new_attrs and (fs,path.strip('"')) not in taken: taken.add((fs,path.strip('"'))); g.append('genfscon %s %s u:object_r:%s:s0'%(fs,path.strip('"'),t))
 with open(os.path.join(out,'genfs_contexts'),'w') as f: f.write(hdr+'\n'.join(g)+'\n')
 open(os.path.join(out,'.known_types'),'w').write('\n'.join(sorted(known))+'\n')
 print('excluded system-side',sorted(excluded))
