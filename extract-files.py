@@ -97,6 +97,29 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/libunnengine.so',
         'vendor/lib64/libunnengine.so',
     ): blob_fixup().replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_rmx3511.so'),
+    # Built against tinyxml2 from VNDK v31; today's libtinyxml2 has a
+    # different ABI. See compat/libtxml2v31.
+    (
+        'vendor/bin/thermald',
+        'vendor/bin/hw/vendor.sprd.hardware.cplog_svc@1.0-service',
+        'vendor/bin/enhance_test',
+        'vendor/lib64/libril-private.so',
+        'vendor/lib64/camera.device@3.4-external-impl-sprd.so',
+        'vendor/lib64/camera.device@3.5-external-impl-sprd.so',
+        'vendor/lib64/libimpl-ril.so',
+        'vendor/lib64/hw/enhance.ums9230.so',
+        'vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-sprd.so',
+        'vendor/lib64/camera.device@3.6-external-impl-sprd.so',
+        'vendor/lib64/android.hardware.camera.provider@2.4-external-sprd.so',
+        'vendor/lib/libril-private.so',
+        'vendor/lib/camera.device@3.4-external-impl-sprd.so',
+        'vendor/lib/camera.device@3.5-external-impl-sprd.so',
+        'vendor/lib/libimpl-ril.so',
+        'vendor/lib/hw/enhance.ums9230.so',
+        'vendor/lib/hw/android.hardware.camera.provider@2.4-impl-sprd.so',
+        'vendor/lib/camera.device@3.6-external-impl-sprd.so',
+        'vendor/lib/android.hardware.camera.provider@2.4-external-sprd.so',
+    ): blob_fixup().replace_needed('libtinyxml2.so', 'libtxml2v31.so'),
     # S camera and HWC HALs use the old GraphicBufferMapper lock/unlock
     # signatures; hardware/lineage/compat libui_shim provides them.
     (

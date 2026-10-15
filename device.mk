@@ -44,6 +44,7 @@ PRODUCT_PACKAGES += \
     libaeabi_shim_rmx3511 \
     libbase_shim \
     libbase_shim_rmx3511 \
+    libtxml2v31 \
     libui_shim
 
 # Virtual A/B — stock: ro.virtual_ab.enabled=true, ro.virtual_ab.compression.enabled=true

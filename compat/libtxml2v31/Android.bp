@@ -1,0 +1,32 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+// The stock (Android 12) blobs were built against tinyxml2 from VNDK v31.
+// Android 16 has no VNDK, so they got today's libtinyxml2, whose class
+// layouts differ: every stock XML parser corrupted memory (urild in
+// processOperatorName, thermald, cplog_svc, the enhance HAL). These are
+// prebuilts/vndk/v31 libtinyxml2.so with the SONAME renamed in place to
+// libtxml2v31.so (same length), so both can be loaded side by side; the
+// stock blobs are pointed at it in extract-files.py.
+
+cc_prebuilt_library_shared {
+    name: "libtxml2v31",
+    vendor: true,
+    compile_multilib: "both",
+    arch: {
+        arm: {
+            srcs: ["arm/libtxml2v31.so"],
+        },
+        arm64: {
+            srcs: ["arm64/libtxml2v31.so"],
+        },
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+    ],
+    strip: {
+        none: true,
+    },
+}
