@@ -286,6 +286,13 @@
          It sits in the power button on the right side; without this the
          HIDL sensor is reported as a rear one. -->
     <bool name="config_is_powerbutton_fps">true</bool>
+    <!-- Where the side sensor is, in pixels in natural orientation, for the
+         sensor indicator and the unlock animation: "displayId,x,y,radius"
+         (empty displayId = default display). Measured with pointer location:
+         the button spans y 955-1126 at the right edge. -->
+    <string-array name="config_sfps_sensor_props" translatable="false">
+        <item>,1080,1040,86</item>
+    </string-array>
     <string-array name="config_biometric_sensors" translatable="false">
         <item>0:2:15</item>
     </string-array>
