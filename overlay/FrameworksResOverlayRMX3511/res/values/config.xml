@@ -295,6 +295,15 @@
          right edge. -->
     <array name="config_sfps_sensor_props" translatable="false">
         <item>@array/config_sfps_sensor_location_default</item>
+        <item>@array/config_sfps_sensor_location_local0</item>
+    </array>
+    <!-- The same location keyed by the built-in display's unique id, for
+         lookups that don't fall back to the default entry. -->
+    <array name="config_sfps_sensor_location_local0" translatable="false">
+        <item>local:0</item>
+        <item>1080</item>
+        <item>1040</item>
+        <item>86</item>
     </array>
     <array name="config_sfps_sensor_location_default" translatable="false">
         <item></item>
