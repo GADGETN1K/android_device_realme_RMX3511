@@ -136,3 +136,6 @@ vendor.flag.sys.5gusb.config            u:object_r:vendor_engpc_prop:s0
 persist.vendor.exit.activity            u:object_r:vendor_engpc_prop:s0
 persist.vendor.nhmonitor   u:object_r:vendor_nhmonitor_prop:s0
 persist.vendor.nfc.            u:object_r:vendor_nfc_prop:s0
+
+# Hand-written (not generated)
+odm.ril.    u:object_r:vendor_radio_prop:s0

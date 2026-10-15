@@ -37,3 +37,50 @@ allow hal_enhance_default prod_file:file rw_file_perms;
 
 # Boot control / misc readers: the misc partition
 allow { hal_bootctl_default } misc_block_device:blk_file rw_file_perms;
+
+# --- round 2 ---
+
+# Health: the SGM4154x charger's power_supply node
+# (labelled sysfs_batteryinfo in genfs_contexts)
+
+# Power HAL (stock Unisoc): CPU frequency floors, VM watermarks, uclamp
+allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
+allow hal_power_default proc_watermark_scale_factor:file rw_file_perms;
+allow hal_power_default cgroup:file r_file_perms;
+
+# RIL: also serves android.hardware.secure_element (SIM1/SIM2)
+hal_server_domain(rild, hal_secure_element)
+get_prop(rild, vendor_radio_dataonly_prop)
+set_prop(rild, vendor_radio_prop)
+allow rild proc_cmdline:file r_file_perms;
+
+# Fingerprint
+set_prop(hal_fingerprint_default, vendor_sys_prop)
+type proc_fp_id, fs_type, proc_type;
+allow hal_fingerprint_default proc_fp_id:file r_file_perms;
+
+# Composer
+get_prop(hal_graphics_composer_default, graphics_config_writable_prop)
+get_prop(hal_graphics_composer_default, boot_status_prop)
+
+# Camera: sensor name node
+allow hal_camera_default sysfs_sensor:file rw_file_perms;
+
+# Lights also toggles the touch panel suspend node
+# (ts_suspend is labelled sysfs_leds in genfs_contexts)
+
+# refnotify reads the backlight level
+allow refnotify sysfs_leds:dir search;
+allow refnotify sysfs_leds:file r_file_perms;
+
+# Audio HAL
+allow hal_audio_default mnt_vendor_file:dir search;
+
+# Unisoc storage proxy (tee domain)
+allow tee self:capability { setuid setgid sys_rawio };
+allow tee block_device:dir search;
+
+# Module loading flags
+set_prop(vendor_init, vendor_device_prop)
+set_prop(vendor_modprobe, vendor_device_prop)
+set_prop(vendor_init, vendor_display_prop)
