@@ -1,0 +1,59 @@
+From cd20ecb0aa063c5db4d6f7e086579b8c0d57daf6 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 15 Oct 2026 18:44:20 +0300
+Subject: [PATCH] PhoneSwitcher: Only fall back to ALLOW_DATA once the radio is
+ on
+
+setPreferredDataModem can fail with RADIO_NOT_AVAILABLE simply because
+the modem is not up yet. On Unisoc (realme C35) the first DDS request
+after boot races the modem, PhoneSwitcher drops to ALLOW_DATA, which
+the RIL does not implement, and data on SIM 2 never comes up until the
+next EVENT_RADIO_ON happens to reset the HAL command.
+
+Treat RADIO_NOT_AVAILABLE as a reason to fall back only when the radio
+is already on; otherwise retry with the preferred data modem command.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01WBs6XUfh1pxQ1q9QJe6TLW
+---
+ .../internal/telephony/data/PhoneSwitcher.java       | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/src/java/com/android/internal/telephony/data/PhoneSwitcher.java b/src/java/com/android/internal/telephony/data/PhoneSwitcher.java
+index f81b594..dfe60ce 100644
+--- a/src/java/com/android/internal/telephony/data/PhoneSwitcher.java
++++ b/src/java/com/android/internal/telephony/data/PhoneSwitcher.java
+@@ -1835,12 +1835,16 @@ public class PhoneSwitcher extends Handler {
+                     hold the retry until sim gets ready */
+                     logl("onDdsSwitchResponse: Wait for SIM to get READY");
+                     return;
+-                } else if (error == CommandException.Error.RADIO_NOT_AVAILABLE) {
++                } else if (error == CommandException.Error.RADIO_NOT_AVAILABLE
++                        && isRadioOn(phoneId)) {
+                     logl("onDdsSwitchResponse: Falling back to HAL_COMMAND_ALLOW_DATA");
+                     mHalCommandToUse = HAL_COMMAND_ALLOW_DATA;
+                     sendRilCommands(phoneId);
+                     return;
+                 }
++                // RADIO_NOT_AVAILABLE before the radio is on only means the modem is
++                // not up yet (e.g. right after boot): keep the preferred data modem
++                // command and retry instead of switching to ALLOW_DATA for good.
+             }
+             logl("onDdsSwitchResponse: Scheduling DDS switch retry");
+             sendMessageDelayed(Message.obtain(this, EVENT_MODEM_COMMAND_RETRY,
+@@ -1860,6 +1864,12 @@ public class PhoneSwitcher extends Handler {
+                 () -> callback.onPreferredDataPhoneIdChanged(phoneId)));
+     }
+ 
++    private boolean isRadioOn(int phoneId) {
++        Phone phone = PhoneFactory.getPhone(phoneId);
++        return phone != null
++                && phone.mCi.getRadioState() == TelephonyManager.RADIO_POWER_ON;
++    }
++
+     private boolean isPhoneIdValidForRetry(int phoneId) {
+         int ddsPhoneId = mSubscriptionManagerService.getPhoneId(
+                 mSubscriptionManagerService.getDefaultDataSubId());
+-- 
+2.43.0
+
