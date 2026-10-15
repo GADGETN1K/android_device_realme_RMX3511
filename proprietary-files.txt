@@ -1393,6 +1393,15 @@ vendor/usr/keylayout/adaptive_ts.kl
 vendor/usr/keylayout/gpio-keys.kl
 vendor/usr/keylayout/madev.kl
 
+# Data: ext_data configures the seth_lte* interface after each data call
+# (RIL sends it preifup/ifup/ifdown and PS data off commands)
+system_ext/bin/ext_data
+system_ext/bin/ext_data_init_values.sh
+system_ext/etc/init/ext_data.rc
+system_ext/etc/init/ext_data_init_values.rc
+system_ext/lib64/libimsbrd.so
+system_ext/lib64/libsrmi.so
+
 # KeyMint stack from stock (S). Renamed (file + soname) so it can live next to
 # the lineage-23.2 vendor variants; dependents are patched in extract-files.py
 vendor/lib64/lib_android_keymaster_keymint_utils.so:vendor/lib64/lib_android_keymaster_keymint_utils_rmx3511.so;FIX_SONAME

@@ -121,7 +121,7 @@ vendor/lib64/android.hardware.health@2.0.so
 vendor/lib64/android.hardware.health@2.1.so
 vendor/lib64/hw/android.hardware.health@2.0-impl-2.1.so
 
-## system_ext/framework: later (IMS etc.) (327)
+## system_ext/framework: later (IMS etc.) (321)
 system_ext/lib/vendor.sprd.hardware.gnss@1.0.so
 system_ext/lib/vendor.sprd.hardware.gnss@2.1.so
 system_ext/lib/vendor.sprd.hardware.gnss@2.2.so
@@ -164,8 +164,6 @@ system_ext/bin/bugreport.sh
 system_ext/bin/cmd_services
 system_ext/bin/dataLogDaemon
 system_ext/bin/data_rps.sh
-system_ext/bin/ext_data
-system_ext/bin/ext_data_init_values.sh
 system_ext/bin/fwkreboot.sh
 system_ext/bin/hcidump
 system_ext/bin/ims_bridged
@@ -228,8 +226,6 @@ system_ext/etc/init/autotest_system.rc
 system_ext/etc/init/cmd_services.rc
 system_ext/etc/init/dataLogDaemon.rc
 system_ext/etc/init/data_rps.rc
-system_ext/etc/init/ext_data.rc
-system_ext/etc/init/ext_data_init_values.rc
 system_ext/etc/init/ims_bridged.rc
 system_ext/etc/init/init_gms.rc
 system_ext/etc/init/ip_monitor.rc
@@ -364,7 +360,6 @@ system_ext/lib64/libChargingEffectsEngine.so
 system_ext/lib64/libfaceverify.so
 system_ext/lib64/libhdrtosdrtransform.so
 system_ext/lib64/libIDHelper.so
-system_ext/lib64/libimsbrd.so
 system_ext/lib64/libjni_filtercapture_dream.so
 system_ext/lib64/libjni_mosaic_capture.so
 system_ext/lib64/libjni_mosaic_preview.so
@@ -387,7 +382,6 @@ system_ext/lib64/libsprdpcmdump.so
 system_ext/lib64/libsqlite3ext.so
 system_ext/lib64/libsqlite3x.so
 system_ext/lib64/libSrLiteXNNC.so
-system_ext/lib64/libsrmi.so
 system_ext/lib64/libsrmi_jni.so
 system_ext/lib64/libtensorflowlite_jni_prebuilt.so
 system_ext/lib64/libtextclassifier_hash_prebuilt.so

@@ -1,0 +1,5 @@
+# Unisoc ext_data: brings up seth_lte* for the RIL after a data call
+type ext_data, domain, coredomain;
+type ext_data_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(ext_data)

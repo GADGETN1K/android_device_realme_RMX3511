@@ -1,0 +1,2 @@
+/system_ext/bin/ext_data                    u:object_r:ext_data_exec:s0
+/system_ext/bin/ext_data_init_values\.sh    u:object_r:ext_data_exec:s0
