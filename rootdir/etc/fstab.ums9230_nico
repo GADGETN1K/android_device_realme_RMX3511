@@ -3,8 +3,11 @@
 # + system/etc/recovery.fstab). Dynamic partitions are erofs on stock; ext4
 # lines are kept as fallback so either filesystem can be built.
 #
-# DEBUG (temporary, bring-up only): no avb flags on the dynamic partitions,
-# so no dm-verity until the hashtree mismatch on /system is understood.
+# No avb flags on the dynamic partitions, so no dm-verity on them, on
+# purpose: system/system_ext/product are ext4 so GApps and other add-ons can
+# be flashed on top, which dm-verity would reject. The bootloader only takes
+# the stock (Unisoc-signed) vbmeta, whose flags we can't change to disable
+# verity there, so it is done here instead.
 #
 # <src>                    <mnt_point>       <type> <mnt_flags and options>                                     <fs_mgr_flags>
 system                     /system           erofs  ro                                                          wait,logical,first_stage_mount,slotselect
