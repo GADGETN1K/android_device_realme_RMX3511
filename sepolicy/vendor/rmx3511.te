@@ -43,10 +43,32 @@ allow { hal_bootctl_default } misc_block_device:blk_file rw_file_perms;
 # Health: the SGM4154x charger's power_supply node
 # (labelled sysfs_batteryinfo in genfs_contexts)
 
-# Power HAL (stock Unisoc): CPU frequency floors, VM watermarks, uclamp
+# Power HAL (libperfmgr, configs/power/powerhint.json): cpufreq min/max,
+# top-app uclamp, the GPU devfreq floor and the DDR scene "boost" vote.
+# device/lineage/sepolicy/libperfmgr isn't used: it declares
+# vendor_power_prop, which the stock policy already has.
 allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
-allow hal_power_default proc_watermark_scale_factor:file rw_file_perms;
-allow hal_power_default cgroup:file r_file_perms;
+allow hal_power_default cgroup:dir search;
+allow hal_power_default cgroup:file rw_file_perms;
+allow hal_power_default sysfs_gpu:dir search;
+allow hal_power_default sysfs_gpu:file rw_file_perms;
+allow hal_power_default sysfs_ddr_dfs:dir search;
+allow hal_power_default sysfs_ddr_dfs:file rw_file_perms;
+set_prop(hal_power_default, vendor_power_prop)
+# ADPF sets the scheduling policy and uclamp of the session threads, and the
+# HAL listens to the thermal HAL's throttling status.
+allow hal_power_default self:capability sys_nice;
+# ADPF applies uclamp.min to the threads of the apps (and SurfaceFlinger /
+# system_server) that open hint sessions, through sched_setattr().
+allow hal_power_default { appdomain -isolated_app_all system_server surfaceflinger }:process setsched;
+# App processes run at MLS levels with categories (s0:c512,c768), and
+# setsched across levels is MLS-constrained, so the type rule alone still
+# gets denied. Pixel's power HAL policy does the same.
+typeattribute hal_power_default mlstrustedsubject;
+hal_client_domain(hal_power_default, hal_thermal)
+# MetricUploader looks for statsd's IStats; the uploads are Pixel-only.
+dontaudit hal_power_default fwk_stats_service:service_manager find;
+set_prop(vendor_init, vendor_power_prop)
 
 # RIL: also serves android.hardware.secure_element (SIM1/SIM2)
 hal_server_domain(rild, hal_secure_element)

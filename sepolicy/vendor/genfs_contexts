@@ -269,3 +269,4 @@ genfscon sysfs /devices/platform/soc/soc:aon/64200000.spi/spi_master/spi4/spi4.0
 genfscon sysfs /devices/platform/nico_fp_common/fp_suspend                                            u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/sprd-sensorhub                                                       u:object_r:sysfs_sensor:s0
 genfscon sysfs /bus/iio/devices                                                                       u:object_r:sysfs_sensor:s0
+genfscon sysfs /devices/platform/soc/soc:mm/23100000.gpu/devfreq u:object_r:sysfs_gpu:s0

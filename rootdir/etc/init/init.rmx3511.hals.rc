@@ -83,3 +83,8 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     group system wifi inet
     disabled
     oneshot
+
+# Power HAL (libperfmgr): start processing hints once boot is done, like
+# Pixel and Lineage devices do.
+on property:sys.boot_completed=1
+    setprop vendor.powerhal.init 1

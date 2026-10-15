@@ -269,10 +269,9 @@ vendor/bin/hw/vendor.sprd.hardware.performance@1.0-service
 vendor/etc/init/vendor.sprd.hardware.performance@1.0-service.rc
 vendor/lib64/vendor.sprd.hardware.performance@1.0.so
 
-# Power-Hardware
-vendor/bin/hw/vendor.unisoc.hardware.power-service
-vendor/etc/init/vendor-power-default.rc
-vendor/etc/vintf/manifest/vendor-power-default.xml
+# Power-Hardware. The stock service (vendor.unisoc.hardware.power-service,
+# its rc and VINTF fragment) is replaced by libperfmgr, see device.mk; the
+# interface libraries stay for blobs that link them.
 vendor/lib/vendor.unisoc.hardware.power-V1-ndk_platform.so
 vendor/lib64/vendor.unisoc.hardware.power-V1-ndk_platform.so
 

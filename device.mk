@@ -89,6 +89,21 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.example \
     android.hardware.health-service.example_recovery
 
+# Power — Pixel libperfmgr (Lineage flavour) instead of the stock
+# vendor.unisoc.hardware.power-service. configs/power/powerhint.json is
+# written from the stock power_scene_config.xml / power_resource_file_info.xml:
+# the same CPU floors, top-app uclamp and DDR "boost" vote, plus ADPF.
+PRODUCT_PACKAGES += \
+    android.hardware.power-service.lineage-libperfmgr
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr
+
 # Audio — generic modules from source; primary/bluetooth stay stock
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
