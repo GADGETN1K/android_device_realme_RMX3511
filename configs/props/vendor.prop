@@ -23,6 +23,10 @@ sys.usb.controller=musb-hdrc.1.auto
 # sets up the configfs gadget when this is 1.
 sys.usb.configfs=1
 
+# Bluetooth: the Unisoc HCI HAL aborts ("No Bluetooth Address!") unless it
+# can read the address from here (stock vendor/build.prop).
+ro.bt.bdaddr_path=/data/vendor/bluetooth/btmac.txt
+
 # Radio / modem (from stock vendor/build.prop). Dual SIM, LTE modem "l".
 persist.radio.multisim.config=dsds
 persist.vendor.radio.phone_count=2
