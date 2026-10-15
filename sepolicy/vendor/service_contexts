@@ -1,0 +1,22 @@
+# Generated from the stock RMX3511 vendor policy by tools/selinux/ctx.py.
+vendor.unisoc.hardware.radio.modem.IExtRadioModem/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.modem.IExtRadioModem/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.sim.IExtRadioSim/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.sim.IExtRadioSim/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.network.IExtRadioNetwork/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.network.IExtRadioNetwork/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.data.IExtRadioData/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.data.IExtRadioData/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.voice.IExtRadioVoice/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.voice.IExtRadioVoice/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.messaging.IExtRadioMessaging/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.messaging.IExtRadioMessaging/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.ims.IImsRadio/slot1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.ims.IImsRadio/slot2      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.lite.ILiteRadio/liteservice1      u:object_r:ext_radio_service:s0
+vendor.unisoc.hardware.radio.lite.ILiteRadio/liteservice2      u:object_r:ext_radio_service:s0
+engineer                                   u:object_r:engineer_service:s0
+secrecy                                    u:object_r:engineer_service:s0
+vendor.sprd.hardware.log.ILogControl/default     u:object_r:hal_logaidl_service:s0
+vendor.sprd.hardware.cplog_svc.ILogTransportInductor/default     u:object_r:hal_cplog_svcaidl_service:s0
+vendor.sprd.hardware.cplog_svc.ISysLogControl/default     u:object_r:hal_cplog_svcaidl_service:s0

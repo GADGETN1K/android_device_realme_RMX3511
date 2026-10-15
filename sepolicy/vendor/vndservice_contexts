@@ -1,0 +1,4 @@
+# Generated from the stock RMX3511 vendor policy by tools/selinux/ctx.py.
+manager                 u:object_r:service_manager_vndservice:s0
+*                       u:object_r:default_android_vndservice:s0
+android.IRemosaicDaemon u:object_r:remosaic_daemon_service:s0
