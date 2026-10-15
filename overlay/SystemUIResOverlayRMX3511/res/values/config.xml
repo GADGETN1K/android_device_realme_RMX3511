@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Show the side fingerprint sensor indicator (the arrow at the power
+         button) on the keyguard bouncer too, not only in BiometricPrompt and
+         enrollment. -->
+    <bool name="config_show_sidefps_hint_on_bouncer">true</bool>
+</resources>
