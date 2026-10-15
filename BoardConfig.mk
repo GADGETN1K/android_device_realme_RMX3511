@@ -120,8 +120,8 @@ BOOT_KERNEL_MODULES := $(sort \
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     $(strip $(shell cat $(DEVICE_PATH)/modules.load 2>/dev/null))
 
-# Wi-Fi — Marlin3 (sc2355) cfg80211 driver, plain nl80211
-BOARD_WLAN_DEVICE := sprdwl
+# Wi-Fi — Marlin3 (sc2355) cfg80211 driver, plain nl80211. No
+# BOARD_WLAN_DEVICE: the Wi-Fi HAL is stock, nothing from source needs it.
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 WPA_SUPPLICANT_VERSION := VER_0_8_X
