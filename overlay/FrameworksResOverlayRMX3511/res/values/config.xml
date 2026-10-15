@@ -13,6 +13,8 @@
          backlight stays on at doze brightness). Stock doze level is 2030 on
          the 0-4095 scale, i.e. 137 of our 0-255. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+    <!-- AOSP leaves this empty, which makes doze, and so AOD, unavailable -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
     <integer name="config_screenBrightnessDoze">137</integer>
     <bool name="config_dozePulsePickup">true</bool>
 
