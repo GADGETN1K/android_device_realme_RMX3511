@@ -69,9 +69,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 # Stock vendor_boot cmdline, minus buildvariant=user (stock build scripts'
 # leftover, nothing reads it)
 BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
-# TODO(sepolicy): drop once the device sepolicy covers the stock Unisoc HALs.
-# Only honoured on userdebug/eng builds.
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 BOARD_RAMDISK_USE_LZ4 := true
 
