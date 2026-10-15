@@ -13,4 +13,11 @@
     <dimen name="status_bar_left_clock_starting_padding">0dp</dimen>
     <dimen name="status_bar_left_clock_end_padding">2dp</dimen>
     <dimen name="ongoing_appops_dot_diameter">6dp</dimen>
+
+    <!-- Side fingerprint sensor in the power button, in pixels in natural
+         orientation (same spot as config_sfps_sensor_props in framework-res).
+         AuthController uses these for non-UDFPS sensors, e.g. for the unlock
+         ripple; the defaults put it in the middle of the screen. -->
+    <dimen name="physical_fingerprint_sensor_center_screen_location_x">1080px</dimen>
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">1040px</dimen>
 </resources>
