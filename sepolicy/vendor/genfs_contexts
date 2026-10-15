@@ -265,3 +265,7 @@ genfscon sysfs /devices/platform/soc/soc:aon/64200000.spi/spi_master/spi4/spi4.0
 genfscon sysfs /devices/platform/soc/soc:ap-apb/20150000.spi/spi_master/spi3/spi3.0/ts_suspend       u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/virtual/misc/sprd_sensor                                                      u:object_r:sysfs_sensor:s0
 genfscon proc /fp_id                                                                                  u:object_r:proc_fp_id:s0
+genfscon sysfs /devices/platform/soc/soc:aon/64200000.spi/spi_master/spi4/spi4.0/64200000.spi:pmic@0:fchg@400/power_supply u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/platform/nico_fp_common/fp_suspend                                            u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/sprd-sensorhub                                                       u:object_r:sysfs_sensor:s0
+genfscon sysfs /bus/iio/devices                                                                       u:object_r:sysfs_sensor:s0
