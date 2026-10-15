@@ -118,3 +118,11 @@ allow hal_fingerprint_default silead_fpd_data_file:dir rmdir;
 dontaudit { appdomain bootanim surfaceflinger audioserver mediaswcodec mediaserver } vendor_default_prop:file r_file_perms;
 dontaudit mediaserver vendor_sys_prop:file r_file_perms;
 dontaudit init domain:process noatsecure;
+
+# --- enforcing, round 1 ---
+
+# Camera HAL face-detect reads its tuning prop
+get_prop(hal_camera_default, vendor_fdtop_prop)
+
+# Harmless on this kernel: dmabuf fs is unlabelled, surfaceflinger only stats it
+dontaudit surfaceflinger unlabeled:filesystem getattr;
