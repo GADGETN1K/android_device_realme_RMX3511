@@ -327,6 +327,144 @@
             "Node": "CPULittleClusterMinFreq",
             "Duration": 0,
             "Value": "1228800"
+        },
+        {
+            "PowerHint": "SCENE_camera_perf",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_camera_perf",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 0,
+            "Value": "1950000"
+        },
+        {
+            "PowerHint": "SCENE_camera_high_perf",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_camera_high_perf",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 0,
+            "Value": "1950000"
+        },
+        {
+            "PowerHint": "SCENE_video_60fps",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_video_60fps",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 0,
+            "Value": "1950000"
+        },
+        {
+            "PowerHint": "SCENE_video_60fps",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_ddr",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_screen_rotation",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_fixed_performance",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_performance",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_performance",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_performance_gts",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_performance_gts",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_performance_cts",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_performance_cts",
+            "Node": "DDRBoost",
+            "Duration": 0,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_radio_nviot",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_launch",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 5000,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_launch",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 5000,
+            "Value": "1950000"
+        },
+        {
+            "PowerHint": "SCENE_launch",
+            "Node": "DDRBoost",
+            "Duration": 5000,
+            "Value": "1 0"
+        },
+        {
+            "PowerHint": "SCENE_interaction_launch",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 5000,
+            "Value": "1820000"
+        },
+        {
+            "PowerHint": "SCENE_interaction_launch",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 5000,
+            "Value": "1950000"
+        },
+        {
+            "PowerHint": "SCENE_interaction_launch",
+            "Node": "DDRBoost",
+            "Duration": 5000,
+            "Value": "1 0"
         }
     ],
     "AdpfConfig": [

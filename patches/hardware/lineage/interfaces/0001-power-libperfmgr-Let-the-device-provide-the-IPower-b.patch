@@ -1,0 +1,62 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 16 Oct 2026 00:59:15 +0300
+Subject: [PATCH] power-libperfmgr: Let the device provide the IPower binder
+ extension
+
+Some vendors' blobs look up their own interface as the extension of the
+IPower binder (Unisoc's libpowerhal_cli gets IVendorPower through
+AIBinder_getExtension). Add a weak createDeviceSpecificExtension() that a
+device's mode_extension_lib can override; when it returns a binder, that
+is attached instead of the Pixel IPowerExt. Without an override nothing
+changes.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01WBs6XUfh1pxQ1q9QJe6TLW
+---
+ power-libperfmgr/aidl/service.cpp | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+
+diff --git a/power-libperfmgr/aidl/service.cpp b/power-libperfmgr/aidl/service.cpp
+index 535911c..bf4abbe 100644
+--- a/power-libperfmgr/aidl/service.cpp
++++ b/power-libperfmgr/aidl/service.cpp
+@@ -39,6 +39,16 @@ using ::android::perfmgr::HintManager;
+ 
+ constexpr std::string_view kPowerHalInitProp("vendor.powerhal.init");
+ 
++namespace aidl::google::hardware::power::impl::pixel {
++// A device's mode_extension_lib can define this to serve its own binder
++// extension of IPower (e.g. a vendor interface its blobs look up through
++// AIBinder_getExtension) in place of the Pixel IPowerExt.
++__attribute__((weak)) ndk::SpAIBinder createDeviceSpecificExtension() {
++    return ndk::SpAIBinder();
++}
++}  // namespace aidl::google::hardware::power::impl::pixel
++using aidl::google::hardware::power::impl::pixel::createDeviceSpecificExtension;
++
+ int main() {
+     android::base::SetDefaultTag(LOG_TAG);
+     android::base::SetMinimumLogSeverity(android::base::INFO);
+@@ -58,11 +68,16 @@ int main() {
+ 
+     // extension service
+     std::shared_ptr<PowerExt> pwExt = ndk::SharedRefBase::make<PowerExt>();
+-    auto pwExtBinder = pwExt->asBinder();
++    ndk::SpAIBinder pwExtBinder = createDeviceSpecificExtension();
++    if (pwExtBinder.get() == nullptr) {
++        pwExtBinder = pwExt->asBinder();
++    } else {
++        LOG(INFO) << "Using the device-specific IPower extension";
++    }
+     AIBinder_setMinSchedulerPolicy(pwExtBinder.get(), SCHED_NORMAL, -20);
+ 
+     // attach the extension to the same binder we will be registering
+-    CHECK(STATUS_OK == AIBinder_setExtension(pwBinder.get(), pwExt->asBinder().get()));
++    CHECK(STATUS_OK == AIBinder_setExtension(pwBinder.get(), pwExtBinder.get()));
+ 
+     const std::string instance = std::string() + Power::descriptor + "/default";
+     binder_status_t status = AServiceManager_addService(pw->asBinder().get(), instance.c_str());
+-- 
+2.43.0
+

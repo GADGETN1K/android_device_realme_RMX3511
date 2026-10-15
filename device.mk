@@ -93,6 +93,10 @@ PRODUCT_PACKAGES += \
 # vendor.unisoc.hardware.power-service. configs/power/powerhint.json is
 # written from the stock power_scene_config.xml / power_resource_file_info.xml:
 # the same CPU floors, top-app uclamp and DDR "boost" vote, plus ADPF.
+# power/ (libperfmgr-ext-rmx3511) serves Unisoc's IVendorPower as the IPower
+# binder extension: hwcomposer, camera, codec2, RIL and audio reach the power
+# HAL only through it (libpowerhal_cli), and their scenes map to the
+# SCENE_<name> hints in powerhint.json.
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr
 
@@ -100,9 +104,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)/power \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/lineage/interfaces/power-libperfmgr
+
+$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH)/power:libperfmgr-ext-rmx3511)
 
 # Audio — generic modules from source; primary/bluetooth stay stock
 PRODUCT_PACKAGES += \

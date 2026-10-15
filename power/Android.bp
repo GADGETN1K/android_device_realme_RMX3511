@@ -1,0 +1,66 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Device extension for android.hardware.power-service.lineage-libperfmgr:
+// serves Unisoc's IVendorPower (the scenes libpowerhal_cli asks for) as the
+// IPower binder extension, on top of libperfmgr. Plugged in through the
+// power_libperfmgr mode_extension_lib soong config variable, see device.mk.
+
+soong_namespace {
+    imports: [
+        "hardware/google/interfaces",
+        "hardware/google/pixel",
+    ],
+}
+
+aidl_interface {
+    name: "vendor.unisoc.hardware.power",
+    vendor_available: true,
+    unstable: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/unisoc/hardware/power/IVendorPower.aidl"],
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            enabled: false,
+        },
+        ndk: {
+            enabled: true,
+        },
+    },
+}
+
+cc_library_static {
+    name: "libperfmgr-ext-rmx3511",
+    defaults: ["android.hardware.power-ndk_shared"],
+    vendor: true,
+    srcs: [
+        "PowerModeExtension.cpp",
+        "VendorPower.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "liblog",
+        "libperfmgr",
+        "libutils",
+    ],
+    static_libs: [
+        // perfmgr/FlagProvider.h includes the aconfig header
+        "libaconfig_storage_read_api_cc",
+        "powerhal_flags-aconfig-cc",
+    ],
+    // The HAL takes this library through whole_static_libs, which doesn't
+    // carry our own static deps into its link: bundle the generated
+    // IVendorPower stubs into this archive.
+    whole_static_libs: [
+        "vendor.unisoc.hardware.power-ndk",
+    ],
+    cpp_std: "gnu++20",
+}
