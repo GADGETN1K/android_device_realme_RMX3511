@@ -125,11 +125,8 @@ $(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH)/powe
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
-# ViPER4Android: DSP from source (external/ViPERFX_RE, built by
-# patches/external/ViPERFX_RE), app from viper/.
-PRODUCT_PACKAGES += \
-    libv4a_re \
-    ViPER4Android
+# ViPER4Android (vendor/viper: ViPERFX_RE built from source plus the app)
+$(call inherit-product, vendor/viper/viper.mk)
 
 # Dolby Atmos (crDroid's hardware/dolby: Motorola Dolby UI and DAX service)
 $(call inherit-product, hardware/dolby/dolby.mk)
