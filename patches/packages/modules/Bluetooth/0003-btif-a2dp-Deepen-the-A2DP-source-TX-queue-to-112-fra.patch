@@ -1,0 +1,32 @@
+From cb7c604e48c5772c14cf08373780019ebd3e133d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 16 Oct 2026 20:22:52 +0300
+Subject: [PATCH 3/4] btif: a2dp: Deepen the A2DP source TX queue to 112 frames
+
+Streaming over busy Wi-Fi (video, for instance) holds the shared 2.4 GHz
+antenna off Bluetooth long enough to overflow the 56-frame queue. Let it
+hold 112 frames (~320 ms of SBC). The extra audio this can hold is
+reported as delay by the next change, so players keep video in sync.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01WBs6XUfh1pxQ1q9QJe6TLW
+---
+ system/btif/src/btif_a2dp_source.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/system/btif/src/btif_a2dp_source.cc b/system/btif/src/btif_a2dp_source.cc
+index 21d4994..7eaf0e1 100644
+--- a/system/btif/src/btif_a2dp_source.cc
++++ b/system/btif/src/btif_a2dp_source.cc
+@@ -79,7 +79,7 @@ using namespace bluetooth;
+  * but due to link flow control or thread preemption in lower
+  * layers we might need to temporarily buffer up data.
+  */
+-#define MAX_OUTPUT_A2DP_FRAME_QUEUE_SZ (MAX_PCM_FRAME_NUM_PER_TICK * 4)
++#define MAX_OUTPUT_A2DP_FRAME_QUEUE_SZ (MAX_PCM_FRAME_NUM_PER_TICK * 8)
+ 
+ class SchedulingStats {
+ public:
+-- 
+2.43.0
+
