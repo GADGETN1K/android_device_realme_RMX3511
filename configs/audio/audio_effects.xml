@@ -22,7 +22,6 @@
         <library name="loudness_enhancer" path="libldnhncr.so"/>
         <library name="dynamics_processing" path="libdynproc.so"/>
         <library name="audio_pre_processing" path="libsprdvoiceprocessing.so"/>
-        <library name="dirac" path="libdirac.so"/>
         <!-- ViPER4Android (ViPERFX_RE, built from external/ViPERFX_RE) -->
         <library name="v4a_re" path="libv4a_re.so"/>
         <!-- Dolby Atmos (hardware/dolby) -->
@@ -66,8 +65,6 @@
         <effect name="loudness_enhancer" library="loudness_enhancer" uuid="fa415329-2034-4bea-b5dc-5b381c8d1e2c"/>
         <effect name="dynamics_processing" library="dynamics_processing" uuid="e0e6539b-1781-7261-676f-6d7573696340"/>
         <effect name="aec" library="audio_pre_processing" uuid="a4a00091-9087-426b-9d60-af3a70f6a20a"/>
-        <effect name="dirac_controller" library="dirac" uuid="b437f4de-da28-449b-9673-667f8b9643fe"/>
-        <effect name="dirac_music" library="dirac" uuid="b437f4de-da28-449b-9673-667f8b964304"/>
         <effect name="v4a_standard_re" library="v4a_re" uuid="90380da3-8536-4744-a6a3-5731970e640f"/>
         <effect name="dap" library="dap" uuid="9d4921da-8225-4f29-aefa-39537a04bcaa"/>
         <effect name="volume_leveler" library="dlbvol" uuid="40f66c8b-5aa5-4345-8919-53ec431aaa98"/>

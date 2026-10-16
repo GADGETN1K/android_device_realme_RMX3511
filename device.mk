@@ -119,8 +119,9 @@ PRODUCT_SOONG_NAMESPACES += \
 $(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH)/power:libperfmgr-ext-rmx3511)
 
 # Audio effects: the stock list (configs/audio/audio_effects.xml, from
-# 13.F.54) plus ViPER4Android and Dolby Atmos (DAP, volume leveler). The
-# stock audio HAL is 32-bit, so both need 32-bit effect libraries:
+# 13.F.54, without Dirac: libdirac aborts in its constructor and takes the
+# audio HAL down with it) plus ViPER4Android and Dolby Atmos (DAP, volume
+# leveler). The stock audio HAL is 32-bit, so both need 32-bit effect libraries:
 # libv4a_re is built for both ABIs, hardware/dolby ships both.
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml

@@ -77,18 +77,12 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup().add_needed('libbase_shim.so'),
     # libdirac imports __aeabi_uidiv/__aeabi_uidivmod, no longer in libc.
     'vendor/lib/soundfx/libdirac.so': blob_fixup().add_needed('libaeabi_shim_rmx3511.so'),
-    # libdirac aborts in its constructor, taking the audio HAL
-    # down with it when the effects factory loads it. Leave it out of the
-    # effects config.
     # AOSP's rild (from telephony_vendor.mk) defines vendor.ril-daemon too,
     # and its rild.rc is parsed first, so init ignored Unisoc's urild and
     # ran rild, which has no vendor RIL library and just sleeps. Make the
     # stock definition win.
     'vendor/etc/init/unisoc.rild.rc': blob_fixup().regex_replace(
         r'(?m)^(service vendor\.ril-daemon [^\n]*\n)', '\\1    override\n'
-    ),
-    'vendor/etc/audio_effects.xml': blob_fixup().regex_replace(
-        r'(?m)^[ \t]*<(library|effect) name="dirac[^"]*"[^\n]*\n', ''
     ),
     # The Unisoc NN engine needs the GPU delegate from the stock TFLite C
     # library, which AOSP's libtensorflowlite_c doesn't export; ship the stock
