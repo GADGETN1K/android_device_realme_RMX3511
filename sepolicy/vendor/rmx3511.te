@@ -55,6 +55,10 @@ allow hal_power_default sysfs_gpu:file rw_file_perms;
 allow hal_power_default sysfs_ddr_dfs:dir search;
 allow hal_power_default sysfs_ddr_dfs:file rw_file_perms;
 set_prop(hal_power_default, vendor_power_prop)
+# Tap to wake
+allow hal_power_default proc_touchpanel_file:file rw_file_perms;
+allow hal_power_default sys_engineer_file:dir search;
+allow hal_power_default tp_gesture_mode:file rw_file_perms;
 # ADPF sets the scheduling policy and uclamp of the session threads, and the
 # HAL listens to the thermal HAL's throttling status.
 allow hal_power_default self:capability sys_nice;

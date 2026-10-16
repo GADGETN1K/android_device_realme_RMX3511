@@ -13,6 +13,7 @@ genfscon nsfs / u:object_r:nsfs:s0
 genfscon proc /trace_noschedule/distribution u:object_r:proc_trace_bd_r:s0
 genfscon proc /trace_irqoff/sampling_period u:object_r:proc_trace_bd_rw:s0
 genfscon proc /trace_noschedule/stack_trace u:object_r:proc_trace_bd_rw:s0
+genfscon proc /touchpanel/double_tap_enable u:object_r:proc_touchpanel_file:s0
 genfscon proc /sys/kernel/cpu_multi_thread u:object_r:oplus_performance_proc:s0
 genfscon proc /sys/vm/writeback_swapcache u:object_r:proc_writeback_swapcache:s0
 genfscon proc /trace_irqoff/trace_latency u:object_r:proc_trace_bd_rw:s0
