@@ -89,6 +89,13 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.example \
     android.hardware.health-service.example_recovery
 
+# vndservicemanager — no longer part of base_vendor.mk, but the S blobs
+# register and look up services on /dev/vndbinder (codec2's priority
+# manager, camera, CAS). Without it their getService() calls block forever,
+# e.g. every c2.unisoc decoder hangs in start().
+PRODUCT_PACKAGES += \
+    vndservicemanager
+
 # Power — Pixel libperfmgr (Lineage flavour) instead of the stock
 # vendor.unisoc.hardware.power-service. configs/power/powerhint.json is
 # written from the stock power_scene_config.xml / power_resource_file_info.xml:
