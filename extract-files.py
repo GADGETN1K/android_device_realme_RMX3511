@@ -163,6 +163,13 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup().replace_needed(
         'libstagefright_foundation.so', 'libstagefright_foundation-v33.so'
     ),
+    # The S policy only lets mremap through with MREMAP_MAYMOVE|MREMAP_FIXED;
+    # today's bionic also grows blocks with plain MREMAP_MAYMOVE, and the
+    # service then dies with SIGSYS in the middle of decoding. AOSP's own
+    # codec2 policies allow both since.
+    'vendor/etc/seccomp_policy/android.hardware.media.c2@1.1-unisoc-seccomp_policy': blob_fixup().regex_replace(
+        r'(?m)^mremap: arg3 == 3$', 'mremap: arg3 == 3 || arg3 == MREMAP_MAYMOVE'
+    ),
     (
         'vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service',
         *(f'vendor/lib64/{lib}_rmx3511.so' for lib in KEYMINT_STACK),
