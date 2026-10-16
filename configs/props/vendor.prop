@@ -72,7 +72,6 @@ bluetooth.profile.pan.nap.enabled=true
 bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
 persist.bluetooth.a2dp_offload.cap=sbc
-persist.bluetooth.a2dp_offload.switch=false
 ro.bluetooth.a2dp_offload.supported=true
 persist.bluetooth.a2dp_offload.disabled=true
 
@@ -161,7 +160,6 @@ debug.sf.latch_unsignaled=1
 # WCN: Wi-Fi/BT/GNSS combo chip (stock)
 persist.vendor.gnss.notification.enable=1
 persist.vendor.gnss.supl_ni.enable=1
-persist.sys.wifi.reset.devpath=devices/platform/sprd-marlin3/sprd-marlin3:wlan
 ro.vendor.ko.mount.point=/mnt/vendor
 persist.vendor.wcn.log_dest=0
 persist.vendor.sys.wcnreset=1
@@ -183,7 +181,6 @@ persist.vendor.sys.volte.enable=true
 
 # Audio (stock)
 ro.vendor.audio.whale_hal=true
-persist.audio.hifi_enabled=false
 ro.audio.offload_wakelock=false
 
 # Graphics, display and media (stock)

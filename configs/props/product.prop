@@ -1,1 +1,7 @@
 # product properties for RMX3511
+
+# Stock vendor props that live in system-owned contexts: vendor_init may not
+# set them, so they are set from product instead.
+persist.audio.hifi_enabled=false
+persist.bluetooth.a2dp_offload.switch=false
+persist.sys.wifi.reset.devpath=devices/platform/sprd-marlin3/sprd-marlin3:wlan
