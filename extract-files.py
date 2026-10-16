@@ -57,6 +57,25 @@ def keymint_stack_fixup():
     return fixup
 
 
+CODEC2_UNISOC_LIBS = (
+    'av1dec',
+    'avcdec',
+    'avcdec_secure',
+    'avcenc',
+    'common',
+    'h263dec',
+    'h263enc',
+    'hevcdec',
+    'hevcdec_secure',
+    'hevcenc',
+    'mpeg4dec',
+    'mpeg4enc',
+    'vp8dec',
+    'vp9dec',
+    'vp9dec_secure',
+)
+
+
 blob_fixups: blob_fixups_user_type = {
     # libbase dropped the explicit Join<vector<string>, char> instantiation
     # these S blobs import; compat/libbase_shim_rmx3511 provides it.
@@ -132,6 +151,18 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/etc/init/vendor.sprd.hardware.cplog_svc@1.0-service.rc',
         'vendor/etc/init/vendor.sprd.hardware.fingerprintmmi@1.0-service.rc',
     ): blob_fixup().regex_replace(r'(?m)^[ \t]*interface vendor\.sprd\..*\n', ''),
+    # AHandler grew a lock in deliverMessage() after T. The S codec2 components
+    # derive from AHandler with the old layout, so their own fields overlay
+    # that lock and the component looper blocks on its first message: every
+    # c2.unisoc start() and release() then waits forever. Link them against
+    # the T-era foundation (libstagefright_foundation-v33) instead. The service,
+    # deintl and store don't link the foundation at all.
+    (
+        *(f'vendor/lib/libcodec2_unisoc_{name}.so' for name in CODEC2_UNISOC_LIBS),
+        'vendor/lib64/libcodec2_unisoc_common.so',
+    ): blob_fixup().replace_needed(
+        'libstagefright_foundation.so', 'libstagefright_foundation-v33.so'
+    ),
     (
         'vendor/bin/hw/android.hardware.security.keymint@1.0-unisoc.service',
         *(f'vendor/lib64/{lib}_rmx3511.so' for lib in KEYMINT_STACK),

@@ -96,6 +96,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vndservicemanager
 
+# Media — the S Codec2 components derive from AHandler, whose layout changed
+# after T; extract-files.py links them against the T-era foundation.
+PRODUCT_PACKAGES += \
+    libstagefright_foundation-v33
+
 # Power — Pixel libperfmgr (Lineage flavour) instead of the stock
 # vendor.unisoc.hardware.power-service. configs/power/powerhint.json is
 # written from the stock power_scene_config.xml / power_resource_file_info.xml:
