@@ -1304,7 +1304,6 @@ vendor/lib64/npidevice/libcheckkeybox.so
 vendor/etc/a2dp_audio_policy_configuration.xml
 vendor/etc/audio_config.xml
 vendor/etc/audio_effects.conf
-vendor/etc/audio_effects.xml
 vendor/etc/audio_pcm.xml
 vendor/etc/audio_policy_apm_configuration_configurable.xml
 vendor/etc/audio_policy_configuration.xml

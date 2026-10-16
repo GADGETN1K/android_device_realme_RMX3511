@@ -10,5 +10,23 @@
     "target_path": "vendor/realme/RMX3511",
     "remote": "github",
     "branch": "16.0"
+  },
+  {
+    "repository": "crdroidandroid/android_hardware_dolby",
+    "target_path": "hardware/dolby",
+    "remote": "github",
+    "branch": "16.0"
+  },
+  {
+    "repository": "likelikeslike/ViPERFX_RE",
+    "target_path": "external/ViPERFX_RE",
+    "remote": "github",
+    "branch": "refs/tags/v2.1.1"
+  },
+  {
+    "repository": "likelikeslike/ViPERDSP",
+    "target_path": "external/ViPERFX_RE/ViPERDSP",
+    "remote": "github",
+    "branch": "6fc1f1b8b2123c8cc49f3b3c7c7d5fbbf8a60933"
   }
 ]
