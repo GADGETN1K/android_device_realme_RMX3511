@@ -96,6 +96,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vndservicemanager
 
+# DRM — AOSP ClearKey; Widevine stays stock (HIDL drm@1.4)
+PRODUCT_PACKAGES += \
+    com.android.hardware.drm.clearkey
+
 # Media — the S Codec2 components derive from AHandler, whose layout changed
 # after T; extract-files.py links them against the T-era foundation.
 PRODUCT_PACKAGES += \

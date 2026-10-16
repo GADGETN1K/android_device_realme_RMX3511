@@ -74,9 +74,10 @@ vendor/lib64/npidevice/PQTune.ums9230.so
 vendor/bin/hw/vendor.sprd.hardware.boot@1.2-service
 vendor/etc/init/vendor.sprd.hardware.boot@1.2-service.rc
 
-## clearkey: built from source (4)
+## clearkey: AOSP AIDL ClearKey (com.android.hardware.drm.clearkey) instead (5)
 vendor/bin/hw/android.hardware.drm@1.4-service.clearkey
 vendor/etc/init/android.hardware.drm@1.4-service.clearkey.rc
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.clearkey.xml
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 
