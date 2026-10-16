@@ -1,0 +1,30 @@
+From 71adcfbaa4363339be2675ba32f47e2538159f53 Mon Sep 17 00:00:00 2001
+From: GADGETN1K <playgadgetnik@gmail.com>
+Date: Fri, 16 Oct 2026 13:29:55 +0000
+Subject: [PATCH] stack: a2dp: Encode SBC at 229 kbps by default
+
+On devices whose Wi-Fi and Bluetooth share a 2.4 GHz antenna, busy Wi-Fi
+leaves the A2DP link too little airtime for SBC at 328 kbps (bitpool 53):
+the TX queue keeps backing up and is flushed, which is heard as dropouts.
+Use 229 kbps, the rate already used for non-EDR peers, which needs about
+30% less airtime.
+---
+ system/stack/a2dp/a2dp_sbc_encoder.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/system/stack/a2dp/a2dp_sbc_encoder.cc b/system/stack/a2dp/a2dp_sbc_encoder.cc
+index fb7feabe84..03294f2981 100644
+--- a/system/stack/a2dp/a2dp_sbc_encoder.cc
++++ b/system/stack/a2dp/a2dp_sbc_encoder.cc
+@@ -49,7 +49,7 @@
+ #define A2DP_SBC_ENCODER_INTERVAL_MS 20
+ 
+ /* High quality quality setting @ 44.1 khz */
+-#define A2DP_SBC_DEFAULT_BITRATE 328
++#define A2DP_SBC_DEFAULT_BITRATE 229
+ 
+ /*
+  * SBC Dual Channel (SBC HD) 3DH5 bitrates.
+-- 
+2.43.0
+

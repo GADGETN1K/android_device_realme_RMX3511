@@ -1,0 +1,31 @@
+From 3e89cf267ea36f32935bfbcd8b2b6c2657c32c91 Mon Sep 17 00:00:00 2001
+From: GADGETN1K <playgadgetnik@gmail.com>
+Date: Fri, 16 Oct 2026 13:12:47 +0000
+Subject: [PATCH] btif: a2dp: Double the A2DP source TX queue
+
+On devices whose Wi-Fi and Bluetooth share a 2.4 GHz antenna, busy Wi-Fi
+can hold off the A2DP link for well over the ~80 ms the 28-frame queue
+covers (dumpsys shows dequeue stalls of up to 179 ms). The queue then
+overflows and is flushed whole, which is heard as dropouts. Let it hold
+56 frames (~160 ms) so such stalls are ridden out; in steady state it
+still sits at about one buffer, so latency is unchanged.
+---
+ system/btif/src/btif_a2dp_source.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/system/btif/src/btif_a2dp_source.cc b/system/btif/src/btif_a2dp_source.cc
+index ae00fa4323..21d499446a 100644
+--- a/system/btif/src/btif_a2dp_source.cc
++++ b/system/btif/src/btif_a2dp_source.cc
+@@ -79,7 +79,7 @@ using namespace bluetooth;
+  * but due to link flow control or thread preemption in lower
+  * layers we might need to temporarily buffer up data.
+  */
+-#define MAX_OUTPUT_A2DP_FRAME_QUEUE_SZ (MAX_PCM_FRAME_NUM_PER_TICK * 2)
++#define MAX_OUTPUT_A2DP_FRAME_QUEUE_SZ (MAX_PCM_FRAME_NUM_PER_TICK * 4)
+ 
+ class SchedulingStats {
+ public:
+-- 
+2.43.0
+
