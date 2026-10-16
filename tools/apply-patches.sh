@@ -8,7 +8,7 @@
 # Sourced from vendorsetup.sh, so it runs on every `source build/envsetup.sh`.
 
 _rmx3511_apply_patches() {
-    local top="$1" dev="$2" patch project rel
+    local top="$1" dev="$2" patch project rel subject
     [[ -d "$dev/patches" ]] || return 0
 
     while IFS= read -r -d '' patch; do
@@ -18,7 +18,14 @@ _rmx3511_apply_patches() {
             echo "RMX3511 patches: $(dirname "$rel") is not a git project, skipping $(basename "$rel")"
             continue
         fi
-        # Already applied (by an earlier run or upstream)?
+        # Already applied? Match the commit subject first: a later patch that
+        # touches the same lines makes the reverse check below fail even
+        # though this one is in.
+        subject="$(git mailinfo /dev/null /dev/null < "$patch" 2>/dev/null | sed -n 's/^Subject: //p')"
+        if [[ -n "$subject" ]] && git -C "$project" log --format=%s -n 500 | grep -qxF -- "$subject"; then
+            continue
+        fi
+        # ...or applied by hand or upstream under another subject
         if git -C "$project" apply --check --reverse "$patch" >/dev/null 2>&1; then
             continue
         fi
