@@ -1,0 +1,75 @@
+From 88e705986d89d56e88669a15bc1a9fa2c735b82c Mon Sep 17 00:00:00 2001
+From: GADGETN1K <playgadgetnik@gmail.com>
+Date: Sat, 17 Oct 2026 01:10:54 +0300
+Subject: [PATCH] SystemUI: ax: Listen for access points only while the shade
+ is open
+
+AxPlatformObservers registered an AccessPointController callback at
+boot and never dropped it. As long as any callback is registered the
+controller keeps its WifiPickerTracker started, and that runs a full
+Wi-Fi scan every 10 seconds, screen on, all bands, for as long as the
+device is up.
+
+Each scan keeps the radio busy for several seconds. On devices where
+Wi-Fi and Bluetooth share an antenna (Unisoc Marlin3 Lite on the realme
+C35) that starves A2DP: the TX queue backs up and is dropped, and
+Bluetooth audio breaks up every ten seconds while Wi-Fi is on.
+
+Register the callback only while the shade or QS is expanded, the same
+way the Internet dialog does. Platform clients keep the last list they
+received in between.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01WBs6XUfh1pxQ1q9QJe6TLW
+---
+ .../systemui/ax/AxPlatformObservers.kt        | 20 ++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/ax/AxPlatformObservers.kt b/packages/SystemUI/src/com/android/systemui/ax/AxPlatformObservers.kt
+index 6251638..464277b 100644
+--- a/packages/SystemUI/src/com/android/systemui/ax/AxPlatformObservers.kt
++++ b/packages/SystemUI/src/com/android/systemui/ax/AxPlatformObservers.kt
+@@ -182,7 +182,7 @@ class AxPlatformObservers @Inject constructor(
+         configurationController.addCallback(configurationListener)
+         statusBarStateController.addCallback(dozeCallback)
+         keyguardStateController.addCallback(keyguardCallback)
+-        accessPointController.addAccessPointCallback(accessPointCallback)
++        setAccessPointsListening(statusBarStateController.isExpanded)
+         securityController.addCallback(vpnCallback)
+         castController.addCallback(castCallback)
+     }
+@@ -399,6 +399,23 @@ class AxPlatformObservers @Inject constructor(
+         }
+     }
+ 
++    // While any AccessPointController callback is registered its WifiPickerTracker
++    // stays started and runs a full Wi-Fi scan every 10 seconds. A scan keeps the
++    // radio busy for several seconds, which on a shared Wi-Fi/Bluetooth antenna
++    // starves A2DP and breaks up Bluetooth audio. Only listen for access points
++    // while the shade is expanded; clients keep the last list otherwise.
++    private var accessPointsListening = false
++
++    private fun setAccessPointsListening(listening: Boolean) {
++        if (listening == accessPointsListening) return
++        accessPointsListening = listening
++        if (listening) {
++            accessPointController.addAccessPointCallback(accessPointCallback)
++        } else {
++            accessPointController.removeAccessPointCallback(accessPointCallback)
++        }
++    }
++
+     private val accessPointCallback = object : AccessPointController.AccessPointCallback {
+         override fun onAccessPointsChanged(accessPoints: List<WifiEntry>) {
+             featureController.latestAccessPoints = accessPoints.toList()
+@@ -697,6 +714,7 @@ class AxPlatformObservers @Inject constructor(
+         override fun onDozingChanged(isDozing: Boolean) = exportDozeInfo()
+         override fun onPulsingChanged(pulsing: Boolean) = exportDozeInfo()
+         override fun onDozeAmountChanged(linear: Float, eased: Float) = exportDozeInfo()
++        override fun onExpandedChanged(isExpanded: Boolean) = setAccessPointsListening(isExpanded)
+     }
+ 
+     private val keyguardCallback = object : KeyguardStateController.Callback {
+-- 
+2.43.0
+
